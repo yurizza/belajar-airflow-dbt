@@ -1,0 +1,16 @@
+payment_method_key,method_code,method_name,payment_type,provider,card_brand,is_digital_wallet,processing_fee_pct,volume_share_pct,supports_installment,max_installment_months,supports_refund,daily_limit_usd,scd_effective_date,scd_expiry_date,scd_current_flag,scd_version
+1,CC_VISA,Visa Credit Card,Credit Card,Visa,Visa,False,1.8,0.22,True,12,True,50000,2022-01-01,9999-12-31,True,1
+2,CC_MC,Mastercard Credit Card,Credit Card,Mastercard,Mastercard,False,1.85,0.18,True,12,True,50000,2022-01-01,9999-12-31,True,1
+3,CC_AMEX,Amex Credit Card,Credit Card,Amex,Amex,False,2.5,0.06,True,12,True,50000,2022-01-01,2023-03-31,False,1
+4,CC_AMEX,Amex Credit Card,Credit Card,Amex,Amex,False,2.87,0.06,True,12,True,57301,2023-04-01,9999-12-31,True,2
+5,DC_VISA,Visa Debit Card,Debit Card,Visa,Visa,False,0.8,0.1,False,0,True,20000,2022-01-01,9999-12-31,True,1
+6,DC_MC,Mastercard Debit Card,Debit Card,Mastercard,Mastercard,False,0.75,0.08,False,0,True,20000,2022-01-01,9999-12-31,True,1
+7,GOPAY,GoPay,E-Wallet,Gojek,N/A,True,0.7,0.1,False,0,True,5000,2022-01-01,9999-12-31,True,1
+8,OVO,OVO,E-Wallet,OVO,N/A,True,0.7,0.08,False,0,True,5000,2022-01-01,2023-03-31,False,1
+9,OVO,OVO,E-Wallet,OVO,N/A,True,0.76,0.08,False,0,True,6501,2023-04-01,9999-12-31,True,2
+10,DANA,DANA,E-Wallet,DANA,N/A,True,0.65,0.05,False,0,True,5000,2022-01-01,9999-12-31,True,1
+11,SHOPEEPAY,ShopeePay,E-Wallet,Shopee,N/A,True,0.65,0.04,False,0,True,5000,2022-01-01,2023-03-31,False,1
+12,SHOPEEPAY,ShopeePay,E-Wallet,Shopee,N/A,True,0.77,0.04,False,0,True,5845,2023-04-01,9999-12-31,True,2
+13,BANK_TRF,Bank Transfer,Bank Transfer,Various,N/A,False,0.5,0.05,False,0,True,100000,2022-01-01,9999-12-31,True,1
+14,BNPL,Buy Now Pay Later,BNPL,Kredivo,N/A,True,3.0,0.03,True,24,True,5000,2022-01-01,9999-12-31,True,1
+15,VOUCHER,Travel Voucher/Credit,Voucher,Internal,N/A,False,0.0,0.01,False,0,False,100000,2022-01-01,9999-12-31,True,1
