@@ -1,0 +1,72 @@
+aircraft_key,registration_number,aircraft_type_code,aircraft_type_name,manufacturer,body_type,seat_capacity,year_manufactured,operating_airline,engine_type,max_range_km,fuel_capacity_liters,in_service
+1,PK-QJI59,B737,Boeing 737-800,Boeing,Narrow,166,2018,Garuda Indonesia,Turbofan,13000,45000,True
+2,PK-ZIZ51,B738,Boeing 737 MAX 8,Boeing,Narrow,175,2018,Garuda Indonesia,Turbofan,7000,20000,True
+3,PK-PYF36,A321,Airbus A321,Airbus,Narrow,218,2014,Garuda Indonesia,Turbofan,13000,145000,True
+4,PK-QDC86,B789,Boeing 787-9,Boeing,Wide,291,2012,Garuda Indonesia,Turbofan,14000,45000,True
+5,PK-UAG23,B738,Boeing 737 MAX 8,Boeing,Narrow,172,2021,Garuda Indonesia,Turbofan,7000,20000,True
+6,PK-KYN88,ATR72,ATR 72-600,ATR,Turboprop,77,2011,Garuda Indonesia,Turboprop,7000,145000,True
+7,PK-YCS81,A320,Airbus A320,Airbus,Narrow,184,2009,Garuda Indonesia,Turbofan,7000,26000,True
+8,PK-PRC39,B777,Boeing 777-300ER,Boeing,Wide,400,2013,Garuda Indonesia,Turbofan,5000,20000,True
+9,PK-SAA45,B738,Boeing 737 MAX 8,Boeing,Narrow,177,2011,Garuda Indonesia,Turbofan,7000,26000,True
+10,PK-UFD99,B777,Boeing 777-300ER,Boeing,Wide,399,2011,Garuda Indonesia,Turbofan,7000,20000,True
+11,PK-SBL77,B777,Boeing 777-300ER,Boeing,Wide,391,2010,Garuda Indonesia,Turbofan,5000,45000,True
+12,PK-RNN52,A333,Airbus A330-300,Airbus,Wide,339,2014,Garuda Indonesia,Turbofan,14000,20000,True
+13,PK-HZL93,B777,Boeing 777-300ER,Boeing,Wide,393,2021,Garuda Indonesia,Turbofan,7000,26000,True
+14,PK-XQR15,B737,Boeing 737-800,Boeing,Narrow,158,2013,Garuda Indonesia,Turbofan,3000,20000,True
+15,PK-XAY07,B777,Boeing 777-300ER,Boeing,Wide,391,2012,Lion Air,Turbofan,3000,45000,True
+16,PK-EVM53,B777,Boeing 777-300ER,Boeing,Wide,397,2020,Lion Air,Turbofan,13000,45000,True
+17,PK-DSH01,B777,Boeing 777-300ER,Boeing,Wide,399,2010,Lion Air,Turbofan,14000,26000,True
+18,PK-AHR91,ATR72,ATR 72-600,ATR,Turboprop,69,2011,Lion Air,Turboprop,5000,145000,True
+19,PK-PJE29,ATR72,ATR 72-600,ATR,Turboprop,77,2018,Lion Air,Turboprop,14000,20000,True
+20,PK-DHX55,A333,Airbus A330-300,Airbus,Wide,334,2016,Lion Air,Turbofan,14000,20000,True
+21,PK-SBW60,B789,Boeing 787-9,Boeing,Wide,294,2012,Lion Air,Turbofan,3000,20000,True
+22,PK-RZD85,B738,Boeing 737 MAX 8,Boeing,Narrow,168,2014,Lion Air,Turbofan,3000,45000,True
+23,PK-BJK81,A320,Airbus A320,Airbus,Narrow,178,2011,Lion Air,Turbofan,7000,145000,True
+24,PK-JGW02,A320,Airbus A320,Airbus,Narrow,178,2017,Lion Air,Turbofan,5000,45000,True
+25,PK-MCK73,B737,Boeing 737-800,Boeing,Narrow,159,2012,Lion Air,Turbofan,7000,145000,True
+26,PK-GMY87,A320,Airbus A320,Airbus,Narrow,181,2023,Lion Air,Turbofan,3000,26000,True
+27,PK-OCG62,A320,Airbus A320,Airbus,Narrow,175,2012,Lion Air,Turbofan,7000,26000,True
+28,PK-XTM58,B777,Boeing 777-300ER,Boeing,Wide,393,2015,Lion Air,Turbofan,14000,145000,True
+29,PK-GLH93,ATR72,ATR 72-600,ATR,Turboprop,67,2022,Lion Air,Turboprop,13000,145000,True
+30,PK-WAU90,B777,Boeing 777-300ER,Boeing,Wide,393,2014,Batik Air,Turbofan,14000,145000,True
+31,PK-KYN58,A333,Airbus A330-300,Airbus,Wide,336,2023,Batik Air,Turbofan,7000,20000,True
+32,PK-UJO15,ATR72,ATR 72-600,ATR,Turboprop,74,2012,Batik Air,Turboprop,3000,20000,True
+33,PK-UKM31,ATR72,ATR 72-600,ATR,Turboprop,77,2018,Batik Air,Turboprop,5000,45000,True
+34,PK-SPS63,B737,Boeing 737-800,Boeing,Narrow,157,2015,Batik Air,Turbofan,5000,20000,True
+35,PK-LZD25,B789,Boeing 787-9,Boeing,Wide,292,2008,Batik Air,Turbofan,14000,145000,True
+36,PK-JHM16,A320,Airbus A320,Airbus,Narrow,179,2022,Batik Air,Turbofan,5000,45000,True
+37,PK-VEQ90,B777,Boeing 777-300ER,Boeing,Wide,393,2021,Batik Air,Turbofan,7000,45000,True
+38,PK-PFO37,A333,Airbus A330-300,Airbus,Wide,340,2014,Citilink,Turbofan,14000,26000,True
+39,PK-RTN02,ATR72,ATR 72-600,ATR,Turboprop,73,2015,Citilink,Turboprop,14000,45000,True
+40,PK-AKH66,A320,Airbus A320,Airbus,Narrow,178,2011,Citilink,Turbofan,14000,26000,True
+41,PK-QCM42,A321,Airbus A321,Airbus,Narrow,221,2014,Citilink,Turbofan,5000,145000,True
+42,PK-CWV44,A333,Airbus A330-300,Airbus,Wide,338,2008,Citilink,Turbofan,13000,20000,True
+43,PK-BDT61,B777,Boeing 777-300ER,Boeing,Wide,393,2015,Citilink,Turbofan,7000,145000,True
+44,PK-UGK75,A321,Airbus A321,Airbus,Narrow,216,2019,Citilink,Turbofan,14000,26000,True
+45,PK-NIB84,B738,Boeing 737 MAX 8,Boeing,Narrow,168,2021,Citilink,Turbofan,14000,26000,True
+46,PK-BGV51,B738,Boeing 737 MAX 8,Boeing,Narrow,177,2014,Citilink,Turbofan,7000,26000,True
+47,PK-AEP88,ATR72,ATR 72-600,ATR,Turboprop,67,2019,AirAsia Indonesia,Turboprop,3000,145000,True
+48,PK-IEP30,B737,Boeing 737-800,Boeing,Narrow,164,2023,AirAsia Indonesia,Turbofan,7000,20000,True
+49,PK-NEQ63,B777,Boeing 777-300ER,Boeing,Wide,400,2017,AirAsia Indonesia,Turbofan,14000,145000,True
+50,PK-UIV14,A321,Airbus A321,Airbus,Narrow,220,2022,AirAsia Indonesia,Turbofan,13000,145000,True
+51,PK-DQY47,A333,Airbus A330-300,Airbus,Wide,332,2010,AirAsia Indonesia,Turbofan,5000,20000,True
+52,PK-SKZ93,B789,Boeing 787-9,Boeing,Wide,300,2019,AirAsia Indonesia,Turbofan,3000,45000,True
+53,PK-SNS30,B777,Boeing 777-300ER,Boeing,Wide,396,2016,AirAsia Indonesia,Turbofan,5000,26000,True
+54,PK-PMI06,B789,Boeing 787-9,Boeing,Wide,300,2018,AirAsia Indonesia,Turbofan,7000,20000,True
+55,PK-SFF90,A321,Airbus A321,Airbus,Narrow,218,2009,AirAsia Indonesia,Turbofan,7000,20000,True
+56,PK-YIT88,B789,Boeing 787-9,Boeing,Wide,295,2011,AirAsia Indonesia,Turbofan,14000,145000,True
+57,PK-YIK87,A321,Airbus A321,Airbus,Narrow,225,2019,AirAsia Indonesia,Turbofan,3000,20000,True
+58,PK-WHY51,B737,Boeing 737-800,Boeing,Narrow,166,2021,AirAsia Indonesia,Turbofan,13000,45000,True
+59,PK-XOE58,B738,Boeing 737 MAX 8,Boeing,Narrow,177,2015,Sriwijaya Air,Turbofan,13000,26000,True
+60,PK-OIG71,A333,Airbus A330-300,Airbus,Wide,335,2008,Sriwijaya Air,Turbofan,7000,20000,True
+61,PK-ZRR06,B777,Boeing 777-300ER,Boeing,Wide,392,2023,Sriwijaya Air,Turbofan,5000,145000,True
+62,PK-YMI11,A320,Airbus A320,Airbus,Narrow,177,2015,Sriwijaya Air,Turbofan,7000,26000,True
+63,PK-JGS03,A333,Airbus A330-300,Airbus,Wide,337,2022,Sriwijaya Air,Turbofan,3000,26000,True
+64,PK-CQP88,A320,Airbus A320,Airbus,Narrow,178,2011,Sriwijaya Air,Turbofan,5000,20000,True
+65,PK-POU38,ATR72,ATR 72-600,ATR,Turboprop,68,2015,Sriwijaya Air,Turboprop,7000,45000,True
+66,PK-HXH58,ATR72,ATR 72-600,ATR,Turboprop,77,2018,Sriwijaya Air,Turboprop,5000,20000,True
+67,PK-JYP36,B738,Boeing 737 MAX 8,Boeing,Narrow,169,2022,Sriwijaya Air,Turbofan,7000,145000,True
+68,PK-IDH70,A321,Airbus A321,Airbus,Narrow,222,2014,Sriwijaya Air,Turbofan,3000,20000,True
+69,PK-ATD09,B777,Boeing 777-300ER,Boeing,Wide,400,2014,Sriwijaya Air,Turbofan,5000,20000,True
+70,PK-QUN53,B737,Boeing 737-800,Boeing,Narrow,165,2020,Sriwijaya Air,Turbofan,5000,26000,True
+71,PK-REM02,B737,Boeing 737-800,Boeing,Narrow,163,2018,Sriwijaya Air,Turbofan,14000,45000,True

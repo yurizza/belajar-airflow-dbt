@@ -1,0 +1,22 @@
+airport_key,airport_code,airport_name,city,country,timezone,latitude,longitude,terminal_count,gate_count,hub_type,scd_effective_date,scd_expiry_date,scd_current_flag,scd_version
+1,CGK,Soekarno-Hatta Intl,Jakarta,Indonesia,Asia/Jakarta,-6.1256,106.6558,1,13,Regional,2022-01-01,2023-06-30,False,1
+2,CGK,Soekarno-Hatta Intl,Jakarta,Indonesia,Asia/Jakarta,-6.1256,106.6558,2,19,Regional,2023-07-01,9999-12-31,True,2
+3,SUB,Juanda Intl,Surabaya,Indonesia,Asia/Jakarta,-7.3798,112.7866,5,21,International,2022-01-01,2023-06-30,False,1
+4,SUB,Juanda Intl,Surabaya,Indonesia,Asia/Jakarta,-7.3798,112.7866,6,29,International,2023-07-01,9999-12-31,True,2
+5,DPS,Ngurah Rai Intl,Denpasar,Indonesia,Asia/Makassar,-8.7482,115.1672,2,74,Primary Hub,2022-01-01,9999-12-31,True,1
+6,MDC,Sam Ratulangi Intl,Manado,Indonesia,Asia/Makassar,1.5493,124.9257,5,63,Secondary Hub,2022-01-01,9999-12-31,True,1
+7,UPG,Sultan Hasanuddin Intl,Makassar,Indonesia,Asia/Makassar,-5.0617,119.554,3,10,Secondary Hub,2022-01-01,9999-12-31,True,1
+8,BDO,Husein Sastranegara,Bandung,Indonesia,Asia/Jakarta,-6.9006,107.5762,3,45,Secondary Hub,2022-01-01,2023-06-30,False,1
+9,BDO,Husein Sastranegara,Bandung,Indonesia,Asia/Jakarta,-6.9006,107.5762,5,51,Secondary Hub,2023-07-01,9999-12-31,True,2
+10,PLM,Sultan Mahmud Badaruddin II,Palembang,Indonesia,Asia/Jakarta,-2.8982,104.7,1,58,Primary Hub,2022-01-01,2023-06-30,False,1
+11,PLM,Sultan Mahmud Badaruddin II,Palembang,Indonesia,Asia/Jakarta,-2.8982,104.7,3,72,Primary Hub,2023-07-01,9999-12-31,True,2
+12,SIN,Changi Intl,Singapore,Singapore,Asia/Singapore,1.3644,103.9915,3,15,International,2022-01-01,9999-12-31,True,1
+13,KUL,Kuala Lumpur Intl,Kuala Lumpur,Malaysia,Asia/Kuala_Lumpur,2.7456,101.7099,4,20,Regional,2022-01-01,9999-12-31,True,1
+14,BKK,Suvarnabhumi Intl,Bangkok,Thailand,Asia/Bangkok,13.69,100.7501,5,56,Secondary Hub,2022-01-01,9999-12-31,True,1
+15,HKG,Hong Kong Intl,Hong Kong,China,Asia/Hong_Kong,22.308,113.9185,1,39,Regional,2022-01-01,9999-12-31,True,1
+16,NRT,Narita Intl,Tokyo,Japan,Asia/Tokyo,35.772,140.3929,2,22,International,2022-01-01,2023-06-30,False,1
+17,NRT,Narita Intl,Tokyo,Japan,Asia/Tokyo,35.772,140.3929,4,29,International,2023-07-01,9999-12-31,True,2
+18,SYD,Kingsford Smith Intl,Sydney,Australia,Australia/Sydney,-33.9399,151.1753,3,55,Secondary Hub,2022-01-01,9999-12-31,True,1
+19,LHR,Heathrow,London,UK,Europe/London,51.4775,-0.4614,1,31,Secondary Hub,2022-01-01,2023-06-30,False,1
+20,LHR,Heathrow,London,UK,Europe/London,51.4775,-0.4614,3,40,Secondary Hub,2023-07-01,9999-12-31,True,2
+21,DXB,Dubai Intl,Dubai,UAE,Asia/Dubai,25.2528,55.3644,5,38,Regional,2022-01-01,9999-12-31,True,1

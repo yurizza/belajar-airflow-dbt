@@ -1,0 +1,65 @@
+hotel_property_key,hotel_id,hotel_name,brand,category,star_rating,city,country,currency,local_tax_rate,latitude,longitude,total_rooms,has_pool,has_gym,has_spa,price_range_low_usd,price_range_high_usd,scd_effective_date,scd_expiry_date,scd_current_flag,scd_version
+1,HTL00001,Fave Hotel Jakarta,Fave Hotel,Economy,3,Jakarta,Indonesia,IDR,0.065,-6.1989,106.8186,182,True,False,False,40.0,110.0,2022-01-01,9999-12-31,True,1
+2,HTL00002,Novotel Jakarta,Novotel,Upper-Mid,4,Jakarta,Indonesia,IDR,0.065,-6.2205,106.864,453,True,True,True,130.0,300.0,2022-01-01,9999-12-31,True,1
+3,HTL00003,Fave Hotel Jakarta,Fave Hotel,Economy,3,Jakarta,Indonesia,IDR,0.065,-6.1975,106.8173,449,False,False,False,40.0,110.0,2022-01-01,9999-12-31,True,1
+4,HTL00004,Pop! Hotels Jakarta,Pop! Hotels,Budget,2,Jakarta,Indonesia,IDR,0.065,-6.2375,106.8417,429,True,False,False,25.0,65.0,2022-01-01,9999-12-31,True,1
+5,HTL00005,Ibis Jakarta,Ibis,Economy,3,Jakarta,Indonesia,IDR,0.065,-6.1641,106.8485,122,True,False,False,50.0,130.0,2022-01-01,9999-12-31,True,1
+6,HTL00006,Marriott Surabaya,Marriott,Luxury,5,Surabaya,Indonesia,IDR,0.055,-7.2517,112.7446,217,False,True,True,350.0,800.0,2022-01-01,9999-12-31,True,1
+7,HTL00007,Swiss-Belhotel Surabaya,Swiss-Belhotel,Upper-Mid,4,Surabaya,Indonesia,IDR,0.055,-7.2175,112.7627,345,True,True,True,120.0,280.0,2022-01-01,2023-05-31,False,1
+8,HTL00007,Swiss-Belhotel Surabaya,Swiss-Belhotel,Upper-Mid,5,Surabaya,Indonesia,IDR,0.055,-7.2175,112.7627,423,True,True,True,138.0,322.0,2023-06-01,9999-12-31,True,2
+9,HTL00009,Aston Surabaya,Aston,Mid-Scale,3,Surabaya,Indonesia,IDR,0.055,-7.2327,112.7463,162,True,False,False,70.0,160.0,2022-01-01,9999-12-31,True,1
+10,HTL00010,W Hotels Surabaya,W Hotels,Luxury,5,Surabaya,Indonesia,IDR,0.055,-7.3038,112.7044,170,False,True,True,400.0,900.0,2022-01-01,9999-12-31,True,1
+11,HTL00011,Fave Hotel Surabaya,Fave Hotel,Economy,3,Surabaya,Indonesia,IDR,0.055,-7.2989,112.7331,403,True,False,False,40.0,110.0,2022-01-01,9999-12-31,True,1
+12,HTL00012,Grand Mercure Bali,Grand Mercure,Upper-Mid,4,Bali,Indonesia,IDR,0.07,-8.4394,115.2176,287,True,True,True,140.0,320.0,2022-01-01,9999-12-31,True,1
+13,HTL00013,Grand Mercure Bali,Grand Mercure,Upper-Mid,4,Bali,Indonesia,IDR,0.07,-8.377,115.1515,286,False,True,True,140.0,320.0,2022-01-01,2023-05-31,False,1
+14,HTL00013,Grand Mercure Bali,Grand Mercure,Upper-Mid,5,Bali,Indonesia,IDR,0.07,-8.377,115.1515,361,False,True,True,161.0,368.0,2023-06-01,9999-12-31,True,2
+15,HTL00015,Aston Bali,Aston,Mid-Scale,3,Bali,Indonesia,IDR,0.07,-8.3816,115.1539,387,False,False,False,70.0,160.0,2022-01-01,2023-05-31,False,1
+16,HTL00015,Aston Bali,Aston,Mid-Scale,4,Bali,Indonesia,IDR,0.07,-8.3816,115.1539,414,False,False,True,80.5,184.0,2023-06-01,9999-12-31,True,2
+17,HTL00017,Novotel Makassar,Novotel,Upper-Mid,4,Makassar,Indonesia,IDR,0.05,-5.0986,119.4237,169,True,True,True,130.0,300.0,2022-01-01,9999-12-31,True,1
+18,HTL00018,Swiss-Belhotel Makassar,Swiss-Belhotel,Upper-Mid,4,Makassar,Indonesia,IDR,0.05,-5.1743,119.4085,488,False,True,False,120.0,280.0,2022-01-01,2023-05-31,False,1
+19,HTL00018,Swiss-Belhotel Makassar,Swiss-Belhotel,Upper-Mid,5,Makassar,Indonesia,IDR,0.05,-5.1743,119.4085,526,False,True,True,138.0,322.0,2023-06-01,9999-12-31,True,2
+20,HTL00020,Marriott Makassar,Marriott,Luxury,5,Makassar,Indonesia,IDR,0.05,-5.1144,119.4164,379,False,True,True,350.0,800.0,2022-01-01,9999-12-31,True,1
+21,HTL00021,Fave Hotel Bandung,Fave Hotel,Economy,3,Bandung,Indonesia,IDR,0.05,-6.8861,107.6225,292,True,False,False,40.0,110.0,2022-01-01,9999-12-31,True,1
+22,HTL00022,Ibis Bandung,Ibis,Economy,3,Bandung,Indonesia,IDR,0.05,-6.8818,107.6462,449,True,False,False,50.0,130.0,2022-01-01,9999-12-31,True,1
+23,HTL00023,W Hotels Bandung,W Hotels,Luxury,5,Bandung,Indonesia,IDR,0.05,-6.9022,107.6002,195,False,True,False,400.0,900.0,2022-01-01,9999-12-31,True,1
+24,HTL00024,W Hotels Bandung,W Hotels,Luxury,5,Bandung,Indonesia,IDR,0.05,-6.9425,107.5987,444,True,True,True,400.0,900.0,2022-01-01,9999-12-31,True,1
+25,HTL00025,Novotel Bandung,Novotel,Upper-Mid,4,Bandung,Indonesia,IDR,0.05,-6.9172,107.6598,115,False,True,True,130.0,300.0,2022-01-01,9999-12-31,True,1
+26,HTL00026,Fave Hotel Manado,Fave Hotel,Economy,3,Manado,Indonesia,IDR,0.048,1.4657,124.8579,228,True,False,False,40.0,110.0,2022-01-01,2023-05-31,False,1
+27,HTL00026,Fave Hotel Manado,Fave Hotel,Economy,4,Manado,Indonesia,IDR,0.048,1.4657,124.8579,291,True,False,True,46.0,126.49999999999999,2023-06-01,9999-12-31,True,2
+28,HTL00028,W Hotels Manado,W Hotels,Luxury,5,Manado,Indonesia,IDR,0.048,1.5111,124.854,389,False,True,False,400.0,900.0,2022-01-01,9999-12-31,True,1
+29,HTL00029,Sheraton Manado,Sheraton,Upper-Mid,4,Manado,Indonesia,IDR,0.048,1.4252,124.8276,256,False,True,True,150.0,350.0,2022-01-01,2023-05-31,False,1
+30,HTL00029,Sheraton Manado,Sheraton,Upper-Mid,5,Manado,Indonesia,IDR,0.048,1.4252,124.8276,318,False,True,True,172.5,402.49999999999994,2023-06-01,9999-12-31,True,2
+31,HTL00031,W Hotels Manado,W Hotels,Luxury,5,Manado,Indonesia,IDR,0.048,1.5037,124.8182,167,False,True,True,400.0,900.0,2022-01-01,9999-12-31,True,1
+32,HTL00032,Fave Hotel Singapore,Fave Hotel,Economy,3,Singapore,Singapore,SGD,0.09,1.3678,103.7702,256,True,False,False,40.0,110.0,2022-01-01,2023-05-31,False,1
+33,HTL00032,Fave Hotel Singapore,Fave Hotel,Economy,4,Singapore,Singapore,SGD,0.09,1.3678,103.7702,295,True,False,True,46.0,126.49999999999999,2023-06-01,9999-12-31,True,2
+34,HTL00034,W Hotels Singapore,W Hotels,Luxury,5,Singapore,Singapore,SGD,0.09,1.4011,103.8209,462,False,True,True,400.0,900.0,2022-01-01,2023-05-31,False,1
+35,HTL00034,W Hotels Singapore,W Hotels,Luxury,5,Singapore,Singapore,SGD,0.09,1.4011,103.8209,536,False,True,True,459.99999999999994,1035.0,2023-06-01,9999-12-31,True,2
+36,HTL00036,Aston Singapore,Aston,Mid-Scale,3,Singapore,Singapore,SGD,0.09,1.3489,103.8229,293,False,False,False,70.0,160.0,2022-01-01,2023-05-31,False,1
+37,HTL00036,Aston Singapore,Aston,Mid-Scale,4,Singapore,Singapore,SGD,0.09,1.3489,103.8229,314,False,False,True,80.5,184.0,2023-06-01,9999-12-31,True,2
+38,HTL00038,Harris Kuala Lumpur,Harris,Mid-Scale,3,Kuala Lumpur,Malaysia,MYR,0.075,3.0966,101.6401,237,True,False,False,60.0,140.0,2022-01-01,9999-12-31,True,1
+39,HTL00039,Ibis Kuala Lumpur,Ibis,Economy,3,Kuala Lumpur,Malaysia,MYR,0.075,3.1516,101.708,365,False,False,False,50.0,130.0,2022-01-01,2023-05-31,False,1
+40,HTL00039,Ibis Kuala Lumpur,Ibis,Economy,4,Kuala Lumpur,Malaysia,MYR,0.075,3.1516,101.708,391,False,False,True,57.49999999999999,149.5,2023-06-01,9999-12-31,True,2
+41,HTL00041,Fave Hotel Bangkok,Fave Hotel,Economy,3,Bangkok,Thailand,THB,0.07,13.7235,100.4979,484,True,False,False,40.0,110.0,2022-01-01,9999-12-31,True,1
+42,HTL00042,Swiss-Belhotel Bangkok,Swiss-Belhotel,Upper-Mid,4,Bangkok,Thailand,THB,0.07,13.7765,100.4936,435,True,True,True,120.0,280.0,2022-01-01,2023-05-31,False,1
+43,HTL00042,Swiss-Belhotel Bangkok,Swiss-Belhotel,Upper-Mid,5,Bangkok,Thailand,THB,0.07,13.7765,100.4936,484,True,True,True,138.0,322.0,2023-06-01,9999-12-31,True,2
+44,HTL00044,Aloft Bangkok,Aloft,Lifestyle,4,Bangkok,Thailand,THB,0.07,13.7446,100.5345,438,False,True,True,160.0,340.0,2022-01-01,9999-12-31,True,1
+45,HTL00045,Swiss-Belhotel Bangkok,Swiss-Belhotel,Upper-Mid,4,Bangkok,Thailand,THB,0.07,13.7232,100.4593,420,True,True,True,120.0,280.0,2022-01-01,9999-12-31,True,1
+46,HTL00046,Hilton Bangkok,Hilton,Luxury,5,Bangkok,Thailand,THB,0.07,13.7859,100.459,248,True,True,True,300.0,750.0,2022-01-01,9999-12-31,True,1
+47,HTL00047,Aloft Tokyo,Aloft,Lifestyle,4,Tokyo,Japan,JPY,0.1,35.6676,139.6169,243,True,True,True,160.0,340.0,2022-01-01,2023-05-31,False,1
+48,HTL00047,Aloft Tokyo,Aloft,Lifestyle,5,Tokyo,Japan,JPY,0.1,35.6676,139.6169,295,True,True,True,184.0,390.99999999999994,2023-06-01,9999-12-31,True,2
+49,HTL00049,Sheraton Tokyo,Sheraton,Upper-Mid,4,Tokyo,Japan,JPY,0.1,35.7018,139.6162,364,False,True,False,150.0,350.0,2022-01-01,9999-12-31,True,1
+50,HTL00050,Harris Sydney,Harris,Mid-Scale,3,Sydney,Australia,AUD,0.095,-33.9071,151.1765,176,False,False,False,60.0,140.0,2022-01-01,9999-12-31,True,1
+51,HTL00051,Hilton Sydney,Hilton,Luxury,5,Sydney,Australia,AUD,0.095,-33.8269,151.2369,366,True,True,True,300.0,750.0,2022-01-01,9999-12-31,True,1
+52,HTL00052,Pop! Hotels Sydney,Pop! Hotels,Budget,2,Sydney,Australia,AUD,0.095,-33.9107,151.2271,353,True,False,False,25.0,65.0,2022-01-01,9999-12-31,True,1
+53,HTL00053,Grand Mercure Dubai,Grand Mercure,Upper-Mid,4,Dubai,UAE,AED,0.085,25.1581,55.2721,124,False,True,False,140.0,320.0,2022-01-01,9999-12-31,True,1
+54,HTL00054,Aston Dubai,Aston,Mid-Scale,3,Dubai,UAE,AED,0.085,25.2163,55.2969,198,True,False,False,70.0,160.0,2022-01-01,9999-12-31,True,1
+55,HTL00055,Marriott Dubai,Marriott,Luxury,5,Dubai,UAE,AED,0.085,25.2357,55.2644,255,False,True,False,350.0,800.0,2022-01-01,2023-05-31,False,1
+56,HTL00055,Marriott Dubai,Marriott,Luxury,5,Dubai,UAE,AED,0.085,25.2357,55.2644,306,False,True,True,402.49999999999994,919.9999999999999,2023-06-01,9999-12-31,True,2
+57,HTL00057,Sheraton London,Sheraton,Upper-Mid,4,London,UK,GBP,0.12,51.5491,-0.0985,272,True,True,True,150.0,350.0,2022-01-01,9999-12-31,True,1
+58,HTL00058,Aloft London,Aloft,Lifestyle,4,London,UK,GBP,0.12,51.545,-0.1617,121,True,True,True,160.0,340.0,2022-01-01,9999-12-31,True,1
+59,HTL00059,Aloft Hong Kong,Aloft,Lifestyle,4,Hong Kong,China,HKD,0.105,22.3277,114.1214,103,True,True,False,160.0,340.0,2022-01-01,2023-05-31,False,1
+60,HTL00059,Aloft Hong Kong,Aloft,Lifestyle,5,Hong Kong,China,HKD,0.105,22.3277,114.1214,141,True,True,True,184.0,390.99999999999994,2023-06-01,9999-12-31,True,2
+61,HTL00061,Harris Hong Kong,Harris,Mid-Scale,3,Hong Kong,China,HKD,0.105,22.2989,114.1318,364,False,False,False,60.0,140.0,2022-01-01,9999-12-31,True,1
+62,HTL00062,Marriott Hong Kong,Marriott,Luxury,5,Hong Kong,China,HKD,0.105,22.2857,114.1878,261,False,True,True,350.0,800.0,2022-01-01,9999-12-31,True,1
+63,HTL00063,Marriott Hong Kong,Marriott,Luxury,5,Hong Kong,China,HKD,0.105,22.3507,114.1804,272,True,True,True,350.0,800.0,2022-01-01,2023-05-31,False,1
+64,HTL00063,Marriott Hong Kong,Marriott,Luxury,5,Hong Kong,China,HKD,0.105,22.3507,114.1804,347,True,True,True,402.49999999999994,919.9999999999999,2023-06-01,9999-12-31,True,2

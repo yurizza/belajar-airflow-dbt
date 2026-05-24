@@ -1,0 +1,25 @@
+class_key,service_code,service_name,airline,cabin_width_cm,seat_pitch_cm,baggage_allowance_kg,lounge_access,priority_boarding,meal_included,seat_share_pct,fare_multiplier
+1,F,First Class,Garuda Indonesia,90,203,40,True,True,True,0.04,5.5
+2,C,Business Class,Garuda Indonesia,60,152,30,True,True,True,0.1,2.8
+3,W,Premium Economy,Garuda Indonesia,45,97,23,False,True,True,0.08,1.5
+4,Y,Economy Class,Garuda Indonesia,32,79,20,False,False,False,0.78,1.0
+5,F,First Class,Lion Air,90,203,40,True,True,True,0.04,5.5
+6,C,Business Class,Lion Air,60,152,30,True,True,True,0.1,2.8
+7,W,Premium Economy,Lion Air,45,97,23,False,True,True,0.08,1.5
+8,Y,Economy Class,Lion Air,32,79,20,False,False,False,0.78,1.0
+9,F,First Class,Batik Air,90,203,40,True,True,True,0.04,5.5
+10,C,Business Class,Batik Air,60,152,30,True,True,True,0.1,2.8
+11,W,Premium Economy,Batik Air,45,97,23,False,True,True,0.08,1.5
+12,Y,Economy Class,Batik Air,32,79,20,False,False,False,0.78,1.0
+13,F,First Class,Citilink,90,203,40,True,True,True,0.04,5.5
+14,C,Business Class,Citilink,60,152,30,True,True,True,0.1,2.8
+15,W,Premium Economy,Citilink,45,97,23,False,True,True,0.08,1.5
+16,Y,Economy Class,Citilink,32,79,20,False,False,False,0.78,1.0
+17,F,First Class,AirAsia Indonesia,90,203,40,True,True,True,0.04,5.5
+18,C,Business Class,AirAsia Indonesia,60,152,30,True,True,True,0.1,2.8
+19,W,Premium Economy,AirAsia Indonesia,45,97,23,False,True,True,0.08,1.5
+20,Y,Economy Class,AirAsia Indonesia,32,79,20,False,False,False,0.78,1.0
+21,F,First Class,Sriwijaya Air,90,203,40,True,True,True,0.04,5.5
+22,C,Business Class,Sriwijaya Air,60,152,30,True,True,True,0.1,2.8
+23,W,Premium Economy,Sriwijaya Air,45,97,23,False,True,True,0.08,1.5
+24,Y,Economy Class,Sriwijaya Air,32,79,20,False,False,False,0.78,1.0
