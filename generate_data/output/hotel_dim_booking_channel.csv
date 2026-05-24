@@ -1,0 +1,7 @@
+booking_channel_key,channel_code,channel_name,channel_type,commission_rate_pct,instant_confirm,cancellation_policy,volume_share_pct,avg_lead_days
+1,WEB,Website Direct,Direct,0,True,Moderate,0.35,14
+2,MOB,Mobile App,Direct,0,True,Flexible,0.3,7
+3,GDS,Global Distribution System,Indirect,8,False,Flexible,0.15,21
+4,OTA,Online Travel Agency,Indirect,10,True,Moderate,0.12,10
+5,CTR,Call Center,Direct,5,False,Flexible,0.05,5
+6,AGT,Travel Agent,Indirect,12,False,Strict,0.03,30
