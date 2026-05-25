@@ -131,7 +131,7 @@ def gen_src_customer(n=5000):
                     "Japanese"
                 ]),
             "email": fake.email(),
-            "phone": fake.phone_number()
+            "phone": fake.numerify(text="###-###-####")
         })
 
     return pd.DataFrame(rows)

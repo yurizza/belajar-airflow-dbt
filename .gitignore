@@ -1,2 +1,4 @@
 .env
 airflow/dags/sql/service_account.json
+__pycache__/
+*.pyc
