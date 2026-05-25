@@ -99,12 +99,12 @@ def fungsi_insert_all(schema_tabel, query_bq, pg_conn_id, gcp_conn_id):
     # -----------------------------------------
     print(f"📥 Memasukkan data baru ke {schema_tabel}...")
 
-    # pg_hook.insert_rows(
-    #     table=schema_tabel,
-    #     rows=rows,
-    #     target_fields=kolom,
-    #     commit_every=1000
-    # )
+    pg_hook.insert_rows(
+        table=schema_tabel,
+        rows=rows,
+        target_fields=kolom,
+        commit_every=1000
+    )
 
     print(f"✅ [SUCCESS] Insert selesai untuk {schema_tabel}")
     print("=" * 60)
