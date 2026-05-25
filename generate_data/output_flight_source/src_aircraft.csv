@@ -1,0 +1,121 @@
+registration_number,aircraft_type,manufacturer,seat_capacity,operating_airline
+PK-GBT17,Boeing 787-9,Boeing,296,Batik Air
+PK-FYY19,Boeing 737 MAX 8,Boeing,172,Garuda Indonesia
+PK-DKJ54,Airbus A320,Airbus,180,Sriwijaya Air
+PK-UDA48,ATR 72-600,ATR,72,Batik Air
+PK-ATS42,ATR 72-600,ATR,72,Batik Air
+PK-UBM88,ATR 72-600,ATR,72,Sriwijaya Air
+PK-BRD32,Airbus A320,Airbus,180,Garuda Indonesia
+PK-GNL26,ATR 72-600,ATR,72,Garuda Indonesia
+PK-BDM70,Boeing 787-9,Boeing,296,Batik Air
+PK-VMI49,Airbus A330-300,Airbus,335,Citilink
+PK-HPB10,Airbus A320,Airbus,180,Citilink
+PK-XWR11,Boeing 787-9,Boeing,296,AirAsia Indonesia
+PK-VZT50,Boeing 787-9,Boeing,296,Batik Air
+PK-YVR75,Boeing 737 MAX 8,Boeing,172,Sriwijaya Air
+PK-MNA61,Airbus A330-300,Airbus,335,AirAsia Indonesia
+PK-DEZ11,ATR 72-600,ATR,72,Batik Air
+PK-OSC47,Boeing 737-800,Boeing,162,AirAsia Indonesia
+PK-GZR36,Boeing 737-800,Boeing,162,Sriwijaya Air
+PK-CZG84,Airbus A321,Airbus,220,Sriwijaya Air
+PK-PVU48,Boeing 737-800,Boeing,162,Lion Air
+PK-XCD46,Boeing 737 MAX 8,Boeing,172,Batik Air
+PK-EGS81,Airbus A330-300,Airbus,335,Lion Air
+PK-ANI65,Airbus A330-300,Airbus,335,Garuda Indonesia
+PK-FVL07,Airbus A321,Airbus,220,Citilink
+PK-VBI61,ATR 72-600,ATR,72,Sriwijaya Air
+PK-ORP49,Boeing 737 MAX 8,Boeing,172,Batik Air
+PK-CZH14,ATR 72-600,ATR,72,Citilink
+PK-OYI46,ATR 72-600,ATR,72,Garuda Indonesia
+PK-SIA83,Boeing 737 MAX 8,Boeing,172,Lion Air
+PK-EHJ30,Boeing 737 MAX 8,Boeing,172,Citilink
+PK-VSR44,Airbus A330-300,Airbus,335,Lion Air
+PK-XYJ02,Airbus A330-300,Airbus,335,Batik Air
+PK-OHJ84,Boeing 737 MAX 8,Boeing,172,Batik Air
+PK-ROH95,Boeing 787-9,Boeing,296,AirAsia Indonesia
+PK-PXL30,ATR 72-600,ATR,72,Lion Air
+PK-CLO94,ATR 72-600,ATR,72,Garuda Indonesia
+PK-BAW39,Boeing 777-300ER,Boeing,396,Citilink
+PK-LGR67,Boeing 737-800,Boeing,162,AirAsia Indonesia
+PK-KSY25,Airbus A320,Airbus,180,Citilink
+PK-NPQ42,Airbus A320,Airbus,180,Sriwijaya Air
+PK-NLC11,Airbus A321,Airbus,220,Batik Air
+PK-RIH73,Boeing 737-800,Boeing,162,AirAsia Indonesia
+PK-ULD76,Airbus A330-300,Airbus,335,Garuda Indonesia
+PK-DWM97,Boeing 787-9,Boeing,296,Citilink
+PK-PRX98,ATR 72-600,ATR,72,Lion Air
+PK-BVK22,Boeing 737-800,Boeing,162,Lion Air
+PK-HRI79,Boeing 737-800,Boeing,162,Sriwijaya Air
+PK-UTK45,Airbus A330-300,Airbus,335,Batik Air
+PK-AWH73,Boeing 777-300ER,Boeing,396,Sriwijaya Air
+PK-OUO16,Airbus A320,Airbus,180,Garuda Indonesia
+PK-EOH08,Airbus A320,Airbus,180,Garuda Indonesia
+PK-HHW32,Boeing 777-300ER,Boeing,396,Citilink
+PK-DLB95,Boeing 737 MAX 8,Boeing,172,Batik Air
+PK-QHE76,ATR 72-600,ATR,72,Citilink
+PK-ZDZ98,Airbus A321,Airbus,220,Sriwijaya Air
+PK-MFT05,Boeing 777-300ER,Boeing,396,Lion Air
+PK-KZF27,Boeing 737-800,Boeing,162,Garuda Indonesia
+PK-JJQ28,Airbus A330-300,Airbus,335,Batik Air
+PK-WJQ63,Boeing 777-300ER,Boeing,396,Lion Air
+PK-NJE59,Airbus A321,Airbus,220,Batik Air
+PK-JVW09,Airbus A330-300,Airbus,335,Citilink
+PK-EYI65,ATR 72-600,ATR,72,AirAsia Indonesia
+PK-FII01,Airbus A320,Airbus,180,Sriwijaya Air
+PK-BGI92,Airbus A330-300,Airbus,335,Batik Air
+PK-XFW98,Airbus A330-300,Airbus,335,Garuda Indonesia
+PK-LZV51,Airbus A321,Airbus,220,Garuda Indonesia
+PK-EAP78,Airbus A320,Airbus,180,Batik Air
+PK-XDJ91,Boeing 787-9,Boeing,296,Garuda Indonesia
+PK-QSB31,Airbus A320,Airbus,180,Citilink
+PK-VPW41,Airbus A320,Airbus,180,Citilink
+PK-GME48,Boeing 787-9,Boeing,296,Garuda Indonesia
+PK-BYX02,Airbus A330-300,Airbus,335,Batik Air
+PK-VPL89,Boeing 737-800,Boeing,162,Citilink
+PK-VJK00,Airbus A320,Airbus,180,Sriwijaya Air
+PK-PWC09,ATR 72-600,ATR,72,Sriwijaya Air
+PK-EHG44,Boeing 737 MAX 8,Boeing,172,Garuda Indonesia
+PK-LQX46,Airbus A321,Airbus,220,Sriwijaya Air
+PK-EVE50,Airbus A321,Airbus,220,Citilink
+PK-YXW41,Airbus A320,Airbus,180,AirAsia Indonesia
+PK-TQA80,Airbus A330-300,Airbus,335,Lion Air
+PK-IEG57,Boeing 787-9,Boeing,296,Lion Air
+PK-ZJG87,Airbus A321,Airbus,220,Sriwijaya Air
+PK-NVN84,Boeing 737-800,Boeing,162,Batik Air
+PK-XQD79,Boeing 787-9,Boeing,296,Garuda Indonesia
+PK-YWH35,Boeing 777-300ER,Boeing,396,Batik Air
+PK-MMG16,Boeing 737 MAX 8,Boeing,172,Sriwijaya Air
+PK-FZF60,ATR 72-600,ATR,72,Sriwijaya Air
+PK-WBO84,ATR 72-600,ATR,72,Citilink
+PK-XTM10,Airbus A330-300,Airbus,335,Batik Air
+PK-LXS53,Boeing 787-9,Boeing,296,AirAsia Indonesia
+PK-RXH08,Airbus A330-300,Airbus,335,AirAsia Indonesia
+PK-QIY04,Boeing 787-9,Boeing,296,Garuda Indonesia
+PK-BLA72,Airbus A320,Airbus,180,Citilink
+PK-IVT68,Airbus A330-300,Airbus,335,Batik Air
+PK-ZDR94,Airbus A320,Airbus,180,AirAsia Indonesia
+PK-LUN69,Airbus A320,Airbus,180,AirAsia Indonesia
+PK-KIQ76,Airbus A330-300,Airbus,335,Citilink
+PK-HRD65,Boeing 777-300ER,Boeing,396,Sriwijaya Air
+PK-JAI35,Airbus A330-300,Airbus,335,Sriwijaya Air
+PK-DSA12,Boeing 777-300ER,Boeing,396,Sriwijaya Air
+PK-TRP78,Boeing 737 MAX 8,Boeing,172,Garuda Indonesia
+PK-DBO71,Boeing 737 MAX 8,Boeing,172,Garuda Indonesia
+PK-ONF15,Boeing 737-800,Boeing,162,AirAsia Indonesia
+PK-QCU20,Airbus A330-300,Airbus,335,Garuda Indonesia
+PK-ZMY80,ATR 72-600,ATR,72,Sriwijaya Air
+PK-OEV76,Boeing 737 MAX 8,Boeing,172,Sriwijaya Air
+PK-YMB86,ATR 72-600,ATR,72,AirAsia Indonesia
+PK-FPK45,Boeing 737-800,Boeing,162,Sriwijaya Air
+PK-HFP93,Boeing 777-300ER,Boeing,396,Citilink
+PK-JRP71,Airbus A321,Airbus,220,Lion Air
+PK-QPC48,ATR 72-600,ATR,72,AirAsia Indonesia
+PK-VPE86,Airbus A330-300,Airbus,335,Garuda Indonesia
+PK-JBF01,Airbus A321,Airbus,220,Citilink
+PK-CMR70,Boeing 737 MAX 8,Boeing,172,Batik Air
+PK-XIH14,ATR 72-600,ATR,72,Citilink
+PK-IIP24,Airbus A330-300,Airbus,335,Garuda Indonesia
+PK-RRB14,Boeing 787-9,Boeing,296,Lion Air
+PK-RRU82,Boeing 777-300ER,Boeing,396,Batik Air
+PK-BFI04,Boeing 777-300ER,Boeing,396,Batik Air
+PK-NRM07,Airbus A330-300,Airbus,335,Sriwijaya Air

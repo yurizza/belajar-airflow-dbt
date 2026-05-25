@@ -1,0 +1,51 @@
+hotel_id,hotel_name,brand,city,star_rating,total_rooms,has_pool,has_gym,created_at,updated_at
+HTL00001,Swiss-Belhotel Singapore,Swiss-Belhotel,Singapore,3,386,True,True,2025-02-10,2025-10-18
+HTL00002,Sheraton Bali,Sheraton,Bali,2,208,False,True,2024-03-30,2026-01-11
+HTL00003,Harris Kuala Lumpur,Harris,Kuala Lumpur,3,295,True,False,2024-02-26,2025-08-21
+HTL00004,Swiss-Belhotel Hong Kong,Swiss-Belhotel,Hong Kong,3,157,False,True,2024-06-13,2025-07-14
+HTL00005,Harris Manado,Harris,Manado,2,446,True,False,2023-10-06,2025-08-29
+HTL00006,Ibis Singapore,Ibis,Singapore,2,217,True,False,2025-01-09,2025-12-16
+HTL00007,Sheraton Manado,Sheraton,Manado,2,316,True,False,2026-04-22,2026-02-20
+HTL00008,Marriott Manado,Marriott,Manado,3,190,True,False,2025-09-07,2025-06-27
+HTL00009,Harris Bali,Harris,Bali,3,98,True,True,2026-01-18,2025-11-30
+HTL00010,Hyatt Kuala Lumpur,Hyatt,Kuala Lumpur,5,121,False,True,2024-03-29,2025-11-03
+HTL00011,Hyatt Makassar,Hyatt,Makassar,2,275,False,True,2026-01-01,2026-01-07
+HTL00012,Aston Singapore,Aston,Singapore,3,483,True,True,2024-04-25,2026-03-27
+HTL00013,Grand Mercure Makassar,Grand Mercure,Makassar,5,471,True,False,2024-12-25,2026-04-08
+HTL00014,Pop Hotel Kuala Lumpur,Pop Hotel,Kuala Lumpur,2,147,True,False,2025-01-16,2026-04-23
+HTL00015,Hilton Surabaya,Hilton,Surabaya,2,153,False,True,2026-04-19,2025-08-14
+HTL00016,Hyatt Singapore,Hyatt,Singapore,3,186,False,False,2024-01-16,2025-11-19
+HTL00017,Sheraton Hong Kong,Sheraton,Hong Kong,4,140,False,True,2026-03-16,2025-08-01
+HTL00018,Aloft Surabaya,Aloft,Surabaya,4,85,True,False,2025-10-21,2025-10-02
+HTL00019,Sheraton Singapore,Sheraton,Singapore,5,252,False,False,2023-09-30,2026-02-26
+HTL00020,Swiss-Belhotel Hong Kong,Swiss-Belhotel,Hong Kong,4,353,True,True,2025-08-23,2026-02-11
+HTL00021,Marriott Manado,Marriott,Manado,5,474,False,True,2023-10-08,2025-11-22
+HTL00022,Novotel Hong Kong,Novotel,Hong Kong,3,414,False,True,2024-09-27,2025-10-27
+HTL00023,Pop Hotel Dubai,Pop Hotel,Dubai,4,191,True,False,2023-07-30,2025-09-05
+HTL00024,Novotel Kuala Lumpur,Novotel,Kuala Lumpur,2,304,False,False,2025-10-07,2025-05-26
+HTL00025,Hilton Bangkok,Hilton,Bangkok,4,430,False,False,2025-03-15,2025-08-11
+HTL00026,Aston Bali,Aston,Bali,4,300,False,False,2024-12-08,2026-05-21
+HTL00027,Aloft Hong Kong,Aloft,Hong Kong,3,224,False,False,2025-09-01,2025-06-24
+HTL00028,Sheraton Singapore,Sheraton,Singapore,4,181,False,True,2025-05-11,2025-12-11
+HTL00029,Aloft Manado,Aloft,Manado,4,178,True,False,2024-03-27,2026-01-14
+HTL00030,Aloft Singapore,Aloft,Singapore,3,289,False,False,2025-05-12,2025-06-12
+HTL00031,Marriott Surabaya,Marriott,Surabaya,3,80,False,True,2024-11-30,2025-07-13
+HTL00032,Aston London,Aston,London,5,185,False,False,2024-04-24,2026-05-16
+HTL00033,Grand Mercure Bangkok,Grand Mercure,Bangkok,4,182,True,True,2024-01-29,2026-03-10
+HTL00034,Novotel Surabaya,Novotel,Surabaya,2,109,False,False,2025-04-10,2026-01-10
+HTL00035,Ibis Bangkok,Ibis,Bangkok,4,179,True,False,2024-02-24,2025-12-05
+HTL00036,Swiss-Belhotel London,Swiss-Belhotel,London,3,215,False,False,2026-03-15,2025-07-31
+HTL00037,Hyatt Bali,Hyatt,Bali,5,435,False,False,2023-07-21,2025-07-05
+HTL00038,Aston Dubai,Aston,Dubai,3,264,False,True,2023-06-30,2025-07-29
+HTL00039,Novotel Kuala Lumpur,Novotel,Kuala Lumpur,5,174,False,False,2025-05-29,2026-02-13
+HTL00040,Aloft Bali,Aloft,Bali,2,352,True,False,2025-03-05,2025-06-24
+HTL00041,Aston Jakarta,Aston,Jakarta,2,248,False,True,2025-03-15,2026-01-24
+HTL00042,Ibis Sydney,Ibis,Sydney,2,371,False,True,2023-10-05,2025-07-18
+HTL00043,Harris Manado,Harris,Manado,5,213,True,True,2024-09-17,2026-01-18
+HTL00044,Harris Jakarta,Harris,Jakarta,5,98,True,False,2023-06-02,2025-10-18
+HTL00045,Aston Bandung,Aston,Bandung,4,161,False,True,2024-10-18,2025-07-15
+HTL00046,Pop Hotel London,Pop Hotel,London,5,197,True,True,2025-08-15,2025-10-28
+HTL00047,Grand Mercure Bali,Grand Mercure,Bali,4,221,False,True,2024-03-31,2026-05-08
+HTL00048,Aston Bandung,Aston,Bandung,3,439,False,True,2023-08-19,2026-01-27
+HTL00049,Pop Hotel Sydney,Pop Hotel,Sydney,2,451,True,True,2024-04-17,2025-11-12
+HTL00050,Hyatt Bangkok,Hyatt,Bangkok,2,96,False,True,2024-06-28,2025-12-21

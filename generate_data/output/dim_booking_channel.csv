@@ -1,0 +1,7 @@
+channel_key,channel_code,channel_name,channel_type,commission_rate_pct,booking_fee_usd,typical_lead_days,volume_share_pct
+1,WEB,Website Direct,Direct,0,10.09998185528713,21,0.35
+2,MOB,Mobile App,Direct,0,0.39520405531872527,14,0.3
+3,GDS,Global Distribution System,Indirect,8,3.5231458932949966,30,0.15
+4,OTA,Online Travel Agency,Indirect,10,13.916688248427263,18,0.12
+5,CTR,Call Center,Direct,5,1.4328717637171595,7,0.05
+6,AGT,Travel Agent,Indirect,12,12.017497459655155,45,0.03
