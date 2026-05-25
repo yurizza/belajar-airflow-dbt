@@ -1,0 +1,10 @@
+payment_method_id,method_code,method_name,payment_type,provider,processing_fee_pct,supports_installment
+1,CC_VISA,Visa Credit Card,Credit Card,Visa,1.8,True
+2,CC_MC,Mastercard Credit Card,Credit Card,Mastercard,1.85,True
+3,CC_AMEX,Amex Credit Card,Credit Card,Amex,2.5,True
+4,DC_VISA,Visa Debit Card,Debit Card,Visa,0.8,False
+5,GOPAY,GoPay,E-Wallet,Gojek,0.7,False
+6,OVO,OVO,E-Wallet,OVO,0.7,False
+7,DANA,DANA,E-Wallet,DANA,0.65,False
+8,BANK_TRF,Bank Transfer,Transfer,Bank,0.5,False
+9,BNPL,Buy Now Pay Later,BNPL,Kredivo,3.0,True
