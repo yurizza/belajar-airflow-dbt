@@ -1,1 +1,2 @@
 .env
+airflow/dags/sql/service_account.json

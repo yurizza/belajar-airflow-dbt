@@ -58,20 +58,23 @@ services:
 
   airflow-worker:
     build: .
-    command: celery worker
+    command: airflow celery worker --concurrency 2
     environment:
       - AIRFLOW__CORE__EXECUTOR=CeleryExecutor
-      - _AIRFLOW_DB_MIGRATE=false  # 👈 Dimatikan agar tidak tabrakan
+      - _AIRFLOW_DB_MIGRATE=false
       - AIRFLOW__DATABASE__SQL_ALCHEMY_CONN=postgresql+psycopg2://${POSTGRES_USER}:${POSTGRES_PASSWORD}@postgres/${POSTGRES_DB}
       - AIRFLOW__CELERY__RESULT_BACKEND=db+postgresql://${POSTGRES_USER}:${POSTGRES_PASSWORD}@postgres/${POSTGRES_DB}
       - AIRFLOW__CELERY__BROKER_URL=redis://redis:6379/0
       - AIRFLOW__CORE__LOAD_EXAMPLES=False
       - AIRFLOW__WEBSERVER__SECRET_KEY=my_super_secret_key
+      - AIRFLOW__WEBSERVER__WORKER_TIMEOUT=300
+
     volumes:
       - ./dags:/opt/airflow/dags
       - ./plugins:/opt/airflow/plugins
       - ./raw_data:/opt/airflow/raw_data
       - ../dbt_project:/opt/airflow/dbt_project
+
     depends_on:
       - airflow-scheduler
 
