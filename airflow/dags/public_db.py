@@ -10,7 +10,7 @@ default_args = {
 }
 
 with DAG(
-    dag_id='initialize_data_warehouse',
+    dag_id='initialize_public_table',
     default_args=default_args,
     description='DAG ad-hoc untuk inisialisasi awal skema DDL Travel DWH di PostgreSQL',
     schedule=None,  # Set None karena hanya perlu dijalankan sekali saja di awal lewat UI
@@ -24,7 +24,7 @@ with DAG(
     execute_full_ddl = SQLExecuteQueryOperator(
         task_id='execute_full_travel_ddl',
         conn_id='postgres_dwh',         # Membaca koneksi dari .env
-        sql='integrated_schema.sql',     # Nama file sql kamu yang berada di folder dags/sql/
+        sql='public_db.sql',     # Nama file sql kamu yang berada di folder dags/sql/
     )
 
     execute_full_ddl
