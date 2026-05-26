@@ -1,0 +1,189 @@
+version: 2
+
+models:
+  # ─── CUSTOMER ─────────────────────────────────────────────────────────────
+  - name: stg_customer
+    description: "Staging pelanggan: normalisasi nama, email lowercase, age derived"
+    columns:
+      - name: customer_key
+        tests: [unique, not_null]
+      - name: customer_id
+        tests: [unique, not_null]
+      - name: full_name
+        tests: [not_null]
+      - name: email
+        tests: [not_null]
+      - name: gender
+        tests:
+          - accepted_values:
+              values: ['M', 'F', 'Other']
+      - name: age
+        tests:
+          - dbt_utils.expression_is_true:
+              expression: "between 0 and 120"
+
+  - name: stg_guest_profile
+    description: "Staging profil tamu hotel"
+    columns:
+      - name: guest_id
+        tests: [unique, not_null]
+      - name: customer_key
+        tests:
+          - not_null
+          - relationships:
+              to: ref('stg_customer')
+              field: customer_key
+
+  # ─── FLIGHT ───────────────────────────────────────────────────────────────
+  - name: stg_booking
+    description: "Staging booking penerbangan"
+    columns:
+      - name: booking_id
+        tests: [unique, not_null]
+      - name: customer_id
+        tests:
+          - not_null
+          - relationships:
+              to: ref('stg_customer')
+              field: customer_id
+
+  - name: stg_flight_segment
+    description: "Staging segment penerbangan dengan kalkulasi delay"
+    columns:
+      - name: segment_id
+        tests: [unique, not_null]
+      - name: booking_id
+        tests:
+          - not_null
+          - relationships:
+              to: ref('stg_booking')
+              field: booking_id
+      - name: flight_status
+        tests:
+          - accepted_values:
+              values: ['Flown', 'Cancelled', 'No Show', 'Scheduled']
+      - name: delay_category
+        tests:
+          - accepted_values:
+              values: ['On Time', 'Minor Delay (≤15m)', 'Moderate Delay (16-60m)', 'Major Delay (>60m)', 'No Data']
+
+  - name: stg_aircraft
+    description: "Staging data pesawat"
+    columns:
+      - name: registration_number
+        tests: [unique, not_null]
+
+  - name: stg_airport
+    description: "Staging data bandara"
+    columns:
+      - name: airport_code
+        tests: [unique, not_null]
+
+  # ─── HOTEL ────────────────────────────────────────────────────────────────
+  - name: stg_hotel_property
+    description: "Staging properti hotel dengan kategori bintang"
+    columns:
+      - name: hotel_id
+        tests: [unique, not_null]
+      - name: star_rating
+        tests:
+          - accepted_values:
+              values: [1, 2, 3, 4, 5]
+      - name: hotel_category
+        tests:
+          - accepted_values:
+              values: ['Luxury (5★)', 'Superior (4★)', 'Comfort (3★)', 'Economy (≤2★)']
+
+  - name: stg_reservation
+    description: "Staging reservasi hotel dengan lead time & planned nights"
+    columns:
+      - name: reservation_id
+        tests: [unique, not_null]
+      - name: hotel_id
+        tests:
+          - not_null
+          - relationships:
+              to: ref('stg_hotel_property')
+              field: hotel_id
+      - name: planned_nights
+        tests:
+          - dbt_utils.expression_is_true:
+              expression: ">= 0"
+
+  - name: stg_hotel_stay
+    description: "Staging aktual menginap tamu"
+    columns:
+      - name: stay_id
+        tests: [unique, not_null]
+      - name: reservation_id
+        tests:
+          - not_null
+          - relationships:
+              to: ref('stg_reservation')
+              field: reservation_id
+      - name: number_of_nights
+        tests:
+          - dbt_utils.expression_is_true:
+              expression: ">= 1"
+      - name: total_bill_usd
+        tests:
+          - dbt_utils.expression_is_true:
+              expression: ">= 0"
+
+  - name: stg_room_inventory
+    description: "Staging inventori kamar per hotel"
+    columns:
+      - name: room_inventory_id
+        tests: [unique, not_null]
+      - name: hotel_id
+        tests:
+          - relationships:
+              to: ref('stg_hotel_property')
+              field: hotel_id
+
+  # ─── PAYMENT ──────────────────────────────────────────────────────────────
+  - name: stg_payment_transaction
+    description: "Staging transaksi pembayaran dengan effective_revenue & flags"
+    columns:
+      - name: payment_id
+        tests: [unique, not_null]
+      - name: customer_key
+        tests:
+          - not_null
+          - relationships:
+              to: ref('stg_customer')
+              field: customer_key
+      - name: payment_status
+        tests:
+          - accepted_values:
+              values: ['Completed', 'Pending', 'Failed', 'Refunded', 'Partial Refund']
+      - name: source_type
+        tests:
+          - accepted_values:
+              values: ['FLIGHT', 'HOTEL']
+      - name: gross_amount_usd
+        tests:
+          - dbt_utils.expression_is_true:
+              expression: ">= 0"
+      - name: effective_revenue_usd
+        tests:
+          - dbt_utils.expression_is_true:
+              expression: ">= 0"
+
+  - name: stg_payment_method
+    description: "Staging master metode pembayaran"
+    columns:
+      - name: payment_method_id
+        tests: [unique, not_null]
+      - name: method_code
+        tests: [unique, not_null]
+
+  - name: stg_currency
+    description: "Staging master kurs mata uang"
+    columns:
+      - name: currency_code
+        tests: [unique, not_null]
+      - name: usd_exchange_rate
+        tests:
+          - dbt_utils.expression_is_true:
+              expression: "> 0"
