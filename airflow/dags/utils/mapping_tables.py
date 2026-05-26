@@ -8,7 +8,7 @@ LIST_TABEL_TRAVEL = {
     # 1. flight_source (Master)
     'src_customer': {
         'schema_tabel': 'customer_source.src_customer',
-        'bq_query': "SELECT * FROM `multidimensional-modelling.flight_source.src_customer`"
+        'bq_query': "SELECT * FROM `multidimensional-modelling.customer_source.src_customer`"
     },
     'src_airport': {
         'schema_tabel': 'flight_source.src_airport',
@@ -19,8 +19,8 @@ LIST_TABEL_TRAVEL = {
         'bq_query': "SELECT * FROM `multidimensional-modelling.flight_source.src_aircraft`"
     },
     'src_book_channel': {
-        'schema_tabel': 'flight_source.src_book_channel',
-        'bq_query': "SELECT * FROM `multidimensional-modelling.flight_source.src_book_channel`"
+        'schema_tabel': 'ch_booking_source.src_book_channel',
+        'bq_query': "SELECT * FROM `multidimensional-modelling.ch_booking_source.src_book_channel`"
     },
     
     # 2. hotel_source (Master)
@@ -66,7 +66,7 @@ LIST_TABEL_TRAVEL = {
     # 2. hotel_source (Transactional)
     'src_room_inventory': {
         'schema_tabel': 'hotel_source.src_room_inventory',
-        'bq_query': "SELECT * FROM `multidimensional-modelling.hotel_source.src_room_inventory`"
+        'bq_query': "SELECT * FROM `multidimensional-modelling.hotel_source.src_room_invent`"
     },
     'src_guest_profile': {
         'schema_tabel': 'hotel_source.src_guest_profile',
