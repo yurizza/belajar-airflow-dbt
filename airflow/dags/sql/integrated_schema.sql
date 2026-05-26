@@ -16,7 +16,7 @@ CREATE SCHEMA IF NOT EXISTS ch_booking_source;
 -- ============================================================
 
 CREATE TABLE IF NOT EXISTS flight_source.src_airport (
-    airport_code  CHAR(3)        PRIMARY KEY,
+    airport_code  CHAR(3)        ,
     airport_name  VARCHAR(100)   NOT NULL,
     city          VARCHAR(50)    NOT NULL,
     country       VARCHAR(50)    NOT NULL,
@@ -26,7 +26,7 @@ CREATE TABLE IF NOT EXISTS flight_source.src_airport (
 );
 
 CREATE TABLE IF NOT EXISTS flight_source.src_aircraft (
-    aircraft_id    VARCHAR(10)   PRIMARY KEY,
+    aircraft_id    VARCHAR(10)   ,
     registration   VARCHAR(20)   NOT NULL UNIQUE,
     aircraft_type  VARCHAR(50)   NOT NULL,
     manufacturer   VARCHAR(50),
@@ -35,7 +35,7 @@ CREATE TABLE IF NOT EXISTS flight_source.src_aircraft (
 );
 
 CREATE TABLE IF NOT EXISTS customer_source.src_customer (
-    customer_key     SERIAL        PRIMARY KEY,
+    customer_key     SERIAL        ,
     customer_id      VARCHAR(15)   NOT NULL,
     first_name       VARCHAR(50)   NOT NULL,
     last_name        VARCHAR(50)   NOT NULL,
@@ -55,7 +55,7 @@ CREATE TABLE IF NOT EXISTS customer_source.src_customer (
 -- CREATE INDEX IF NOT EXISTS idx_customer_is_current ON customer_source.src_customer (is_current);
 
 CREATE TABLE IF NOT EXISTS ch_booking_source.src_book_channel (
-    channel_key          SERIAL        PRIMARY KEY,
+    channel_key          SERIAL        ,
     channel_code         VARCHAR(10)   NOT NULL UNIQUE,
     channel_name         VARCHAR(60)   NOT NULL,
     channel_type         VARCHAR(20),
@@ -66,7 +66,7 @@ CREATE TABLE IF NOT EXISTS ch_booking_source.src_book_channel (
 );
 
 CREATE TABLE IF NOT EXISTS flight_source.src_booking (
-    booking_id       VARCHAR(15)   PRIMARY KEY,
+    booking_id       VARCHAR(15)   ,
     customer_key     INTEGER       NOT NULL,
     customer_id      VARCHAR(15)   NOT NULL,
     booking_date     DATE          NOT NULL,
@@ -76,7 +76,7 @@ CREATE TABLE IF NOT EXISTS flight_source.src_booking (
 -- CREATE INDEX IF NOT EXISTS idx_booking_customer ON flight_source.src_booking (customer_key);
 
 CREATE TABLE IF NOT EXISTS flight_source.src_flight_segment (
-    segment_id               SERIAL        PRIMARY KEY,
+    segment_id               SERIAL        ,
     booking_id               VARCHAR(15)   NOT NULL,
     flight_number            VARCHAR(10),
     origin_airport           CHAR(3)       NOT NULL,
@@ -99,7 +99,7 @@ CREATE TABLE IF NOT EXISTS flight_source.src_flight_segment (
 -- ============================================================
 
 CREATE TABLE IF NOT EXISTS hotel_source.src_hotel_property (
-    hotel_id        VARCHAR(10)   PRIMARY KEY,
+    hotel_id        VARCHAR(10)   ,
     hotel_name      VARCHAR(100)  NOT NULL,
     brand           VARCHAR(50),
     market_segment  VARCHAR(20),
@@ -109,7 +109,7 @@ CREATE TABLE IF NOT EXISTS hotel_source.src_hotel_property (
 );
 
 CREATE TABLE IF NOT EXISTS hotel_source.src_room_inventory (
-    room_id         VARCHAR(25)   PRIMARY KEY,
+    room_id         VARCHAR(25)   ,
     hotel_id        VARCHAR(10)   NOT NULL,
     room_number     VARCHAR(10),
     room_type_code  CHAR(3),
@@ -121,7 +121,7 @@ CREATE TABLE IF NOT EXISTS hotel_source.src_room_inventory (
 -- CREATE INDEX IF NOT EXISTS idx_room_hotel ON hotel_source.src_room_inventory (hotel_id);
 
 CREATE TABLE IF NOT EXISTS hotel_source.src_guest_profile (
-    guest_id              VARCHAR(15)   PRIMARY KEY,
+    guest_id              VARCHAR(15)   ,
     customer_key          INTEGER       NOT NULL UNIQUE,
     loyalty_tier          VARCHAR(20)   CHECK (loyalty_tier IN ('BLUE','SILVER','GOLD','PLATINUM')),
     preferred_room_type   CHAR(3),
@@ -129,7 +129,7 @@ CREATE TABLE IF NOT EXISTS hotel_source.src_guest_profile (
 );
 
 CREATE TABLE IF NOT EXISTS hotel_source.src_reservation (
-    reservation_id    VARCHAR(15)   PRIMARY KEY,
+    reservation_id    VARCHAR(15)   ,
     customer_key      INTEGER       NOT NULL,
     guest_id          VARCHAR(15)   NOT NULL,
     hotel_id          VARCHAR(10)   NOT NULL,
@@ -145,7 +145,7 @@ CREATE TABLE IF NOT EXISTS hotel_source.src_reservation (
 -- CREATE INDEX IF NOT EXISTS idx_reservation_hotel    ON hotel_source.src_reservation (hotel_id);
 
 CREATE TABLE IF NOT EXISTS hotel_source.src_hotel_stay (
-    stay_id               VARCHAR(25)   PRIMARY KEY,
+    stay_id               VARCHAR(25)   ,
     reservation_id        VARCHAR(15)   NOT NULL UNIQUE,
     actual_checkin_date   DATE,
     actual_nights         SMALLINT,
@@ -158,7 +158,7 @@ CREATE TABLE IF NOT EXISTS hotel_source.src_hotel_stay (
 -- ============================================================
 
 CREATE TABLE IF NOT EXISTS rental_source.src_vehicle (
-    vehicle_id     VARCHAR(10)   PRIMARY KEY,
+    vehicle_id     VARCHAR(10)   ,
     plate          VARCHAR(20)   NOT NULL UNIQUE,
     type_code      VARCHAR(10),
     type_name      VARCHAR(40),
@@ -172,7 +172,7 @@ CREATE TABLE IF NOT EXISTS rental_source.src_vehicle (
 );
 
 CREATE TABLE IF NOT EXISTS rental_source.src_driver (
-    driver_id     VARCHAR(10)   PRIMARY KEY,
+    driver_id     VARCHAR(10)   ,
     driver_name   VARCHAR(100)  NOT NULL,
     gender        CHAR(1)       CHECK (gender IN ('M', 'F')),
     license_no    VARCHAR(30),
@@ -185,7 +185,7 @@ CREATE TABLE IF NOT EXISTS rental_source.src_driver (
 );
 
 CREATE TABLE IF NOT EXISTS rental_source.src_rental_order (
-    order_id           VARCHAR(15)   PRIMARY KEY,
+    order_id           VARCHAR(15)   ,
     customer_key       INTEGER       NOT NULL,
     reservation_id     VARCHAR(15),
     segment_id         INTEGER,
@@ -204,7 +204,7 @@ CREATE TABLE IF NOT EXISTS rental_source.src_rental_order (
 -- CREATE INDEX IF NOT EXISTS idx_order_reservation ON rental_source.src_rental_order (reservation_id);
 
 CREATE TABLE IF NOT EXISTS rental_source.src_rental_trip (
-    trip_id            SERIAL        PRIMARY KEY,
+    trip_id            SERIAL        ,
     order_id           VARCHAR(15)   NOT NULL UNIQUE,
     actual_pickup      TIMESTAMP,
     actual_dropoff     TIMESTAMP,
@@ -224,7 +224,7 @@ CREATE TABLE IF NOT EXISTS rental_source.src_rental_trip (
 -- ============================================================
 
 CREATE TABLE IF NOT EXISTS payment_source.src_payment_method (
-    payment_method_id      SMALLINT      PRIMARY KEY,
+    payment_method_id      SMALLINT      ,
     method_code            VARCHAR(15)   NOT NULL UNIQUE,
     method_name            VARCHAR(50)   NOT NULL,
     payment_type           VARCHAR(30),
@@ -234,14 +234,14 @@ CREATE TABLE IF NOT EXISTS payment_source.src_payment_method (
 );
 
 CREATE TABLE IF NOT EXISTS payment_source.src_currency (
-    currency_code      CHAR(3)       PRIMARY KEY,
+    currency_code      CHAR(3)       ,
     currency_name      VARCHAR(50),
     symbol             VARCHAR(5),
     usd_exchange_rate  NUMERIC(12, 4) NOT NULL
 );
 
 CREATE TABLE IF NOT EXISTS payment_source.src_payment_transaction (
-    payment_id          VARCHAR(15)    PRIMARY KEY,
+    payment_id          VARCHAR(15)    ,
     payment_reference   UUID           NOT NULL UNIQUE,
     invoice_number      VARCHAR(15)    NOT NULL,
     customer_key        INTEGER        NOT NULL,
