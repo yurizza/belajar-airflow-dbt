@@ -1,0 +1,61 @@
+driver_id,driver_name,gender,license_no,license_type,languages,rating,total_trips,is_active,joined_date
+DRV00001,Brooke Griffin,F,SIM-4558530435,B2,Indonesian; English,4.5,1073,0,2022-12-14
+DRV00002,James Wells,M,SIM-8338014126,B1,Indonesian; English,3.9,1617,1,2026-05-22
+DRV00003,Alexander Torres,M,SIM-3198296572,B2,Indonesian; English,4.0,881,1,2023-10-24
+DRV00004,Mason Williams,M,SIM-8682889093,A,Indonesian; English; Mandarin,3.5,572,0,2022-02-13
+DRV00005,Casey Ward,M,SIM-1678008374,B2,Indonesian,3.9,2005,1,2021-06-04
+DRV00006,Benjamin Randolph,M,SIM-8181741433,A,Indonesian; English; Japanese,5.0,1664,1,2023-05-11
+DRV00007,William Snyder,M,SIM-6174093192,B1,Indonesian; English; Mandarin,3.4,1508,1,2024-03-20
+DRV00008,Natalie Torres,F,SIM-9207074137,B1,Indonesian,3.9,2129,1,2023-11-14
+DRV00009,Dustin Owens,M,SIM-1834170471,A,Indonesian; English,4.9,439,1,2025-09-15
+DRV00010,Mrs. Debra Clark,F,SIM-3191284529,A,Indonesian; English,3.7,540,1,2025-09-21
+DRV00011,Ashley Diaz,F,SIM-7760207764,B1,Indonesian; English,4.2,2118,1,2022-08-05
+DRV00012,Jamie Martinez,F,SIM-5055613044,A,Indonesian; English; Mandarin,3.3,2828,1,2024-07-24
+DRV00013,James Berg,M,SIM-1564041042,B1,Indonesian,4.3,1077,1,2023-07-08
+DRV00014,Mr. Ethan Mejia,M,SIM-6068831067,A,Indonesian; English; Mandarin,4.8,1868,1,2022-07-29
+DRV00015,Donna Williams,F,SIM-8227654444,B1,Indonesian; English,3.3,2916,1,2024-11-07
+DRV00016,Eric Grant,M,SIM-6122138783,A,Indonesian; English; Mandarin,3.3,836,0,2025-04-01
+DRV00017,Whitney Cole,F,SIM-2833125815,B2,Indonesian; English,3.7,2058,1,2023-06-06
+DRV00018,Rhonda Harris,F,SIM-0666836450,B1,Indonesian,5.0,161,1,2025-08-19
+DRV00019,Walter Martinez,M,SIM-8831436676,B2,Indonesian; English; Japanese,3.6,1841,1,2024-01-19
+DRV00020,Shelley Johnson,F,SIM-0679701687,B2,Indonesian; English; Japanese,4.2,1620,0,2025-03-19
+DRV00021,Ashley Moore,F,SIM-8171800239,B2,Indonesian; English,5.0,1413,1,2021-09-18
+DRV00022,Eric Anderson,M,SIM-4861114893,B1,Indonesian; English; Mandarin,5.0,541,1,2024-09-11
+DRV00023,Rachel Smith,F,SIM-8474537838,B1,Indonesian; English,3.3,2734,1,2023-07-01
+DRV00024,Jennifer Banks,F,SIM-0037614365,B2,Indonesian; English,4.4,195,1,2023-04-29
+DRV00025,Michael Higgins,M,SIM-5630481373,B1,Indonesian; English; Japanese,3.2,1501,0,2024-01-18
+DRV00026,Cheyenne Marshall,F,SIM-4419792376,A,Indonesian,4.9,1277,1,2021-11-16
+DRV00027,Charles Long,M,SIM-3092600267,A,Indonesian; English; Mandarin,3.9,1954,1,2024-01-26
+DRV00028,Zachary Huynh,M,SIM-5328704655,A,Indonesian,3.4,377,1,2025-02-27
+DRV00029,Aaron Ramirez,M,SIM-5618365461,B1,Indonesian,3.7,2589,1,2021-10-25
+DRV00030,Craig Weaver,M,SIM-7355706360,B2,Indonesian; English; Japanese,4.6,2961,0,2024-08-03
+DRV00031,Arthur Mora,M,SIM-4319554590,B1,Indonesian; English,3.3,2938,1,2023-08-17
+DRV00032,Melissa Glass,F,SIM-4091031776,B2,Indonesian; English,4.8,2075,1,2023-07-13
+DRV00033,Robert Anderson,M,SIM-7204293557,B2,Indonesian; English,3.4,181,1,2024-06-22
+DRV00034,Linda Hunt,F,SIM-6236107885,A,Indonesian; English; Japanese,4.7,2297,1,2022-10-06
+DRV00035,Stephen Huerta III,M,SIM-1316772326,B2,Indonesian; English,4.1,23,1,2025-04-26
+DRV00036,Michael Adkins,M,SIM-1444945443,B2,Indonesian,4.4,280,1,2025-02-18
+DRV00037,Danielle Hernandez,F,SIM-9351643883,B1,Indonesian,4.7,971,1,2022-04-02
+DRV00038,William Garcia,M,SIM-7375043103,A,Indonesian; English; Japanese,4.1,1576,1,2026-05-10
+DRV00039,Angela Hunt,F,SIM-2794019953,A,Indonesian; English,3.3,613,1,2021-09-18
+DRV00040,Brenda Harris,F,SIM-4093056529,B2,Indonesian; English,3.2,258,1,2024-01-19
+DRV00041,Andre Simpson,M,SIM-7161682812,B2,Indonesian; English,4.4,1201,1,2024-10-11
+DRV00042,Jennifer Campbell,F,SIM-4604956605,B1,Indonesian; English; Japanese,4.0,495,0,2023-01-27
+DRV00043,Jared Mcmahon,M,SIM-6261169572,B1,Indonesian,4.9,81,1,2022-07-02
+DRV00044,Juan Davidson,M,SIM-6199582254,B2,Indonesian; English; Japanese,5.0,1594,1,2022-10-09
+DRV00045,Timothy Rodriguez,M,SIM-7342075096,A,Indonesian,3.5,2156,1,2022-02-17
+DRV00046,Lisa Summers,F,SIM-2396937293,A,Indonesian; English; Mandarin,4.8,2890,1,2021-10-01
+DRV00047,Kelly Reyes,F,SIM-1233080516,B1,Indonesian; English; Japanese,3.2,24,0,2025-04-09
+DRV00048,Lori Torres,F,SIM-6493665787,B1,Indonesian; English; Mandarin,4.5,1714,1,2022-12-01
+DRV00049,Lisa Burns,F,SIM-3797276112,A,Indonesian; English; Mandarin,3.2,1395,1,2024-06-12
+DRV00050,Brandon Ramos,M,SIM-8002158108,A,Indonesian,4.8,1197,1,2024-08-10
+DRV00051,Richard Johnson,M,SIM-1913274231,B1,Indonesian; English; Japanese,5.0,2423,1,2024-05-19
+DRV00052,Darlene Nguyen,F,SIM-9472487394,B1,Indonesian,3.7,221,1,2025-09-13
+DRV00053,Jacqueline Gonzalez,F,SIM-6245624180,B2,Indonesian; English,3.6,1098,1,2024-06-15
+DRV00054,Mrs. Kelly Barker,F,SIM-1486546592,A,Indonesian; English; Mandarin,4.6,1762,1,2024-06-17
+DRV00055,Angela Hall,F,SIM-9048449500,B2,Indonesian; English,4.5,212,0,2023-04-13
+DRV00056,Lisa Reynolds,F,SIM-8502739000,B1,Indonesian; English,4.4,1182,1,2021-06-02
+DRV00057,Eric Mills,M,SIM-8369492359,A,Indonesian; English; Japanese,3.9,1164,1,2025-06-08
+DRV00058,Alexis Solis,F,SIM-2711246400,B1,Indonesian; English,3.7,2292,1,2026-03-07
+DRV00059,Kurt Lane,M,SIM-9873200080,A,Indonesian; English,3.3,2060,0,2024-11-06
+DRV00060,Caitlin Buck,F,SIM-1098326389,B2,Indonesian; English,4.0,1373,0,2025-09-16

@@ -1,291 +1,234 @@
-import pandas as pd
+"""
+PAYMENT SOURCE SYSTEM (OLTP) - Refactored v2
+=============================================
+One payment row per transaction event across 3 business lines.
+Total rows: 15,000 (5,000 per line).
+
+FK design:
+  src_payment_transaction → customer_key
+  src_payment_transaction → payment_method_id (from src_payment_method)
+  src_payment_transaction → source_reference (booking_id / reservation_id / order_id)
+  source_type column denotes which system the FK points to
+
+SCD / outlier scenarios:
+  - Refunded transactions with non-zero refund_amount_usd
+  - Installment plans for large amounts
+  - High-value outlier transactions (>$1,500)
+  - Currency mix (IDR, SGD, MYR, THB, JPY, USD)
+  - Multi-payment attempt: ~2% of customers have a Failed then Completed pair
+"""
+
+import os, random
 import numpy as np
+import pandas as pd
 from faker import Faker
-from datetime import datetime, timedelta
-import random
-import os
+from datetime import timedelta
 
-# =====================================================
-# CONFIGURATION
-# =====================================================
-
+Faker.seed(13); random.seed(13); np.random.seed(13)
 fake = Faker("en_US")
 
-Faker.seed(77)
-random.seed(77)
-np.random.seed(77)
-
-FLIGHT_SOURCE_DIR = r"C:\Users\Dewi Oka\Documents\Dewi Document\KULIAH\S2-UGM\SEMESTER 1\Data Warehouse dan Ineligensi Bisnis\Tugas_Multidimensional Modelling\dew_ver\sumber_data\output_flight_source"
-
-HOTEL_SOURCE_DIR = r"C:\Users\Dewi Oka\Documents\Dewi Document\KULIAH\S2-UGM\SEMESTER 1\Data Warehouse dan Ineligensi Bisnis\Tugas_Multidimensional Modelling\dew_ver\sumber_data\output_hotel_source"
-
-OUTPUT_DIR = r"C:\Users\Dewi Oka\Documents\Dewi Document\KULIAH\S2-UGM\SEMESTER 1\Data Warehouse dan Ineligensi Bisnis\Tugas_Multidimensional Modelling\dew_ver\sumber_data\output_payment_source"
-
+FLIGHT_DIR = r"C:\Users\Dewi Oka\Documents\files\flight"
+HOTEL_DIR  = r"C:\Users\Dewi Oka\Documents\files\hotel"
+RENTAL_DIR = r"C:\Users\Dewi Oka\Documents\files\rental"
+OUTPUT_DIR = r"C:\Users\Dewi Oka\Documents\files\payment"
 os.makedirs(OUTPUT_DIR, exist_ok=True)
 
-# =====================================================
-# LOAD SOURCE DATA
-# =====================================================
+# ── Load upstream ─────────────────────────────────────────────────────────────
+print("Loading upstream data...")
 
-customer_df = pd.read_csv(
-    os.path.join(
-        FLIGHT_SOURCE_DIR,
-        "src_customer.csv"
-    )
+booking_df = pd.read_csv(os.path.join(FLIGHT_DIR,"src_booking.csv"))
+segment_df = pd.read_csv(os.path.join(FLIGHT_DIR,"src_flight_segment.csv"))
+res_df     = pd.read_csv(os.path.join(HOTEL_DIR,"src_reservation.csv"))
+order_df   = pd.read_csv(os.path.join(RENTAL_DIR,"src_rental_order.csv"))
+
+segment_status = (
+    segment_df.groupby("booking_id")["status"]
+    .apply(lambda x: "Cancelled" if "Cancelled" in x.values else "Completed")
+    .reset_index(name="flight_status")
 )
 
-reservation_df = pd.read_csv(
-    os.path.join(
-        HOTEL_SOURCE_DIR,
-        "src_reservation.csv"
-    )
-)
+booking_df = booking_df.merge(segment_status,on="booking_id",how="left")
 
-# =====================================================
-# MASTER DATA
-# =====================================================
-
+# ── Master data ────────────────────────────────────────────────────────────────
 PAYMENT_METHODS = [
-    ("CC_VISA","Visa Credit Card","Credit Card","Visa",1.80,True),
-    ("CC_MC","Mastercard Credit Card","Credit Card","Mastercard",1.85,True),
-    ("CC_AMEX","Amex Credit Card","Credit Card","Amex",2.50,True),
-    ("DC_VISA","Visa Debit Card","Debit Card","Visa",0.80,False),
-    ("GOPAY","GoPay","E-Wallet","Gojek",0.70,False),
-    ("OVO","OVO","E-Wallet","OVO",0.70,False),
-    ("DANA","DANA","E-Wallet","DANA",0.65,False),
-    ("BANK_TRF","Bank Transfer","Transfer","Bank",0.50,False),
-    ("BNPL","Buy Now Pay Later","BNPL","Kredivo",3.00,True)
+    (1, "CC_VISA", "Visa Credit Card",       "Credit Card", "Visa",     1.80, True),
+    (2, "CC_MC",   "Mastercard Credit Card", "Credit Card", "Mastercard",1.85,True),
+    (3, "CC_AMEX", "Amex Credit Card",       "Credit Card", "Amex",     2.50, True),
+    (4, "DC_VISA", "Visa Debit Card",        "Debit Card",  "Visa",     0.80, False),
+    (5, "GOPAY",   "GoPay",                  "E-Wallet",    "Gojek",    0.70, False),
+    (6, "OVO",     "OVO",                    "E-Wallet",    "OVO",      0.70, False),
+    (7, "DANA",    "DANA",                   "E-Wallet",    "DANA",     0.65, False),
+    (8, "BANK_TRF","Bank Transfer",          "Transfer",    "Bank",     0.50, False),
+    (9, "BNPL",    "Buy Now Pay Later",      "BNPL",        "Kredivo",  3.00, True),
 ]
 
 CURRENCIES = [
-    ("USD","US Dollar","$",1),
-    ("IDR","Indonesian Rupiah","Rp",15850),
-    ("SGD","Singapore Dollar","S$",1.35),
-    ("MYR","Malaysian Ringgit","RM",4.68),
-    ("THB","Thai Baht","฿",36.5),
-    ("JPY","Japanese Yen","¥",149.5)
+    ("USD","US Dollar",         "$",  1.0),
+    ("IDR","Indonesian Rupiah", "Rp", 15850.0),
+    ("SGD","Singapore Dollar",  "S$", 1.35),
+    ("MYR","Malaysian Ringgit", "RM", 4.68),
+    ("THB","Thai Baht",         "฿",  36.5),
+    ("JPY","Japanese Yen",      "¥",  149.5),
 ]
+CURRENCY_CODES = [c[0] for c in CURRENCIES]
 
-PAYMENT_GATEWAYS = [
-    "Midtrans",
-    "Xendit",
-    "Stripe",
-    "Adyen",
-    "PayPal"
-]
-
-PAYMENT_STATUS = [
-    "Completed",
-    "Pending",
-    "Failed",
-    "Refunded"
-]
-
-# =====================================================
-# PAYMENT METHOD
-# =====================================================
+GATEWAYS = ["Midtrans","Xendit","Stripe","Adyen","PayPal"]
 
 def gen_payment_method():
-
-    rows = []
-
-    for idx,data in enumerate(PAYMENT_METHODS,1):
-
-        code,name,ptype,provider,fee,inst = data
-
-        rows.append({
-            "payment_method_id": idx,
-            "method_code": code,
-            "method_name": name,
-            "payment_type": ptype,
-            "provider": provider,
-            "processing_fee_pct": fee,
-            "supports_installment": inst
-        })
-
-    return pd.DataFrame(rows)
-
-# =====================================================
-# CURRENCY
-# =====================================================
+    return pd.DataFrame([{
+        "payment_method_id":  m[0],
+        "method_code":        m[1],
+        "method_name":        m[2],
+        "payment_type":       m[3],
+        "provider":           m[4],
+        "processing_fee_pct": m[5],
+        "supports_installment": m[6],
+    } for m in PAYMENT_METHODS])
 
 def gen_currency():
+    return pd.DataFrame([{
+        "currency_code": c[0], "currency_name": c[1],
+        "symbol": c[2], "usd_exchange_rate": c[3],
+    } for c in CURRENCIES])
 
+def _make_tx(pid, ck, tx_date, source_type, source_ref, gross_range, status_weights, gateway_fee_pct):
+    """Build a single payment transaction dict."""
+    method_id = random.randint(1, 9)
+    currency  = random.choice(CURRENCY_CODES)
+
+    # Outlier: ~2% high-value transactions
+    if random.random() < 0.02:
+        gross = round(random.uniform(1500, 5000), 2)
+    else:
+        gross = round(random.uniform(*gross_range), 2)
+
+    discount = round(gross * random.choice([0,0,0,0.05,0.08,0.10]), 2)
+    tax      = round((gross - discount) * 0.11, 2)
+    net      = round(gross - discount + tax, 2)
+
+    status   = random.choices(
+        ["Completed","Pending","Failed","Refunded"],
+        weights=status_weights
+    )[0]
+    refund = net if status=="Refunded" and random.random()<0.9 else round(random.uniform(0.3*net,net),2) if status=="Refunded" else 0.0
+
+    installment = 0
+    if status == "Completed":
+        m_data = PAYMENT_METHODS[method_id - 1]
+        if m_data[6]:  # supports_installment
+            installment = random.choice([0, 0, 3, 6, 12])
+
+    return {
+        "payment_id":        f"PAY{pid:08d}",
+        "payment_reference": str(fake.uuid4()),
+        "invoice_number":    f"INV{pid:08d}",
+        "customer_key":      int(ck),
+        "transaction_date":  str(tx_date),
+        "transaction_time":  fake.time(),
+        "payment_method_id": method_id,
+        "currency_code":     currency,
+        "payment_gateway":   random.choice(GATEWAYS),
+        "payment_status":    status,
+        "gross_amount_usd":  gross,
+        "discount_usd":      discount,
+        "tax_usd":           tax,
+        "net_amount_usd":    net,
+        "refund_amount_usd": refund,
+        "gateway_fee_usd":   round(net * gateway_fee_pct, 2),
+        "installment_months": installment,
+        "source_type":       source_type,
+        "source_reference":  source_ref,
+    }
+
+def gen_payment_transactions(method_df, currency_df, total=15000):
     rows = []
+    pid = 1
 
-    for code,name,symbol,rate in CURRENCIES:
+    # ── 1. Flight payments ──
+    for _, r in booking_df.iterrows():
+        fs = r["flight_status"]
+        sw = [0,0,0,100] if fs=="Cancelled" else [94,3,2,1]
 
-        rows.append({
-            "currency_code": code,
-            "currency_name": name,
-            "currency_symbol": symbol,
-            "usd_exchange_rate": rate
-        })
+        rows.append(_make_tx(
+            pid=pid, ck=r["customer_key"],
+            tx_date=r["booking_date"],
+            source_type="FLIGHT", source_ref=r["booking_id"],
+            gross_range=(100,900),
+            status_weights=sw,
+            gateway_fee_pct=0.020,
+        ))
 
-    return pd.DataFrame(rows)
+    # ── 2. Hotel payments ──
+    for _, r in res_df.iterrows():
+        rs = r["status"]
+        if rs=="Cancelled": sw=[0,0,0,100]
+        elif rs=="No-Show": sw=[85,0,10,5]
+        else: sw=[93,3,2,2]
 
-# =====================================================
-# PAYMENT TRANSACTION
-# =====================================================
+        rows.append(_make_tx(
+            pid=pid, ck=r["customer_key"],
+            tx_date=r["booking_date"],
+            source_type="HOTEL", source_ref=r["reservation_id"],
+            gross_range=(80,1200),
+            status_weights=sw,
+            gateway_fee_pct=0.018,
+        ))
 
-def gen_payment_transaction(
-        method_df,
-        currency_df,
-        n_rows=15000):
+    # ── 3. Car rental payments ──
+    for _, r in order_df.iterrows():
+        # Align payment status with order status
+        os_ = r["order_status"]
+        if os_ == "Completed":
+            sw = [96, 1, 1, 2]
+        elif os_=="Cancelled":
+            sw=[0,0,0,100]
+        else:  # No-Show
+            sw = [90, 0, 0, 10]
 
-    rows = []
+        rows.append(_make_tx(
+            pid=pid, ck=r["customer_key"],
+            tx_date=r["order_date"],
+            source_type="CAR_RENTAL", source_ref=r["order_id"],
+            gross_range=(25, 200),
+            status_weights=sw,
+            gateway_fee_pct=0.022,
+        ))
+        pid += 1
 
-    method_ids = method_df["payment_method_id"].tolist()
-    currencies = currency_df["currency_code"].tolist()
+    # ── Multi-attempt outlier: inject ~2% duplicate Failed+Completed pairs ──
+    df = pd.DataFrame(rows)
+    completed = df[df["payment_status"] == "Completed"].sample(frac=0.02, random_state=5)
+    retries = completed.copy()
+    retries["payment_id"]        = [f"PAY{pid+j:08d}" for j in range(len(retries))]
+    retries["payment_reference"] = [str(fake.uuid4()) for _ in range(len(retries))]
+    retries["invoice_number"]    = retries["payment_id"].str.replace("PAY","INV")
+    retries["payment_status"]    = "Failed"
+    retries["net_amount_usd"]    = 0.0
+    retries["gateway_fee_usd"]   = 0.0
 
-    customer_keys = customer_df["customer_key"].tolist()
+    df = pd.concat([df, retries], ignore_index=True)
+    return df
 
-    for i in range(1,n_rows+1):
+# ── Main ──────────────────────────────────────────────────────────────────────
+if __name__ == "__main__":
+    print("=== PAYMENT SOURCE GENERATOR v2 ===")
+    method_df   = gen_payment_method()
+    currency_df = gen_currency()
+    tx_df       = gen_payment_transactions(method_df, currency_df, total=15000)
 
-        gross = round(
-            random.uniform(50,1500),
-            2
-        )
+    tables = {
+        "src_payment_method":      method_df,
+        "src_currency":            currency_df,
+        "src_payment_transaction": tx_df,
+    }
+    for name, df in tables.items():
+        path = os.path.join(OUTPUT_DIR, f"{name}.csv")
+        df.to_csv(path, index=False)
+        print(f"  {name:<28}: {len(df):,} rows x {len(df.columns)} cols")
 
-        discount = round(
-            gross * random.choice(
-                [0,0.05,0.10]
-            ),
-            2
-        )
-
-        tax = round(
-            (gross-discount)*0.11,
-            2
-        )
-
-        net = round(
-            gross-discount+tax,
-            2
-        )
-
-        rows.append({
-
-            "payment_id":
-                f"PAY{i:08d}",
-
-            "payment_reference":
-                fake.uuid4(),
-
-            "invoice_number":
-                f"INV{i:08d}",
-
-            "customer_key":
-                random.choice(customer_keys),
-
-            "transaction_date":
-                fake.date_between(
-                    start_date="-2y",
-                    end_date="today"
-                ),
-
-            "transaction_time":
-                fake.time(),
-
-            "payment_method_id":
-                random.choice(method_ids),
-
-            "currency_code":
-                random.choice(currencies),
-
-            "payment_gateway":
-                random.choice(
-                    PAYMENT_GATEWAYS
-                ),
-
-            "payment_status":
-                random.choices(
-                    PAYMENT_STATUS,
-                    weights=[85,8,4,3]
-                )[0],
-
-            "gross_amount_usd":
-                gross,
-
-            "discount_amount_usd":
-                discount,
-
-            "tax_amount_usd":
-                tax,
-
-            "net_amount_usd":
-                net,
-
-            "refund_amount_usd":
-                round(
-                    random.uniform(0,net)
-                    if random.random()<0.05
-                    else 0,
-                    2
-                ),
-
-            "gateway_fee_usd":
-                round(net*0.02,2),
-
-            "installment_months":
-                random.choice(
-                    [0,0,0,3,6,12]
-                ),
-
-            "source_type":
-                random.choice(
-                    ["FLIGHT","HOTEL"]
-                ),
-
-            "source_reference":
-                fake.bothify(
-                    text="REF########"
-                )
-        })
-
-    return pd.DataFrame(rows)
-
-# =====================================================
-# GENERATE DATA
-# =====================================================
-
-print("Generating payment methods...")
-method_df = gen_payment_method()
-
-print("Generating currencies...")
-currency_df = gen_currency()
-
-print("Generating transactions...")
-transaction_df = gen_payment_transaction(
-    method_df,
-    currency_df,
-    15000
-)
-
-# =====================================================
-# SAVE CSV
-# =====================================================
-
-tables = {
-    "src_payment_method": method_df,
-    "src_currency": currency_df,
-    "src_payment_transaction": transaction_df
-}
-
-for name,df in tables.items():
-
-    path = os.path.join(
-        OUTPUT_DIR,
-        f"{name}.csv"
-    )
-
-    df.to_csv(
-        path,
-        index=False
-    )
-
-    print(
-        f"{name}: {len(df):,} rows saved"
-    )
-
-print("\nPayment Source System completed.")
+    print(f"\n  Flight txns     : {(tx_df['source_type']=='FLIGHT').sum():,}")
+    print(f"  Hotel txns      : {(tx_df['source_type']=='HOTEL').sum():,}")
+    print(f"  Car rental txns : {(tx_df['source_type']=='CAR_RENTAL').sum():,}")
+    print(f"  Retry (Failed)  : {(tx_df['payment_status']=='Failed').sum():,}")
+    print(f"  Refunded        : {(tx_df['payment_status']=='Refunded').sum():,}")
+    print("Done ✓")
