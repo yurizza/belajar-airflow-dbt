@@ -131,7 +131,7 @@ def gen_src_customer(n=5000):
                     "Japanese"
                 ]),
             "email": fake.email(),
-            "phone": fake.phone_number()
+            "phone": fake.numerify(text="###-###-####")
         })
 
     return pd.DataFrame(rows)
@@ -208,7 +208,7 @@ def gen_src_booking(n=15000):
             "booking_channel":
                 random.choice(
                     BOOKING_CHANNELS
-                ) ,
+                ),
             "fare_basis_code":
                 random.choice(
                     FARE_BASIS_CODES
