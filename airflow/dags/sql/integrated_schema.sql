@@ -51,8 +51,8 @@ CREATE TABLE IF NOT EXISTS customer_source.src_customer (
 
 -- Catatan: PostgreSQL secara bawaan tidak mendukung 'CREATE INDEX IF NOT EXISTS' 
 -- digabung dengan nama indeks yang otomatis, namun sintaks di bawah ini valid di Postgres 9.5+.
-CREATE INDEX IF NOT EXISTS idx_customer_id         ON customer_source.src_customer (customer_id);
-CREATE INDEX IF NOT EXISTS idx_customer_is_current ON customer_source.src_customer (is_current);
+-- CREATE INDEX IF NOT EXISTS idx_customer_id         ON customer_source.src_customer (customer_id);
+-- CREATE INDEX IF NOT EXISTS idx_customer_is_current ON customer_source.src_customer (is_current);
 
 CREATE TABLE IF NOT EXISTS ch_booking_source.src_book_channel (
     channel_key          SERIAL        PRIMARY KEY,
@@ -73,7 +73,7 @@ CREATE TABLE IF NOT EXISTS flight_source.src_booking (
     booking_channel  VARCHAR(10)
 );
 
-CREATE INDEX IF NOT EXISTS idx_booking_customer ON flight_source.src_booking (customer_key);
+-- CREATE INDEX IF NOT EXISTS idx_booking_customer ON flight_source.src_booking (customer_key);
 
 CREATE TABLE IF NOT EXISTS flight_source.src_flight_segment (
     segment_id               SERIAL        PRIMARY KEY,
@@ -90,8 +90,8 @@ CREATE TABLE IF NOT EXISTS flight_source.src_flight_segment (
     status                   VARCHAR(20)   CHECK (status IN ('Flown','Cancelled','No-Show','Diverted'))
 );
 
-CREATE INDEX IF NOT EXISTS idx_segment_booking     ON flight_source.src_flight_segment (booking_id);
-CREATE INDEX IF NOT EXISTS idx_segment_destination ON flight_source.src_flight_segment (destination_airport);
+-- CREATE INDEX IF NOT EXISTS idx_segment_booking     ON flight_source.src_flight_segment (booking_id);
+-- CREATE INDEX IF NOT EXISTS idx_segment_destination ON flight_source.src_flight_segment (destination_airport);
 
 
 -- ============================================================
@@ -118,7 +118,7 @@ CREATE TABLE IF NOT EXISTS hotel_source.src_room_inventory (
     is_active       SMALLINT      DEFAULT 1 CHECK (is_active IN (0, 1)) -- Koma gantung di sini sudah dihapus
 );
 
-CREATE INDEX IF NOT EXISTS idx_room_hotel ON hotel_source.src_room_inventory (hotel_id);
+-- CREATE INDEX IF NOT EXISTS idx_room_hotel ON hotel_source.src_room_inventory (hotel_id);
 
 CREATE TABLE IF NOT EXISTS hotel_source.src_guest_profile (
     guest_id              VARCHAR(15)   PRIMARY KEY,
@@ -141,8 +141,8 @@ CREATE TABLE IF NOT EXISTS hotel_source.src_reservation (
     status            VARCHAR(20)   CHECK (status IN ('Confirmed','Checked-Out','Cancelled','No-Show'))
 );
 
-CREATE INDEX IF NOT EXISTS idx_reservation_customer ON hotel_source.src_reservation (customer_key);
-CREATE INDEX IF NOT EXISTS idx_reservation_hotel    ON hotel_source.src_reservation (hotel_id);
+-- CREATE INDEX IF NOT EXISTS idx_reservation_customer ON hotel_source.src_reservation (customer_key);
+-- CREATE INDEX IF NOT EXISTS idx_reservation_hotel    ON hotel_source.src_reservation (hotel_id);
 
 CREATE TABLE IF NOT EXISTS hotel_source.src_hotel_stay (
     stay_id               VARCHAR(25)   PRIMARY KEY,
@@ -200,8 +200,8 @@ CREATE TABLE IF NOT EXISTS rental_source.src_rental_order (
     estimated_rate_usd NUMERIC(8, 2)
 );
 
-CREATE INDEX IF NOT EXISTS idx_order_customer    ON rental_source.src_rental_order (customer_key);
-CREATE INDEX IF NOT EXISTS idx_order_reservation ON rental_source.src_rental_order (reservation_id);
+-- CREATE INDEX IF NOT EXISTS idx_order_customer    ON rental_source.src_rental_order (customer_key);
+-- CREATE INDEX IF NOT EXISTS idx_order_reservation ON rental_source.src_rental_order (reservation_id);
 
 CREATE TABLE IF NOT EXISTS rental_source.src_rental_trip (
     trip_id            SERIAL        PRIMARY KEY,
@@ -262,7 +262,7 @@ CREATE TABLE IF NOT EXISTS payment_source.src_payment_transaction (
     source_reference    VARCHAR(20)    -- booking_id / reservation_id / order_id
 );
 
-CREATE INDEX IF NOT EXISTS idx_payment_customer ON payment_source.src_payment_transaction (customer_key);
-CREATE INDEX IF NOT EXISTS idx_payment_status   ON payment_source.src_payment_transaction (payment_status);
-CREATE INDEX IF NOT EXISTS idx_payment_source   ON payment_source.src_payment_transaction (source_type, source_reference);
-CREATE INDEX IF NOT EXISTS idx_payment_date     ON payment_source.src_payment_transaction (transaction_date);
+-- CREATE INDEX IF NOT EXISTS idx_payment_customer ON payment_source.src_payment_transaction (customer_key);
+-- CREATE INDEX IF NOT EXISTS idx_payment_status   ON payment_source.src_payment_transaction (payment_status);
+-- CREATE INDEX IF NOT EXISTS idx_payment_source   ON payment_source.src_payment_transaction (source_type, source_reference);
+-- CREATE INDEX IF NOT EXISTS idx_payment_date     ON payment_source.src_payment_transaction (transaction_date);
