@@ -1,0 +1,51 @@
+hotel_id,hotel_name,brand,market_segment,city,star_rating,total_rooms
+HTL0001,Swiss-Belhotel Palembang,Swiss-Belhotel,Midscale,Palembang,2,350
+HTL0002,Hilton Manado,Hilton,Premium,Manado,4,80
+HTL0003,Marriott Makassar,Marriott,Luxury,Makassar,5,350
+HTL0004,Favehotel Surabaya,Favehotel,Economy,Surabaya,4,200
+HTL0005,Novotel Palembang,Novotel,Midscale,Palembang,4,350
+HTL0006,Novotel Sydney,Novotel,Midscale,Sydney,3,200
+HTL0007,Novotel Denpasar,Novotel,Midscale,Denpasar,3,80
+HTL0008,Aston Surabaya,Aston,Midscale,Surabaya,4,350
+HTL0009,Marriott Singapore,Marriott,Luxury,Singapore,5,200
+HTL0010,Grand Hyatt Makassar,Grand Hyatt,Luxury,Makassar,4,200
+HTL0011,Novotel Bandung,Novotel,Midscale,Bandung,4,50
+HTL0012,Amaris Kuala Lumpur,Amaris,Economy,Kuala Lumpur,2,350
+HTL0013,Amaris Jakarta,Amaris,Economy,Jakarta,3,80
+HTL0014,Novotel Dubai,Novotel,Midscale,Dubai,4,80
+HTL0015,Amaris Bangkok,Amaris,Economy,Bangkok,2,350
+HTL0016,Hilton Jakarta,Hilton,Premium,Jakarta,4,50
+HTL0017,Hilton Singapore,Hilton,Premium,Singapore,5,50
+HTL0018,Swiss-Belhotel Hong Kong,Swiss-Belhotel,Midscale,Hong Kong,2,80
+HTL0019,Ibis Styles Bangkok,Ibis Styles,Economy,Bangkok,2,200
+HTL0020,Aston Denpasar,Aston,Midscale,Denpasar,4,200
+HTL0021,Novotel Dubai,Novotel,Midscale,Dubai,2,80
+HTL0022,Amaris Makassar,Amaris,Economy,Makassar,4,200
+HTL0023,Hilton Bandung,Hilton,Premium,Bandung,5,50
+HTL0024,Hilton Tokyo,Hilton,Premium,Tokyo,4,350
+HTL0025,Swiss-Belhotel Surabaya,Swiss-Belhotel,Midscale,Surabaya,2,50
+HTL0026,Hilton Makassar,Hilton,Premium,Makassar,4,80
+HTL0027,Swiss-Belhotel Denpasar,Swiss-Belhotel,Midscale,Denpasar,2,350
+HTL0028,Aston Sydney,Aston,Midscale,Sydney,3,80
+HTL0029,Ibis Styles Surabaya,Ibis Styles,Economy,Surabaya,3,80
+HTL0030,Marriott Kuala Lumpur,Marriott,Luxury,Kuala Lumpur,5,50
+HTL0031,Grand Hyatt Bandung,Grand Hyatt,Luxury,Bandung,4,200
+HTL0032,Swiss-Belhotel Bandung,Swiss-Belhotel,Midscale,Bandung,3,200
+HTL0033,Swiss-Belhotel London,Swiss-Belhotel,Midscale,London,3,350
+HTL0034,Marriott Denpasar,Marriott,Luxury,Denpasar,4,120
+HTL0035,Swiss-Belhotel Sydney,Swiss-Belhotel,Midscale,Sydney,3,80
+HTL0036,Ibis Styles London,Ibis Styles,Economy,London,4,80
+HTL0037,Ibis Styles Surabaya,Ibis Styles,Economy,Surabaya,4,120
+HTL0038,Novotel Sydney,Novotel,Midscale,Sydney,4,80
+HTL0039,Swiss-Belhotel Makassar,Swiss-Belhotel,Midscale,Makassar,3,50
+HTL0040,Amaris Palembang,Amaris,Economy,Palembang,3,50
+HTL0041,Favehotel Makassar,Favehotel,Economy,Makassar,4,120
+HTL0042,Amaris Kuala Lumpur,Amaris,Economy,Kuala Lumpur,2,120
+HTL0043,Swiss-Belhotel Dubai,Swiss-Belhotel,Midscale,Dubai,3,200
+HTL0044,Hilton Makassar,Hilton,Premium,Makassar,5,350
+HTL0045,Amaris Manado,Amaris,Economy,Manado,3,120
+HTL0046,Novotel Bandung,Novotel,Midscale,Bandung,2,120
+HTL0047,Ibis Styles London,Ibis Styles,Economy,London,2,80
+HTL0048,Ibis Styles Hong Kong,Ibis Styles,Economy,Hong Kong,3,80
+HTL0049,Swiss-Belhotel London,Swiss-Belhotel,Midscale,London,3,200
+HTL0050,Grand Hyatt Surabaya,Grand Hyatt,Luxury,Surabaya,4,50
