@@ -1,7 +1,7 @@
-channel_key,channel_code,channel_name,channel_type,commission_rate_pct,booking_fee_usd,typical_lead_days,volume_share_pct
-1,WEB,Website Direct,Direct,0,11.281225710167217,21,0.35
-2,MOB,Mobile App,Direct,0,14.200188900722415,14,0.3
-3,GDS,Global Distribution System,Indirect,8,13.91566708672158,30,0.15
-4,OTA,Online Travel Agency,Indirect,10,9.042793437526125,18,0.12
-5,CTR,Call Center,Direct,5,4.160464840047123,7,0.05
-6,AGT,Travel Agent,Indirect,12,2.9262628509305486,45,0.03
+channel_key,channel_code,channel_name,channel_type,commission_rate_pct,booking_fee_usd,typical_lead_days,volume_share_pct,created_at,updated_at
+1,WEB,Website Direct,Direct,0,9.83,21,0.35,2020-03-26 00:36:33,2020-03-26 00:36:33
+2,MOB,Mobile App,Direct,0,4.73,14,0.3,2020-08-11 20:35:36,2025-10-06 10:25:06
+3,GDS,Global Distribution System,Indirect,8,10.0,30,0.15,2019-04-27 11:06:32,2024-05-15 18:22:46
+4,OTA,Online Travel Agency,Indirect,10,1.48,18,0.12,2019-11-26 10:20:39,2019-11-26 10:20:39
+5,CTR,Call Center,Direct,5,8.56,7,0.05,2020-05-03 00:53:28,2020-05-03 00:53:28
+6,AGT,Travel Agent,Indirect,12,7.57,45,0.03,2020-01-28 21:54:12,2026-02-22 08:01:54
