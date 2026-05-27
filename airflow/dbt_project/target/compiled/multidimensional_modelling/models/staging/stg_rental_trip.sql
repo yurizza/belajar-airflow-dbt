@@ -11,4 +11,4 @@ select
     cast(total_charge_usd as numeric) as total_charge_usd,
     initcap(trip_status) as trip_status,
     cast(driver_rating as numeric) as driver_rating
-from "warehouse"."rental_source"."rental_trip"
+from "data_warehouse"."rental_source"."src_rental_trip"

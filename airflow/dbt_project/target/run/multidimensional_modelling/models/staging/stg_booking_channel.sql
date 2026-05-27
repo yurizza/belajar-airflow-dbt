@@ -1,6 +1,6 @@
 
   
-  create view "warehouse"."staging"."stg_booking_channel__dbt_tmp" as (
+  create view "data_warehouse"."main"."stg_booking_channel__dbt_tmp" as (
     select
     cast(channel_key as integer) as channel_key,
     upper(channel_code) as channel_code,
@@ -10,5 +10,5 @@
     cast(booking_fee_usd as numeric) as booking_fee_usd,
     cast(typical_lead_days as integer) as typical_lead_days,
     cast(volume_share_pct as numeric) as volume_share_pct
-from "warehouse"."ch_booking_source"."booking_channel"
+from "data_warehouse"."ch_booking_source"."src_book_channel"
   );

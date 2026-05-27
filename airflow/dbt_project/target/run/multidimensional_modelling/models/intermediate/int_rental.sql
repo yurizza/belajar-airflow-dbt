@@ -1,6 +1,6 @@
 
   
-  create view "warehouse"."staging"."int_rental__dbt_tmp" as (
+  create view "data_warehouse"."main"."int_rental__dbt_tmp" as (
     select
     ro.order_id,
     ro.customer_key,
@@ -26,10 +26,10 @@
     ro.base_charge_usd,
     ro.surcharge_usd,
     ro.total_charge_usd
-from "warehouse"."rental_source"."src_rental_order" ro
-join "warehouse"."rental_source"."src_rental_trip" rt on ro.order_id = rt.order_id
-join "warehouse"."rental_source"."src_vehicle" v on ro.vehicle_id = v.vehicle_id
-join "warehouse"."rental_source"."src_driver" d on rt.driver_id = d.driver_id
-left join "warehouse"."flight_source"."src_airport" ap on ro.pickup_airport_code = ap.airport_code
-left join "warehouse"."hotel_source"."src_hotel_property" hp on rt.dropoff_hotel_id = hp.hotel_id
+from "data_warehouse"."rental_source"."src_rental_order" ro
+join "data_warehouse"."rental_source"."src_rental_trip" rt on ro.order_id = rt.order_id
+join "data_warehouse"."rental_source"."src_vehicle" v on ro.vehicle_id = v.vehicle_id
+join "data_warehouse"."rental_source"."src_driver" d on rt.driver_id = d.driver_id
+left join "data_warehouse"."flight_source"."src_airport" ap on ro.pickup_airport_code = ap.airport_code
+left join "data_warehouse"."hotel_source"."src_hotel_property" hp on rt.dropoff_hotel_id = hp.hotel_id
   );

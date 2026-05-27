@@ -23,9 +23,14 @@ select
     ro.base_charge_usd,
     ro.surcharge_usd,
     ro.total_charge_usd
-from {{ source('rental_source','src_rental_order') }} ro
-join {{ source('rental_source','src_rental_trip') }} rt on ro.order_id = rt.order_id
-join {{ source('rental_source','src_vehicle') }} v on ro.vehicle_id = v.vehicle_id
-join {{ source('rental_source','src_driver') }} d on rt.driver_id = d.driver_id
-left join {{ source('flight_source','src_airport') }} ap on ro.pickup_airport_code = ap.airport_code
-left join {{ source('hotel_source','src_hotel_property') }} hp on rt.dropoff_hotel_id = hp.hotel_id
+from {{ ref('stg_rental_order') }} ro
+join {{ ref('stg_rental_trip') }} rt 
+    on ro.order_id = rt.order_id
+join {{ ref('stg_vehicle') }} v 
+    on ro.vehicle_id = v.vehicle_id
+join {{ ref('stg_driver') }} d 
+    on rt.driver_id = d.driver_id
+left join {{ ref('stg_airport') }} ap 
+    on ro.pickup_airport_code = ap.airport_code
+left join {{ ref('stg_hotel_property') }} hp 
+    on rt.dropoff_hotel_id = hp.hotel_id

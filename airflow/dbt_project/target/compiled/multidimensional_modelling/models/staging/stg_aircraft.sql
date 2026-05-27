@@ -1,7 +1,7 @@
 select
-    registration_number,
+    registration,
     aircraft_type,
     manufacturer,
     cast(seat_capacity as integer) as seat_capacity,
-    initcap(operating_airline) as operating_airline
-from "warehouse"."flight_source"."aircraft"
+    initcap(airline) as operating_airline
+from "data_warehouse"."flight_source"."src_aircraft"

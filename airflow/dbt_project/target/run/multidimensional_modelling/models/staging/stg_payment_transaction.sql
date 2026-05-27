@@ -1,6 +1,6 @@
 
   
-  create view "warehouse"."staging"."stg_payment_transaction__dbt_tmp" as (
+  create view "data_warehouse"."main"."stg_payment_transaction__dbt_tmp" as (
     select
     payment_id,
     payment_reference,
@@ -21,5 +21,5 @@
     cast(installment_months as integer) as installment_months,
     upper(source_type) as source_type,
     source_reference
-from "warehouse"."payment_source"."payment_transaction"
+from "data_warehouse"."payment_source"."src_payment_transaction"
   );

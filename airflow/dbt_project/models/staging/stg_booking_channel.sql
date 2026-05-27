@@ -7,4 +7,4 @@ select
     cast(booking_fee_usd as numeric) as booking_fee_usd,
     cast(typical_lead_days as integer) as typical_lead_days,
     cast(volume_share_pct as numeric) as volume_share_pct
-from {{ source('ch_booking_source', 'src_booking_channel') }}
+from {{ source('ch_booking_source', 'src_book_channel') }}

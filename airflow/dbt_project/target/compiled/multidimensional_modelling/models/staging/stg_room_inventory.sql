@@ -6,4 +6,4 @@ select
     initcap(room_type_name) as room_type_name,
     cast(base_rate_usd as numeric) as base_rate_usd,
     cast(is_active as boolean) as is_active
-from "warehouse"."hotel_source"."room_inventory"
+from "data_warehouse"."hotel_source"."src_room_inventory"

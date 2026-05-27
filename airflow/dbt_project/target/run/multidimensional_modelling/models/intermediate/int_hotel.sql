@@ -1,6 +1,6 @@
 
   
-  create view "warehouse"."staging"."int_hotel__dbt_tmp" as (
+  create view "data_warehouse"."main"."int_hotel__dbt_tmp" as (
     select
     pt.payment_id,
     pt.customer_key,
@@ -21,7 +21,7 @@
     pm.supports_installment,
     cur.currency_code,
     cur.usd_exchange_rate
-from "warehouse"."payment_source"."src_payment_transaction" pt
-join "warehouse"."payment_source"."src_payment_method" pm on pt.payment_method_id = pm.payment_method_id
-join "warehouse"."payment_source"."src_currency" cur on pt.currency_code = cur.currency_code
+from "data_warehouse"."payment_source"."src_payment_transaction" pt
+join "data_warehouse"."payment_source"."src_payment_method" pm on pt.payment_method_id = pm.payment_method_id
+join "data_warehouse"."payment_source"."src_currency" cur on pt.currency_code = cur.currency_code
   );

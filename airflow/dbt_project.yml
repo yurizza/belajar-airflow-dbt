@@ -2,7 +2,7 @@ name: 'multidimensional_modelling'
 version: '1.0'
 config-version: 2
 
-profile: 'multidimensional_modelling'
+profile: 'dbt_project'
 
 model-paths: ["models"]
 analysis-paths: ["analysis"]
@@ -14,10 +14,10 @@ target-path: "target"
 clean-targets: ["target", "dbt_modules"]
 
 models:
-  multidimensional_modelling:
-    staging:
-      +materialized: view
-    intermediate:
-      +materialized: view
-    marts:
-      +materialized: table
+  staging:
+    +materialized: view
+  intermediate:
+    +materialized: view
+  marts:
+    +materialized: table
+

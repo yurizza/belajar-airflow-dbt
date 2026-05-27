@@ -1,6 +1,6 @@
 
   
-  create view "warehouse"."staging"."stg_vehicle__dbt_tmp" as (
+  create view "data_warehouse"."main"."stg_vehicle__dbt_tmp" as (
     select
     vehicle_id,
     plate,
@@ -13,5 +13,5 @@
     cast(rate_usd_day as numeric) as rate_usd_day,
     cast(prod_year as integer) as prod_year,
     initcap(status) as status
-from "warehouse"."rental_source"."vehicle"
+from "data_warehouse"."rental_source"."src_vehicle"
   );

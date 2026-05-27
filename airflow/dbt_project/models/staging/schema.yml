@@ -1,39 +1,175 @@
 version: 2
 
-sources:
-  - name: flight_source
-    tables:
-      - name: src_aircraft
-      - name: src_airport
-      - name: src_booking
-      - name: src_flight_segment
-      - name: src_reservation
+models:
+  - name: stg_customer
+    description: "Staging tabel customer"
+    columns:
+      - name: customer_id
+        description: "Primary key customer"
+        tests:
+          - unique
+          - not_null
+      - name: gender
+        description: "Jenis kelamin (M/F)"
+        tests:
+          - accepted_values:
+              values: ['M', 'F']
 
-  - name: ch_booking_source
-    tables:
-      - name: src_booking_channel
-      - name: src_booking
+  - name: stg_booking
+    description: "Staging tabel booking"
+    columns:
+      - name: booking_id
+        description: "Primary key booking"
+        tests:
+          - unique
+          - not_null
+      - name: customer_id
+        description: "Relasi ke stg_customer"
+        tests:
+          - relationships:
+              to: ref('stg_customer')
+              field: customer_id
 
-  - name: customer_source
-    tables:
-      - name: src_customer
+  - name: stg_airport
+    description: "Staging tabel airport"
+    columns:
+      - name: airport_code
+        description: "Kode unik bandara"
+        tests:
+          - unique
+          - not_null
 
-  - name: hotel_source
-    tables:
-      - name: src_guest_profile
-      - name: src_hotel_property
-      - name: src_hotel_stay
-      - name: src_room_inventory
+  - name: stg_aircraft
+    description: "Staging tabel aircraft"
+    columns:
+      - name: aircraft_id
+        description: "Primary key pesawat"
+        tests:
+          - unique
+          - not_null
 
-  - name: payment_source
-    tables:
-      - name: src_payment_method
-      - name: src_payment_transaction
-      - name: src_currency
+  - name: stg_flight_segment
+    description: "Staging tabel segmen penerbangan"
+    columns:
+      - name: segment_id
+        description: "Primary key segmen"
+        tests:
+          - unique
+          - not_null
 
-  - name: rental_source
-    tables:
-      - name: src_driver
-      - name: src_rental_order
-      - name: src_rental_trip
-      - name: src_vehicle
+  - name: stg_reservation
+    description: "Staging tabel reservasi penerbangan"
+    columns:
+      - name: reservation_id
+        description: "Primary key reservasi"
+        tests:
+          - unique
+          - not_null
+
+  - name: stg_guest_profile
+    description: "Staging tabel profil tamu hotel"
+    columns:
+      - name: guest_id
+        description: "Primary key tamu"
+        tests:
+          - unique
+          - not_null
+
+  - name: stg_hotel_property
+    description: "Staging tabel properti hotel"
+    columns:
+      - name: property_id
+        description: "Primary key properti"
+        tests:
+          - unique
+          - not_null
+
+  - name: stg_hotel_stay
+    description: "Staging tabel lama menginap"
+    columns:
+      - name: stay_id
+        description: "Primary key stay"
+        tests:
+          - unique
+          - not_null
+
+  - name: stg_room_inventory
+    description: "Staging tabel inventori kamar"
+    columns:
+      - name: room_id
+        description: "Primary key kamar"
+        tests:
+          - unique
+          - not_null
+
+  - name: stg_payment_transaction
+    description: "Staging tabel transaksi pembayaran"
+    columns:
+      - name: transaction_id
+        description: "Primary key transaksi"
+        tests:
+          - unique
+          - not_null
+
+  - name: stg_payment_method
+    description: "Staging tabel metode pembayaran"
+    columns:
+      - name: method_id
+        description: "Primary key metode"
+        tests:
+          - unique
+          - not_null
+
+  - name: stg_currency
+    description: "Staging tabel mata uang"
+    columns:
+      - name: currency_code
+        description: "Kode mata uang"
+        tests:
+          - unique
+          - not_null
+
+  - name: stg_driver
+    description: "Staging tabel driver rental"
+    columns:
+      - name: driver_id
+        description: "Primary key driver"
+        tests:
+          - unique
+          - not_null
+
+  - name: stg_vehicle
+    description: "Staging tabel kendaraan rental"
+    columns:
+      - name: vehicle_id
+        description: "Primary key kendaraan"
+        tests:
+          - unique
+          - not_null
+
+  - name: stg_rental_order
+    description: "Staging tabel order rental"
+    columns:
+      - name: order_id
+        description: "Primary key order"
+        tests:
+          - unique
+          - not_null
+
+  - name: stg_rental_trip
+    description: "Staging tabel perjalanan rental"
+    columns:
+      - name: trip_id
+        description: "Primary key trip"
+        tests:
+          - unique
+          - not_null
+
+  - name: stg_booking_channel
+    description: "Staging tabel channel booking"
+    columns:
+      - name: channel_id
+        description: "Primary key channel"
+        tests:
+          - unique
+          - not_null

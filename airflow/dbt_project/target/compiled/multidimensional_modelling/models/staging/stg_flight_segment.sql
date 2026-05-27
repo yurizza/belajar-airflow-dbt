@@ -7,4 +7,4 @@ select
     cast(scheduled_departure as timestamp) as scheduled_departure,
     cast(actual_departure as timestamp) as actual_departure,
     initcap(status) as status
-from "warehouse"."flight_source"."flight_segment"
+from "data_warehouse"."flight_source"."src_flight_segment"

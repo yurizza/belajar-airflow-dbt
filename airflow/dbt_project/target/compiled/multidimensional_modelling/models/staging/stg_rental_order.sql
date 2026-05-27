@@ -11,4 +11,4 @@ select
     initcap(order_status) as order_status,
     coalesce(special_request, 'None') as special_request,
     cast(estimated_rate_usd as numeric) as estimated_rate_usd
-from "warehouse"."rental_source"."rental_order"
+from "data_warehouse"."rental_source"."src_rental_order"
