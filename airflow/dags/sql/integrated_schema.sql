@@ -22,7 +22,9 @@ CREATE TABLE IF NOT EXISTS flight_source.src_airport (
     country       VARCHAR(50)    NOT NULL,
     timezone      VARCHAR(50),
     latitude      NUMERIC(9, 6),
-    longitude     NUMERIC(9, 6)
+    longitude     NUMERIC(9, 6),
+    created_at    TIMESTAMP      NOT NULL ,
+    updated_at    TIMESTAMP      NOT NULL 
 );
 
 CREATE TABLE IF NOT EXISTS flight_source.src_aircraft (
@@ -31,7 +33,9 @@ CREATE TABLE IF NOT EXISTS flight_source.src_aircraft (
     aircraft_type  VARCHAR(50)   NOT NULL,
     manufacturer   VARCHAR(50),
     seat_capacity  SMALLINT,
-    airline        VARCHAR(100)
+    airline        VARCHAR(100),
+    created_at     TIMESTAMP     NOT NULL ,
+    updated_at     TIMESTAMP     NOT NULL 
 );
 
 CREATE TABLE IF NOT EXISTS customer_source.src_customer (
@@ -46,7 +50,9 @@ CREATE TABLE IF NOT EXISTS customer_source.src_customer (
     phone            VARCHAR(30),
     eff_start_date   DATE          NOT NULL,
     eff_end_date     DATE,
-    is_current       SMALLINT      NOT NULL DEFAULT 1 CHECK (is_current IN (0, 1))
+    is_current       SMALLINT      NOT NULL DEFAULT 1 CHECK (is_current IN (0, 1)),
+    created_at       TIMESTAMP     NOT NULL ,
+    updated_at       TIMESTAMP     NOT NULL 
 );
 
 -- Catatan: PostgreSQL secara bawaan tidak mendukung 'CREATE INDEX IF NOT EXISTS' 
@@ -62,7 +68,9 @@ CREATE TABLE IF NOT EXISTS ch_booking_source.src_book_channel (
     commission_rate_pct  NUMERIC(5, 2),
     booking_fee_usd      NUMERIC(8, 2),
     typical_lead_days    SMALLINT,
-    volume_share_pct     NUMERIC(5, 2)
+    volume_share_pct     NUMERIC(5, 2),
+    created_at           TIMESTAMP     NOT NULL ,
+    updated_at           TIMESTAMP     NOT NULL 
 );
 
 CREATE TABLE IF NOT EXISTS flight_source.src_booking (
@@ -70,7 +78,9 @@ CREATE TABLE IF NOT EXISTS flight_source.src_booking (
     customer_key     INTEGER       NOT NULL,
     customer_id      VARCHAR(15)   NOT NULL,
     booking_date     DATE          NOT NULL,
-    booking_channel  VARCHAR(10)
+    booking_channel  VARCHAR(10),
+    created_at       TIMESTAMP     NOT NULL ,
+    updated_at       TIMESTAMP     NOT NULL 
 );
 
 -- CREATE INDEX IF NOT EXISTS idx_booking_customer ON flight_source.src_booking (customer_key);
@@ -87,7 +97,9 @@ CREATE TABLE IF NOT EXISTS flight_source.src_flight_segment (
     actual_arrival           TIMESTAMP,
     flight_duration_minutes  SMALLINT,
     delay_minutes            SMALLINT,
-    status                   VARCHAR(20)   CHECK (status IN ('Flown','Cancelled','No-Show','Diverted'))
+    status                   VARCHAR(20)   CHECK (status IN ('Flown','Cancelled','No-Show','Diverted')),
+    created_at               TIMESTAMP     NOT NULL ,
+    updated_at               TIMESTAMP     NOT NULL 
 );
 
 -- CREATE INDEX IF NOT EXISTS idx_segment_booking     ON flight_source.src_flight_segment (booking_id);
@@ -105,7 +117,9 @@ CREATE TABLE IF NOT EXISTS hotel_source.src_hotel_property (
     market_segment  VARCHAR(20),
     city            VARCHAR(50),
     star_rating     SMALLINT      CHECK (star_rating BETWEEN 1 AND 5),
-    total_rooms     SMALLINT
+    total_rooms     SMALLINT,
+    created_at      TIMESTAMP     NOT NULL ,
+    updated_at      TIMESTAMP     NOT NULL 
 );
 
 CREATE TABLE IF NOT EXISTS hotel_source.src_room_inventory (
@@ -115,7 +129,9 @@ CREATE TABLE IF NOT EXISTS hotel_source.src_room_inventory (
     room_type_code  CHAR(3),
     room_type_name  VARCHAR(40),
     base_rate_usd   NUMERIC(8, 2),
-    is_active       SMALLINT      DEFAULT 1 CHECK (is_active IN (0, 1)) -- Koma gantung di sini sudah dihapus
+    is_active       SMALLINT      DEFAULT 1 CHECK (is_active IN (0, 1)),
+    created_at      TIMESTAMP     NOT NULL ,
+    updated_at      TIMESTAMP     NOT NULL 
 );
 
 -- CREATE INDEX IF NOT EXISTS idx_room_hotel ON hotel_source.src_room_inventory (hotel_id);
@@ -125,7 +141,9 @@ CREATE TABLE IF NOT EXISTS hotel_source.src_guest_profile (
     customer_key          INTEGER       NOT NULL UNIQUE,
     loyalty_tier          VARCHAR(20)   CHECK (loyalty_tier IN ('BLUE','SILVER','GOLD','PLATINUM')),
     preferred_room_type   CHAR(3),
-    special_requests      VARCHAR(100)
+    special_requests      VARCHAR(100),
+    created_at            TIMESTAMP     NOT NULL ,
+    updated_at            TIMESTAMP     NOT NULL 
 );
 
 CREATE TABLE IF NOT EXISTS hotel_source.src_reservation (
@@ -138,7 +156,9 @@ CREATE TABLE IF NOT EXISTS hotel_source.src_reservation (
     destination_city  VARCHAR(50),
     checkin_date      DATE,
     checkout_date     DATE,
-    status            VARCHAR(20)   CHECK (status IN ('Confirmed','Checked-Out','Cancelled','No-Show'))
+    status            VARCHAR(20)   CHECK (status IN ('Confirmed','Checked-Out','Cancelled','No-Show')),
+    created_at        TIMESTAMP     NOT NULL ,
+    updated_at        TIMESTAMP     NOT NULL 
 );
 
 -- CREATE INDEX IF NOT EXISTS idx_reservation_customer ON hotel_source.src_reservation (customer_key);
@@ -149,7 +169,9 @@ CREATE TABLE IF NOT EXISTS hotel_source.src_hotel_stay (
     reservation_id        VARCHAR(15)   NOT NULL UNIQUE,
     actual_checkin_date   DATE,
     actual_nights         SMALLINT,
-    incidental_usd        NUMERIC(8, 2) DEFAULT 0.00
+    incidental_usd        NUMERIC(8, 2) DEFAULT 0.00,
+    created_at            TIMESTAMP     NOT NULL ,
+    updated_at            TIMESTAMP     NOT NULL 
 );
 
 
@@ -168,7 +190,9 @@ CREATE TABLE IF NOT EXISTS rental_source.src_vehicle (
     seat_capacity  SMALLINT,
     rate_usd_day   NUMERIC(8, 2),
     prod_year      SMALLINT,
-    status         VARCHAR(20)   CHECK (status IN ('Active','Maintenance','Inactive'))
+    status         VARCHAR(20)   CHECK (status IN ('Active','Maintenance','Inactive')),
+    created_at     TIMESTAMP     NOT NULL ,
+    updated_at     TIMESTAMP     NOT NULL 
 );
 
 CREATE TABLE IF NOT EXISTS rental_source.src_driver (
@@ -181,7 +205,9 @@ CREATE TABLE IF NOT EXISTS rental_source.src_driver (
     rating        NUMERIC(3, 1),
     total_trips   INTEGER       DEFAULT 0,
     is_active     SMALLINT      DEFAULT 1 CHECK (is_active IN (0, 1)),
-    joined_date   DATE
+    joined_date   DATE,
+    created_at    TIMESTAMP     NOT NULL ,
+    updated_at    TIMESTAMP     NOT NULL 
 );
 
 CREATE TABLE IF NOT EXISTS rental_source.src_rental_order (
@@ -197,7 +223,9 @@ CREATE TABLE IF NOT EXISTS rental_source.src_rental_order (
     order_status       VARCHAR(20)   CHECK (order_status IN ('Completed','Cancelled','No-Show')),
     booking_source     VARCHAR(30),
     special_request    VARCHAR(100),
-    estimated_rate_usd NUMERIC(8, 2)
+    estimated_rate_usd NUMERIC(8, 2),
+    created_at         TIMESTAMP     NOT NULL ,
+    updated_at         TIMESTAMP     NOT NULL 
 );
 
 -- CREATE INDEX IF NOT EXISTS idx_order_customer    ON rental_source.src_rental_order (customer_key);
@@ -215,7 +243,9 @@ CREATE TABLE IF NOT EXISTS rental_source.src_rental_trip (
     surcharge_usd      NUMERIC(8, 2),
     total_charge_usd   NUMERIC(8, 2),
     trip_status        VARCHAR(20)   CHECK (trip_status IN ('Completed','Delayed','Incident')),
-    driver_rating      NUMERIC(3, 1)
+    driver_rating      NUMERIC(3, 1),
+    created_at         TIMESTAMP     NOT NULL ,
+    updated_at         TIMESTAMP     NOT NULL 
 );
 
 
@@ -230,14 +260,18 @@ CREATE TABLE IF NOT EXISTS payment_source.src_payment_method (
     payment_type           VARCHAR(30),
     provider               VARCHAR(30),
     processing_fee_pct     NUMERIC(5, 2),
-    supports_installment   BOOLEAN       DEFAULT FALSE
+    supports_installment   BOOLEAN       DEFAULT FALSE,
+    created_at             TIMESTAMP     NOT NULL ,
+    updated_at             TIMESTAMP     NOT NULL 
 );
 
 CREATE TABLE IF NOT EXISTS payment_source.src_currency (
     currency_code      CHAR(3)       ,
     currency_name      VARCHAR(50),
     symbol             VARCHAR(5),
-    usd_exchange_rate  NUMERIC(12, 4) NOT NULL
+    usd_exchange_rate  NUMERIC(12, 4) NOT NULL,
+    created_at         TIMESTAMP     NOT NULL ,
+    updated_at         TIMESTAMP     NOT NULL 
 );
 
 CREATE TABLE IF NOT EXISTS payment_source.src_payment_transaction (
@@ -259,10 +293,27 @@ CREATE TABLE IF NOT EXISTS payment_source.src_payment_transaction (
     gateway_fee_usd     NUMERIC(12, 2) DEFAULT 0.00,
     installment_months  SMALLINT       DEFAULT 0,
     source_type         VARCHAR(20)    CHECK (source_type IN ('FLIGHT','HOTEL','CAR_RENTAL')),
-    source_reference    VARCHAR(20)    -- booking_id / reservation_id / order_id
+    source_reference    VARCHAR(20),   -- booking_id / reservation_id / order_id
+    created_at          TIMESTAMP      NOT NULL ,
+    updated_at          TIMESTAMP      NOT NULL 
 );
 
 -- CREATE INDEX IF NOT EXISTS idx_payment_customer ON payment_source.src_payment_transaction (customer_key);
 -- CREATE INDEX IF NOT EXISTS idx_payment_status   ON payment_source.src_payment_transaction (payment_status);
 -- CREATE INDEX IF NOT EXISTS idx_payment_source   ON payment_source.src_payment_transaction (source_type, source_reference);
 -- CREATE INDEX IF NOT EXISTS idx_payment_date     ON payment_source.src_payment_transaction (transaction_date);
+
+
+-- Pastikan skema logging dibuat paling awal
+CREATE SCHEMA IF NOT EXISTS logging;
+
+-- Buat tabel penampung log operasional (Versi Update)
+CREATE TABLE IF NOT EXISTS logging.etl_run_log (
+    log_id          SERIAL PRIMARY KEY,
+    target_table    VARCHAR(150) NOT NULL,
+    run_timestamp   TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
+    rows_extracted  INT DEFAULT 0, -- <--- Tambahan: Data dari BigQuery
+    rows_inserted   INT DEFAULT 0, -- <--- Data yang masuk ke Postgres
+    status          VARCHAR(20) NOT NULL, -- 'SUCCESS' atau 'FAILED'
+    error_message   TEXT
+);

@@ -1,6 +1,6 @@
 # airflow/dags/utils/mapping_tables.py
 
-LIST_TABEL_TRAVEL = {
+LIST_TABEL_TRANSPORTATION = {
     # ============================================================
     # --- GRUP 1: TABEL MASTER / INDUK (Wajib Diisi Lebih Dulu) ---
     # ============================================================

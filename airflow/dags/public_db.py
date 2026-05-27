@@ -24,7 +24,7 @@ with DAG(
     execute_full_ddl = SQLExecuteQueryOperator(
         task_id='execute_full_travel_ddl',
         conn_id='postgres_dwh',         # Membaca koneksi dari .env
-        sql='public_db.sql',     # Nama file sql kamu yang berada di folder dags/sql/
+        sql='create_tables.sql',     # Nama file sql kamu yang berada di folder dags/sql/
     )
 
     execute_full_ddl
