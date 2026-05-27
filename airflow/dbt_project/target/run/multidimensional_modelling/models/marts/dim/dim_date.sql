@@ -1,6 +1,6 @@
 
   
-  create view "warehouse"."staging"."dim_date__dbt_tmp" as (
+  create view "data_warehouse"."main"."dim_date__dbt_tmp" as (
     with dates as (
     select d::date as full_date
     from range(date '2020-01-01', date '2030-12-31', interval 1 day) t(d)

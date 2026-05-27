@@ -1,6 +1,6 @@
 
   
-  create view "warehouse"."staging"."stg_airport__dbt_tmp" as (
+  create view "data_warehouse"."main"."stg_airport__dbt_tmp" as (
     select
     airport_code,
     initcap(airport_name) as airport_name,
@@ -9,5 +9,5 @@
     timezone,
     cast(latitude as numeric) as latitude,
     cast(longitude as numeric) as longitude
-from "warehouse"."flight_source"."airport"
+from "data_warehouse"."flight_source"."src_airport"
   );

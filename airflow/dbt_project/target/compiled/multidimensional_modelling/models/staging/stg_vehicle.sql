@@ -10,4 +10,4 @@ select
     cast(rate_usd_day as numeric) as rate_usd_day,
     cast(prod_year as integer) as prod_year,
     initcap(status) as status
-from "warehouse"."rental_source"."vehicle"
+from "data_warehouse"."rental_source"."src_vehicle"

@@ -6,4 +6,4 @@ select
     initcap(provider) as provider,
     cast(processing_fee_pct as numeric) as processing_fee_pct,
     cast(supports_installment as boolean) as supports_installment
-from "warehouse"."payment_source"."payment_method"
+from "data_warehouse"."payment_source"."src_payment_method"

@@ -6,4 +6,4 @@ select
     timezone,
     cast(latitude as numeric) as latitude,
     cast(longitude as numeric) as longitude
-from "warehouse"."flight_source"."airport"
+from "data_warehouse"."flight_source"."src_airport"

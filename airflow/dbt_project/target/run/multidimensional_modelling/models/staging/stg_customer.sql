@@ -1,6 +1,6 @@
 
   
-  create view "warehouse"."staging"."stg_customer__dbt_tmp" as (
+  create view "data_warehouse"."main"."stg_customer__dbt_tmp" as (
     select
     cast(customer_key as integer) as customer_key,
     customer_id,
@@ -17,5 +17,5 @@
     cast(eff_start_date as date) as eff_start_date,
     cast(nullif(eff_end_date, '') as date) as eff_end_date,
     cast(is_current as boolean) as is_current
-from "warehouse"."customer_source"."customer"
+from "data_warehouse"."customer_source"."src_customer"
   );

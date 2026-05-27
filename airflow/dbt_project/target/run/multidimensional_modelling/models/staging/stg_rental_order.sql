@@ -1,6 +1,6 @@
 
   
-  create view "warehouse"."staging"."stg_rental_order__dbt_tmp" as (
+  create view "data_warehouse"."main"."stg_rental_order__dbt_tmp" as (
     select
     order_id,
     cast(customer_key as integer) as customer_key,
@@ -14,5 +14,5 @@
     initcap(order_status) as order_status,
     coalesce(special_request, 'None') as special_request,
     cast(estimated_rate_usd as numeric) as estimated_rate_usd
-from "warehouse"."rental_source"."rental_order"
+from "data_warehouse"."rental_source"."src_rental_order"
   );

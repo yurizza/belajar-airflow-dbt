@@ -1,6 +1,6 @@
 
   
-  create view "warehouse"."staging"."stg_driver__dbt_tmp" as (
+  create view "data_warehouse"."main"."stg_driver__dbt_tmp" as (
     select
     driver_id,
     initcap(driver_name) as driver_name,
@@ -12,5 +12,5 @@
     cast(total_trips as integer) as total_trips,
     cast(is_active as boolean) as is_active,
     cast(joined_date as date) as joined_date
-from "warehouse"."rental_source"."driver"
+from "data_warehouse"."rental_source"."src_driver"
   );
