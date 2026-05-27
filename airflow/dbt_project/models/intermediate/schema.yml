@@ -1,0 +1,28 @@
+version: 2
+
+models:
+  - name: int_flight
+    description: "Intermediate join untuk flight booking, segment, aircraft, airport, channel"
+    columns:
+      - name: booking_id
+        tests: [not_null]
+      - name: segment_id
+        tests: [not_null, unique]
+
+  - name: int_hotel
+    description: "Intermediate join untuk hotel stay dan payment"
+    columns:
+      - name: payment_id
+        tests: [not_null, unique]
+
+  - name: int_payment_transaction
+    description: "Intermediate join untuk payment transaction dengan customer, method, currency"
+    columns:
+      - name: transaction_id
+        tests: [unique]
+
+  - name: int_rental
+    description: "Intermediate join untuk rental order, trip, vehicle, driver, airport, hotel"
+    columns:
+      - name: order_id
+        tests: [not_null, unique]

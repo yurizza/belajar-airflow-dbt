@@ -1,0 +1,30 @@
+[0m03:55:59.294575 [debug] [MainThread]: Sending event: {'category': 'dbt', 'action': 'invocation', 'label': 'start', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x7a4ee10cebf0>, <snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x7a4ede7e8490>, <snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x7a4ede7eaad0>]}
+
+
+============================== 03:55:59.303979 | 134157ff-9a6e-4904-8967-310a2741b681 ==============================
+[0m03:55:59.303979 [info ] [MainThread]: Running with dbt=1.7.4
+[0m03:55:59.306236 [debug] [MainThread]: running dbt with arguments {'printer_width': '80', 'indirect_selection': 'eager', 'log_cache_events': 'False', 'write_json': 'True', 'partial_parse': 'True', 'cache_selected_only': 'False', 'warn_error': 'None', 'debug': 'False', 'fail_fast': 'False', 'log_path': '/opt/airflow/dbt_project/logs', 'profiles_dir': '/opt/airflow/dbt_project', 'version_check': 'True', 'use_colors': 'True', 'use_experimental_parser': 'False', 'no_print': 'None', 'quiet': 'False', 'log_format': 'default', 'invocation_command': 'dbt run --target duckdb --profiles-dir /opt/airflow/dbt_project', 'static_parser': 'True', 'introspect': 'True', 'target_path': 'None', 'warn_error_options': 'WarnErrorOptions(include=[], exclude=[])', 'send_anonymous_usage_stats': 'True'}
+[0m03:55:59.323079 [info ] [MainThread]: Error importing adapter: No module named 'dbt.adapters.duckdb'
+[0m03:55:59.326085 [error] [MainThread]: Encountered an error:
+Runtime Error
+  Credentials in profile "multidimensional_modelling", target "duckdb" invalid: Runtime Error
+    Could not find adapter type duckdb!
+[0m03:55:59.330411 [debug] [MainThread]: Resource report: {"command_name": "run", "command_wall_clock_time": 0.15065268, "process_user_time": 7.986727, "process_kernel_time": 1.485189, "process_mem_max_rss": "227060", "process_in_blocks": "35256", "process_out_blocks": "1792", "command_success": false}
+[0m03:55:59.332704 [debug] [MainThread]: Command `dbt run` failed at 03:55:59.332392 after 0.15 seconds
+[0m03:55:59.334603 [debug] [MainThread]: Sending event: {'category': 'dbt', 'action': 'invocation', 'label': 'end', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x7a4ee10cebf0>, <snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x7a4ede7eb4f0>, <snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x7a4ede7e9b10>]}
+[0m03:55:59.336468 [debug] [MainThread]: Flushing usage events
+[0m04:40:15.995654 [debug] [MainThread]: Sending event: {'category': 'dbt', 'action': 'invocation', 'label': 'start', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x7dbde77d3be0>, <snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x7dbde8203940>, <snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x7dbde4eed6f0>]}
+
+
+============================== 04:40:16.012604 | 8ed7a1c6-b96c-4fb6-9575-9687a9d7dd7e ==============================
+[0m04:40:16.012604 [info ] [MainThread]: Running with dbt=1.7.4
+[0m04:40:16.016917 [debug] [MainThread]: running dbt with arguments {'printer_width': '80', 'indirect_selection': 'eager', 'log_cache_events': 'False', 'write_json': 'True', 'partial_parse': 'True', 'cache_selected_only': 'False', 'warn_error': 'None', 'fail_fast': 'False', 'debug': 'False', 'log_path': '/opt/airflow/dbt_project/logs', 'version_check': 'True', 'profiles_dir': '/opt/airflow/dbt_project', 'use_colors': 'True', 'use_experimental_parser': 'False', 'no_print': 'None', 'quiet': 'False', 'warn_error_options': 'WarnErrorOptions(include=[], exclude=[])', 'introspect': 'True', 'static_parser': 'True', 'invocation_command': 'dbt run --target duckdb --profiles-dir /opt/airflow/dbt_project', 'target_path': 'None', 'log_format': 'default', 'send_anonymous_usage_stats': 'True'}
+[0m04:40:16.045474 [info ] [MainThread]: Error importing adapter: No module named 'dbt.adapters.duckdb'
+[0m04:40:16.049082 [error] [MainThread]: Encountered an error:
+Runtime Error
+  Credentials in profile "multidimensional_modelling", target "duckdb" invalid: Runtime Error
+    Could not find adapter type duckdb!
+[0m04:40:16.053766 [debug] [MainThread]: Resource report: {"command_name": "run", "command_wall_clock_time": 0.2490853, "process_user_time": 12.081309, "process_kernel_time": 1.992541, "process_mem_max_rss": "227324", "process_in_blocks": "41240", "process_out_blocks": "1792", "command_success": false}
+[0m04:40:16.057091 [debug] [MainThread]: Command `dbt run` failed at 04:40:16.056532 after 0.25 seconds
+[0m04:40:16.063698 [debug] [MainThread]: Sending event: {'category': 'dbt', 'action': 'invocation', 'label': 'end', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x7dbde77d3be0>, <snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x7dbde4c66860>, <snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x7dbde4c67850>]}
+[0m04:40:16.066880 [debug] [MainThread]: Flushing usage events

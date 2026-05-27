@@ -1,0 +1,39 @@
+version: 2
+
+sources:
+  - name: flight_source
+    tables:
+      - name: src_aircraft
+      - name: src_airport
+      - name: src_booking
+      - name: src_flight_segment
+      - name: src_reservation
+
+  - name: ch_booking_source
+    tables:
+      - name: src_booking_channel
+      - name: src_booking
+
+  - name: customer_source
+    tables:
+      - name: src_customer
+
+  - name: hotel_source
+    tables:
+      - name: src_guest_profile
+      - name: src_hotel_property
+      - name: src_hotel_stay
+      - name: src_room_inventory
+
+  - name: payment_source
+    tables:
+      - name: src_payment_method
+      - name: src_payment_transaction
+      - name: src_currency
+
+  - name: rental_source
+    tables:
+      - name: src_driver
+      - name: src_rental_order
+      - name: src_rental_trip
+      - name: src_vehicle

@@ -1,0 +1,62 @@
+version: 2
+
+models:
+  - name: dim_customer
+    description: "Dimensi pelanggan"
+    columns:
+      - name: customer_key
+        tests: [unique, not_null]
+
+  - name: dim_airport
+    description: "Dimensi airport"
+    columns:
+      - name: airport_code
+        tests: [unique, not_null]
+
+  - name: dim_aircraft
+    description: "Dimensi pesawat"
+    columns:
+      - name: registration_number
+        tests: [unique, not_null]
+
+  - name: dim_booking_channel
+    description: "Dimensi channel booking"
+    columns:
+      - name: channel_key
+        tests: [unique, not_null]
+
+  - name: dim_hotel_property
+    description: "Dimensi hotel"
+    columns:
+      - name: hotel_id
+        tests: [unique, not_null]
+
+  - name: dim_room_inventory
+    description: "Dimensi kamar hotel"
+    columns:
+      - name: room_id
+        tests: [unique, not_null]
+
+  - name: dim_payment_method
+    description: "Dimensi metode pembayaran"
+    columns:
+      - name: payment_method_id
+        tests: [unique, not_null]
+
+  - name: dim_currency
+    description: "Dimensi mata uang"
+    columns:
+      - name: currency_code
+        tests: [unique, not_null]
+
+  - name: dim_vehicle
+    description: "Dimensi kendaraan rental"
+    columns:
+      - name: vehicle_id
+        tests: [unique, not_null]
+
+  - name: dim_driver
+    description: "Dimensi driver rental"
+    columns:
+      - name: driver_id
+        tests: [unique, not_null]

@@ -1,0 +1,14 @@
+select
+    cast(trip_id as integer) as trip_id,
+    order_id,
+    cast(actual_pickup as timestamp) as actual_pickup,
+    cast(actual_dropoff as timestamp) as actual_dropoff,
+    cast(delay_minutes as integer) as delay_minutes,
+    cast(duration_minutes as integer) as duration_minutes,
+    cast(distance_km as numeric) as distance_km,
+    cast(base_charge_usd as numeric) as base_charge_usd,
+    cast(surcharge_usd as numeric) as surcharge_usd,
+    cast(total_charge_usd as numeric) as total_charge_usd,
+    initcap(trip_status) as trip_status,
+    cast(driver_rating as numeric) as driver_rating
+from {{ source('rental_source', 'src_rental_trip') }}

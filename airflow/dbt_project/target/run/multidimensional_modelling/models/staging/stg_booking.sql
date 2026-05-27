@@ -1,0 +1,11 @@
+
+  
+  create view "warehouse"."staging"."stg_booking__dbt_tmp" as (
+    select
+    booking_id,
+    cast(customer_key as integer) as customer_key,
+    customer_id,
+    cast(booking_date as date) as booking_date,
+    upper(booking_channel) as booking_channel
+from "warehouse"."ch_booking_source"."booking"
+  );

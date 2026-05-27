@@ -1,0 +1,75 @@
+version: 2
+
+sources:
+  - name: customer_source
+    schema: customer_source
+    description: "Sumber data pelanggan"
+    tables:
+      - name: src_customer
+        description: "Data master customer"
+
+  - name: rental_source
+    schema: rental_source
+    description: "Sumber data rental kendaraan"
+    tables:
+      - name: src_driver
+        description: "Data driver"
+      - name: src_vehicle
+        description: "Data kendaraan"
+      - name: src_rental_order
+        description: "Data order rental"
+      - name: src_rental_trip
+        description: "Data perjalanan rental"
+
+  - name: flight_source
+    schema: flight_source
+    description: "Sumber data penerbangan"
+    tables:
+      - name: src_aircraft
+        description: "Data pesawat"
+      - name: src_airport
+        description: "Data bandara"
+      - name: src_flight_segment
+        description: "Data segmen penerbangan"
+      - name: src_booking
+        description: "Data booking penerbangan"
+
+  - name: hotel_source
+    schema: hotel_source
+    description: "Sumber data hotel"
+    tables:
+      - name: src_guest_profile
+        description: "Data profil tamu"
+      - name: src_hotel_property
+        description: "Data properti hotel"
+      - name: src_hotel_stay
+        description: "Data lama menginap"
+      - name: src_room_inventory
+        description: "Data inventori kamar"
+
+  - name: payment_source
+    schema: payment_source
+    description: "Sumber data pembayaran"
+    tables:
+      - name: src_payment_method
+        description: "Data metode pembayaran"
+      - name: src_payment_transaction
+        description: "Data transaksi pembayaran"
+      - name: src_currency
+        description: "Data mata uang"
+
+  - name: ch_booking_source
+    schema: ch_booking_source
+    description: "Sumber data channel booking"
+    tables:
+      - name: src_booking
+        description: "Data booking"
+      - name: src_book_channel
+        description: "Data channel booking"
+
+  # - name: public
+  #   schema: public
+  #   description: "Schema umum"
+  #   tables:
+  #     - name: src_currency
+  #       description: "Data mata uang"
