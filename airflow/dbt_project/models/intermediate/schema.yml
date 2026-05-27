@@ -2,27 +2,119 @@ version: 2
 
 models:
   - name: int_flight
-    description: "Intermediate join untuk flight booking, segment, aircraft, airport, channel"
+    description: "Intermediate hasil join booking, flight_segment, airport, dan booking_channel."
     columns:
       - name: booking_id
-        tests: [not_null]
-      - name: segment_id
         tests: [not_null, unique]
+      - name: customer_key
+        tests:
+          - relationships:
+              to: ref('dim_customer')
+              field: customer_key
+      - name: segment_id
+        tests: [not_null]
+      - name: origin_airport_code
+        tests:
+          - relationships:
+              to: ref('dim_airport')
+              field: airport_code
+      - name: destination_airport_code
+        tests:
+          - relationships:
+              to: ref('dim_airport')
+              field: airport_code
+      - name: channel_key
+        tests:
+          - relationships:
+              to: ref('dim_booking_channel')
+              field: channel_key
 
   - name: int_hotel
-    description: "Intermediate join untuk hotel stay dan payment"
+    description: "Intermediate hasil join hotel_property, room_inventory, hotel_stay, reservation, dan guest_profile."
     columns:
-      - name: payment_id
-        tests: [not_null, unique]
+      - name: hotel_id
+        tests: [not_null]
+      - name: reservation_id
+        tests: [not_null]
+      - name: stay_id
+        tests: [not_null]
+      - name: reservation_status
+        tests:
+          - accepted_values:
+              values: ['Booked','Checked_in','Checked_out','Cancelled']
+      - name: guest_id
+        tests:
+          - relationships:
+              to: ref('dim_guest')
+              field: guest_id
+      - name: customer_key
+        tests:
+          - relationships:
+              to: ref('dim_customer')
+              field: customer_key
+      - name: room_type_code
+        tests:
+          - accepted_values:
+              values: ['STD','DLX','SUI']
 
   - name: int_payment_transaction
-    description: "Intermediate join untuk payment transaction dengan customer, method, currency"
+    description: "Intermediate hasil join payment_transaction, customer, payment_method, dan currency."
     columns:
       - name: transaction_id
-        tests: [unique]
+        tests: [not_null, unique]
+      - name: customer_id
+        tests:
+          - relationships:
+              to: ref('dim_customer')
+              field: customer_id
+      - name: payment_method
+        tests:
+          - relationships:
+              to: ref('dim_payment_method')
+              field: method_code
+      - name: currency_code
+        tests:
+          - relationships:
+              to: ref('dim_currency')
+              field: currency_code
+      - name: net_amount_usd
+        tests: [not_null]
 
   - name: int_rental
-    description: "Intermediate join untuk rental order, trip, vehicle, driver, airport, hotel"
+    description: "Intermediate hasil join rental_order, rental_trip, vehicle, driver, airport, dan hotel_property."
     columns:
       - name: order_id
         tests: [not_null, unique]
+      - name: customer_key
+        tests:
+          - relationships:
+              to: ref('dim_customer')
+              field: customer_key
+      - name: order_status
+        tests:
+          - accepted_values:
+              values: ['Pending','Confirmed','Cancelled']
+      - name: trip_status
+        tests:
+          - accepted_values:
+              values: ['Ongoing','Completed','Failed']
+      - name: driver_id
+        tests:
+          - relationships:
+              to: ref('dim_driver')
+              field: driver_id
+      - name: vehicle_id
+        tests:
+          - relationships:
+              to: ref('dim_vehicle')
+              field: vehicle_id
+      - name: pickup_airport
+        tests:
+          - relationships:
+              to: ref('dim_airport')
+              field: airport_code
+      - name: dropoff_hotel
+        tests:
+          - relationships:
+              to: ref('dim_hotel')
+              field: hotel_id

@@ -11,8 +11,7 @@ select
     ac.registration_number,
     ac.seat_capacity,
     bc.channel_key
-from {{ source('flight_source','src_booking') }} b
-join {{ source('flight_source','src_flight_segment') }} fs on b.booking_id = fs.booking_id
-join {{ source('flight_source','src_aircraft') }} ac on fs.aircraft_id = ac.aircraft_id
-join {{ source('flight_source','src_airport') }} ap on fs.origin_airport_code = ap.airport_code
-join {{ source('ch_booking_source','src_book_channel') }} bc on b.channel_key = bc.channel_key
+from {{ ref('stg_booking') }} b
+join {{ ref('stg_flight_segment') }} fs on b.booking_id = fs.booking_id
+join {{ ref('stg_airport') }} ap on fs.origin_airport_code = ap.airport_code
+join {{ ref('stg_book_channel') }} bc on b.channel_key = bc.channel_key
