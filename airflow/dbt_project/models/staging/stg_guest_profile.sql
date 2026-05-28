@@ -4,4 +4,4 @@ select
     upper(preferred_room_type) as preferred_room_type,
     coalesce(special_requests, 'None') as special_requests,
     cast(created_at as date) as created_at
-from "warehouse"."hotel_source"."src_guest_profile"
+from {{ source('hotel_source', 'src_guest_profile') }}

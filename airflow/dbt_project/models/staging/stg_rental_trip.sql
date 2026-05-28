@@ -11,4 +11,4 @@ select
     cast(total_charge_usd as numeric) as total_charge_usd,
     concat(upper(substring(trip_status, 1, 1)), lower(substring(trip_status, 2))) as trip_status,
     cast(driver_rating as numeric) as driver_rating
-from "warehouse"."rental_source"."src_rental_trip"
+from {{ source('rental_source', 'src_rental_trip') }}

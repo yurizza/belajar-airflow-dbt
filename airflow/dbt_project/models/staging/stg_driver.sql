@@ -9,4 +9,4 @@ select
     cast(total_trips as integer) as total_trips,
     cast(is_active as boolean) as is_active,
     cast(joined_date as date) as joined_date
-from "warehouse"."rental_source"."src_driver"
+from {{ source('rental_source', 'src_driver') }}
