@@ -1,0 +1,8 @@
+select
+    payment_method_id,
+    method_code,
+    method_name,
+    payment_type,
+    provider,
+    processing_fee_pct
+from "warehouse"."main"."stg_payment_method"

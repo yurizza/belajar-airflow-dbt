@@ -1,27 +1,20 @@
 
   
-  create view "data_warehouse"."main"."int_hotel__dbt_tmp" as (
+  create view "warehouse"."main"."int_hotel__dbt_tmp" as (
     select
-    pt.payment_id,
-    pt.customer_key,
-    pt.transaction_date,
-    pt.gross_amount_usd,
-    pt.discount_amount_usd,
-    pt.tax_amount_usd,
-    pt.net_amount_usd,
-    pt.refund_amount_usd,
-    pt.gateway_fee_usd,
-    pt.installment_months,
-    pm.payment_method_id,
-    pm.method_code,
-    pm.method_name,
-    pm.payment_type,
-    pm.provider,
-    pm.processing_fee_pct,
-    pm.supports_installment,
-    cur.currency_code,
-    cur.usd_exchange_rate
-from "data_warehouse"."payment_source"."src_payment_transaction" pt
-join "data_warehouse"."payment_source"."src_payment_method" pm on pt.payment_method_id = pm.payment_method_id
-join "data_warehouse"."payment_source"."src_currency" cur on pt.currency_code = cur.currency_code
+    hp.hotel_id,
+    hp.hotel_name,
+    hp.brand,
+    hp.city,
+    hp.star_rating,
+    hp.total_rooms,
+    r.reservation_id,
+    r.customer_key,
+    hs.stay_id,
+    hs.actual_checkin_date,
+    hs.actual_nights,
+    hs.incidental_usd
+from "warehouse"."main"."stg_hotel_property" hp
+left join "warehouse"."main"."stg_reservation" r on hp.hotel_id = r.hotel_id
+left join "warehouse"."main"."stg_hotel_stay" hs on r.reservation_id = hs.reservation_id
   );

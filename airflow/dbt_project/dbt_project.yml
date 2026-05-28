@@ -14,10 +14,10 @@ target-path: "target"
 clean-targets: ["target", "dbt_modules"]
 
 models:
-  staging:
-    +materialized: view
-  intermediate:
-    +materialized: view
-  marts:
-    +materialized: table
-
+  multidimensional_modelling:   # ✅ tambahkan nama project sebagai parent
+    staging:
+      +materialized: view
+    intermediate:
+      +materialized: view
+    marts:
+      +materialized: table

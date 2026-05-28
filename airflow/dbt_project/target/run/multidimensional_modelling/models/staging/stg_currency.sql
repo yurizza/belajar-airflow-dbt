@@ -1,10 +1,10 @@
 
   
-  create view "data_warehouse"."main"."stg_currency__dbt_tmp" as (
+  create view "warehouse"."main"."stg_currency__dbt_tmp" as (
     select
     upper(currency_code) as currency_code,
-    initcap(currency_name) as currency_name,
+    concat(upper(substring(currency_name, 1, 1)), lower(substring(currency_name, 2))) as currency_name,
     symbol,
     cast(usd_exchange_rate as numeric) as usd_exchange_rate
-from "data_warehouse"."payment_source"."src_currency"
+from "warehouse"."payment_source"."src_currency"
   );

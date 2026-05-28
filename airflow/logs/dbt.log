@@ -1,0 +1,26 @@
+[0m20:57:25.411453 [debug] [MainThread]: Sending event: {'category': 'dbt', 'action': 'invocation', 'label': 'start', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x00000235B91F1310>, <snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x00000235B91F10D0>, <snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x00000235B91F2E10>]}
+
+
+============================== 20:57:25.419461 | 147aff1f-2c24-42df-b22f-1a46afdce715 ==============================
+[0m20:57:25.419461 [info ] [MainThread]: Running with dbt=1.11.8
+[0m20:57:25.420472 [debug] [MainThread]: running dbt with arguments {'static_parser': 'True', 'no_print': 'None', 'version_check': 'True', 'target_path': 'None', 'warn_error_options': 'WarnErrorOptionsV2(error=[], warn=[], silence=[])', 'printer_width': '80', 'write_json': 'True', 'empty': 'False', 'log_cache_events': 'False', 'introspect': 'True', 'cache_selected_only': 'False', 'log_format': 'default', 'debug': 'False', 'fail_fast': 'False', 'partial_parse': 'True', 'send_anonymous_usage_stats': 'True', 'quiet': 'False', 'warn_error': 'None', 'profiles_dir': '.', 'use_colors': 'True', 'indirect_selection': 'eager', 'invocation_command': 'dbt run --profiles-dir .', 'use_experimental_parser': 'False', 'log_path': 'D:\\S2_DW\\belajar-airflow-dbt\\airflow\\logs'}
+[0m20:57:25.423480 [error] [MainThread]: Encountered an error:
+Runtime Error
+  Could not find profile named 'dbt_project'
+[0m20:57:25.425483 [debug] [MainThread]: Command `dbt run` failed at 20:57:25.425483 after 0.15 seconds
+[0m20:57:25.426483 [debug] [MainThread]: Sending event: {'category': 'dbt', 'action': 'invocation', 'label': 'end', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x00000235B91FA150>, <snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x00000235B8E7FB90>, <snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x00000235B92AA450>]}
+[0m20:57:25.426483 [debug] [MainThread]: Flushing usage events
+[0m20:57:27.296183 [debug] [MainThread]: An error was encountered while trying to flush usage events
+[0m11:18:14.481285 [debug] [MainThread]: Sending event: {'category': 'dbt', 'action': 'invocation', 'label': 'start', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x000001638B0CB690>, <snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x000001638B0C8790>, <snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x000001638B0C8BD0>]}
+
+
+============================== 11:18:14.492678 | ed9f88db-3f37-4b7c-86ad-6a03aacc4fed ==============================
+[0m11:18:14.492678 [info ] [MainThread]: Running with dbt=1.11.8
+[0m11:18:14.495686 [debug] [MainThread]: running dbt with arguments {'static_parser': 'True', 'no_print': 'None', 'version_check': 'True', 'target_path': 'None', 'warn_error_options': 'WarnErrorOptionsV2(error=[], warn=[], silence=[])', 'printer_width': '80', 'write_json': 'True', 'empty': 'None', 'log_cache_events': 'False', 'introspect': 'True', 'cache_selected_only': 'False', 'log_format': 'default', 'debug': 'False', 'fail_fast': 'False', 'profiles_dir': '.', 'send_anonymous_usage_stats': 'True', 'quiet': 'False', 'warn_error': 'None', 'partial_parse': 'True', 'use_colors': 'True', 'invocation_command': 'dbt docs generate --profiles-dir .', 'indirect_selection': 'eager', 'use_experimental_parser': 'False', 'log_path': 'D:\\S2_DW\\belajar-airflow-dbt\\airflow\\logs'}
+[0m11:18:14.500694 [error] [MainThread]: Encountered an error:
+Runtime Error
+  Could not find profile named 'dbt_project'
+[0m11:18:14.504699 [debug] [MainThread]: Command `dbt docs generate` failed at 11:18:14.503695 after 0.24 seconds
+[0m11:18:14.505697 [debug] [MainThread]: Sending event: {'category': 'dbt', 'action': 'invocation', 'label': 'end', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x000001638B0C9750>, <snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x000001638B0CA750>, <snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x000001638B0CB6D0>]}
+[0m11:18:14.508694 [debug] [MainThread]: Flushing usage events
+[0m11:18:15.985222 [debug] [MainThread]: An error was encountered while trying to flush usage events

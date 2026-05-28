@@ -9,6 +9,6 @@ select
     cast(base_charge_usd as numeric) as base_charge_usd,
     cast(surcharge_usd as numeric) as surcharge_usd,
     cast(total_charge_usd as numeric) as total_charge_usd,
-    initcap(trip_status) as trip_status,
+    concat(upper(substring(trip_status, 1, 1)), lower(substring(trip_status, 2))) as trip_status,
     cast(driver_rating as numeric) as driver_rating
-from {{ source('rental_source', 'src_rental_trip') }}
+from "warehouse"."rental_source"."src_rental_trip"

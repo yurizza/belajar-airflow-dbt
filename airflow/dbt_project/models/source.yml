@@ -17,7 +17,6 @@ sources:
   - name: flight_source
     schema: flight_source
     tables:
-      - name: src_aircraft
       - name: src_airport
       - name: src_flight_segment
       - name: src_reservation

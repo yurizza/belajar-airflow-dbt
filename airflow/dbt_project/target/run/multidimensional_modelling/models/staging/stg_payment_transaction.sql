@@ -1,6 +1,6 @@
 
   
-  create view "data_warehouse"."main"."stg_payment_transaction__dbt_tmp" as (
+  create view "warehouse"."main"."stg_payment_transaction__dbt_tmp" as (
     select
     payment_id,
     payment_reference,
@@ -10,8 +10,8 @@
     cast(transaction_time as time) as transaction_time,
     cast(payment_method_id as integer) as payment_method_id,
     upper(currency_code) as currency_code,
-    initcap(payment_gateway) as payment_gateway,
-    initcap(payment_status) as payment_status,
+    concat(upper(substring(payment_gateway, 1, 1)), lower(substring(payment_gateway, 2))) as payment_gateway,
+    concat(upper(substring(payment_status, 1, 1)), lower(substring(payment_status, 2))) as payment_status,
     cast(gross_amount_usd as numeric) as gross_amount_usd,
     cast(discount_usd as numeric) as discount_usd,
     cast(tax_usd as numeric) as tax_usd,
@@ -21,5 +21,5 @@
     cast(installment_months as integer) as installment_months,
     upper(source_type) as source_type,
     source_reference
-from "data_warehouse"."payment_source"."src_payment_transaction"
+from "warehouse"."payment_source"."src_payment_transaction"
   );

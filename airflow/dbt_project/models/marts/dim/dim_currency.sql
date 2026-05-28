@@ -3,4 +3,4 @@ select
     currency_name,
     symbol,
     usd_exchange_rate
-from {{ ref('stg_currency') }};
+from {{ ref('stg_currency') }}

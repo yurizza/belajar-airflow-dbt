@@ -3,5 +3,5 @@ select
     aircraft_type,
     manufacturer,
     cast(seat_capacity as integer) as seat_capacity,
-    initcap(airline) as operating_airline
-from "data_warehouse"."flight_source"."src_aircraft"
+    concat(upper(substring(airline, 1, 1)), lower(substring(airline, 2))) as operating_airline
+from "warehouse"."flight_source"."src_aircraft"

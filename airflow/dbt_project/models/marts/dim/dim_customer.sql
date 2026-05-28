@@ -7,6 +7,5 @@ select
     date_of_birth,
     nationality,
     email,
-    phone,
-    is_current
-from {{ ref('stg_customer') }};
+    phone
+from {{ ref('stg_customer') }}

@@ -39,14 +39,7 @@ models:
           - unique
           - not_null
 
-  - name: stg_aircraft
-    description: "Staging tabel aircraft"
-    columns:
-      - name: aircraft_id
-        description: "Primary key pesawat"
-        tests:
-          - unique
-          - not_null
+
 
   - name: stg_flight_segment
     description: "Staging tabel segmen penerbangan"

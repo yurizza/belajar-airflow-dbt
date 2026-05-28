@@ -41,17 +41,7 @@ AIRPORTS = [
     ("DXB","Dubai Intl","Dubai","UAE","Asia/Dubai",25.2528,55.3644),
 ]
 
-AIRLINES = ["Garuda Indonesia","Lion Air","Batik Air","Citilink","AirAsia Indonesia","Sriwijaya Air"]
-AIRCRAFT_TYPES = [
-    ("B737","Boeing 737-800","Narrow","Boeing",162),
-    ("B738","Boeing 737 MAX 8","Narrow","Boeing",172),
-    ("A320","Airbus A320","Narrow","Airbus",180),
-    ("A321","Airbus A321","Narrow","Airbus",220),
-    ("B777","Boeing 777-300ER","Wide","Boeing",396),
-    ("B789","Boeing 787-9","Wide","Boeing",296),
-    ("A333","Airbus A330-300","Wide","Airbus",335),
-    ("ATR72","ATR 72-600","Turboprop","ATR",72),
-]
+
 
 CABIN_CLASSES = [
     ("F","First Class",0.04,5.5),
@@ -248,35 +238,6 @@ def gen_passenger_profile_dim(n=3000):
             rows.append(upgraded)
     return pd.DataFrame(rows)
 
-# ─────────────────────────────────────────────
-# DIMENSION 6: Aircraft Dimension
-# ─────────────────────────────────────────────
-
-def gen_aircraft_dim():
-    rows = []
-    key = 1
-    for airline in AIRLINES:
-        n_aircraft = random.randint(8,20)
-        for j in range(n_aircraft):
-            ac = random.choice(AIRCRAFT_TYPES)
-            ac_code, ac_name, ac_body, manufacturer, seats = ac
-            rows.append({
-                "aircraft_key": key,
-                "registration_number": f"PK-{fake.bothify('???##', letters='ABCDEFGHIJKLMNOPQRSTUVWXYZ')}",
-                "aircraft_type_code": ac_code,
-                "aircraft_type_name": ac_name,
-                "manufacturer": manufacturer,
-                "body_type": ac_body,
-                "seat_capacity": seats + random.randint(-5,5),
-                "year_manufactured": random.randint(2008,2023),
-                "operating_airline": airline,
-                "engine_type": "Turbofan" if ac_body!="Turboprop" else "Turboprop",
-                "max_range_km": random.choice([3000,5000,7000,13000,14000]),
-                "fuel_capacity_liters": random.choice([20000,26000,45000,145000]),
-                "in_service": True,
-            })
-            key += 1
-    return pd.DataFrame(rows)
 
 # ─────────────────────────────────────────────
 # DIMENSION 7: Class of Service Dimension
@@ -352,7 +313,7 @@ def gen_fare_basis_dim():
 # ─────────────────────────────────────────────
 
 def gen_fact_table(date_df, time_df, airport_df, passenger_df,
-                   profile_df, aircraft_df, class_df, channel_df, fare_df,
+                   profile_df,  class_df, channel_df, fare_df,
                    n_rows=15000):
 
     date_keys = date_df["date_key"].values
@@ -364,8 +325,6 @@ def gen_fact_table(date_df, time_df, airport_df, passenger_df,
     passenger_keys = passenger_df["passenger_key"].values
     profile_curr = profile_df[profile_df["scd_current_flag"]==True]
     profile_keys = profile_curr["profile_key"].values
-    aircraft_keys = aircraft_df["aircraft_key"].values
-    aircraft_cap  = aircraft_df.set_index("aircraft_key")["seat_capacity"].to_dict()
     class_keys    = class_df["class_key"].values
     class_fare    = class_df.set_index("class_key")["fare_multiplier"].to_dict()
     channel_keys  = channel_df["channel_key"].values
@@ -408,7 +367,6 @@ def gen_fact_table(date_df, time_df, airport_df, passenger_df,
 
         pax_key  = int(np.random.choice(passenger_keys))
         prof_key = int(np.random.choice(profile_keys))
-        ac_key   = int(np.random.choice(aircraft_keys))
         ch_key   = int(np.random.choice(channel_keys,
                         p=channel_df["volume_share_pct"].values/channel_df["volume_share_pct"].sum()))
         fk       = int(np.random.choice(fare_keys))
@@ -428,7 +386,7 @@ def gen_fact_table(date_df, time_df, airport_df, passenger_df,
         upg  = round(np.random.choice([0,0,0,50,100,200,500], p=[0.70,0.10,0.05,0.07,0.04,0.03,0.01]), 2)
         txn  = round(channel_comm[ch_key] / 100 * fare, 2)
 
-        cap  = aircraft_cap[ac_key]
+     
         miles = int(np.random.uniform(200, 8000))
         earned = int(miles * class_fare[ck] * fare_mult[fk] * 0.5)
 
@@ -452,7 +410,7 @@ def gen_fact_table(date_df, time_df, airport_df, passenger_df,
             "passenger_profile_key": prof_key,
             "segment_origin_airport_key": orig_key,
             "segment_destination_airport_key": dest_key,
-            "aircraft_key": ac_key,
+  
             "class_of_service_key": ck,
             "fare_basis_key": fk,
             "booking_channel_key": ch_key,
@@ -490,14 +448,14 @@ time_df    = gen_time_dim()
 airport_df = gen_airport_dim()
 pax_df     = gen_passenger_dim(3000)
 profile_df = gen_passenger_profile_dim(3000)
-aircraft_df = gen_aircraft_dim()
+
 class_df   = gen_class_of_service_dim()
 channel_df = gen_booking_channel_dim()
 fare_df    = gen_fare_basis_dim()
 
 print("Generating fact table (15,000 rows)...")
 fact_df = gen_fact_table(date_df, time_df, airport_df, pax_df,
-                          profile_df, aircraft_df, class_df, channel_df, fare_df,
+                          profile_df,  class_df, channel_df, fare_df,
                           n_rows=15000)
 
 # ─────────────────────────────────────────────
@@ -510,7 +468,7 @@ tables = {
     "dim_airport": airport_df,
     "dim_passenger": pax_df,
     "dim_passenger_profile": profile_df,
-    "dim_aircraft": aircraft_df,
+
     "dim_class_of_service": class_df,
     "dim_booking_channel": channel_df,
     "dim_fare_basis": fare_df,

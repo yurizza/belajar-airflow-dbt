@@ -1,36 +1,30 @@
 select
     ro.order_id,
     ro.customer_key,
-    ro.scheduled_pickup_date,
-    rt.trip_id,
-    rt.actual_pickup_date,
-    rt.actual_dropoff_date,
-    rt.distance_km,
-    rt.trip_duration_minutes,
-    rt.pickup_delay_minutes,
-    rt.driver_rating,
-    v.vehicle_id,
-    v.type_name,
-    v.brand,
-    v.model,
-    d.driver_id,
+    cust.customer_id,
+    ro.reservation_id,
+    ro.segment_id,
+    ro.vehicle_id,
+    ro.driver_id,
     d.driver_name,
-    ap.airport_code as pickup_airport,
-    hp.hotel_id as dropoff_hotel,
-    ro.status as order_status,
-    rt.status as trip_status,
+    ro.pickup_airport,
+    ro.order_date,
+    ro.scheduled_pickup,
+    ro.order_status,
+    ro.special_request,
     ro.estimated_rate_usd,
-    ro.base_charge_usd,
-    ro.surcharge_usd,
-    ro.total_charge_usd
+    rt.trip_id,
+    rt.actual_pickup,
+    rt.actual_dropoff,
+    rt.delay_minutes,
+    rt.duration_minutes,
+    rt.distance_km,
+    rt.base_charge_usd,
+    rt.surcharge_usd,
+    rt.total_charge_usd,
+    rt.trip_status,
+    rt.driver_rating
 from {{ ref('stg_rental_order') }} ro
-join {{ ref('stg_rental_trip') }} rt 
-    on ro.order_id = rt.order_id
-join {{ ref('stg_vehicle') }} v 
-    on ro.vehicle_id = v.vehicle_id
-join {{ ref('stg_driver') }} d 
-    on rt.driver_id = d.driver_id
-left join {{ ref('stg_airport') }} ap 
-    on ro.pickup_airport_code = ap.airport_code
-left join {{ ref('stg_hotel_property') }} hp 
-    on rt.dropoff_hotel_id = hp.hotel_id
+left join {{ ref('stg_customer') }} cust on ro.customer_key = cust.customer_key
+left join {{ ref('stg_driver') }} d on ro.driver_id = d.driver_id
+left join {{ ref('stg_rental_trip') }} rt on ro.order_id = rt.order_id

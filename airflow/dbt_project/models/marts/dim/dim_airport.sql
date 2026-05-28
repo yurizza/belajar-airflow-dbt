@@ -6,4 +6,4 @@ select
     timezone,
     latitude,
     longitude
-from {{ ref('stg_airport') }};
+from {{ ref('stg_airport') }}

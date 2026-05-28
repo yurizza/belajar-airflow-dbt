@@ -45,8 +45,9 @@ models:
       - name: guest_id
         tests:
           - relationships:
-              to: ref('dim_guest')
-              field: guest_id
+              # ✅ Fix: dim_guest → dim_customer
+              to: ref('dim_customer')
+              field: customer_key
       - name: customer_key
         tests:
           - relationships:
@@ -116,5 +117,6 @@ models:
       - name: dropoff_hotel
         tests:
           - relationships:
-              to: ref('dim_hotel')
+              # ✅ Fix: dim_hotel → dim_hotel_property
+              to: ref('dim_hotel_property')
               field: hotel_id

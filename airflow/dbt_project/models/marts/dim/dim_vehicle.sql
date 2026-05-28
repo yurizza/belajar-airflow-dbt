@@ -10,4 +10,4 @@ select
     rate_usd_day,
     prod_year,
     status
-from {{ ref('stg_vehicle') }};
+from {{ ref('stg_vehicle') }}

@@ -1,0 +1,51 @@
+{
+    "path_count": 156,
+    "parsed_path_count": 156,
+    "static_analysis_path_count": 38,
+    "static_analysis_parsed_path_count": 38,
+    "is_partial_parse_enabled": true,
+    "is_static_analysis_enabled": true,
+    "read_files_elapsed": 0.9779411960043944,
+    "load_macros_elapsed": 0.7296229440034949,
+    "parse_project_elapsed": 0.9078914929996245,
+    "patch_sources_elapsed": 0.004517512999882456,
+    "process_manifest_elapsed": 0.026781175001815427,
+    "load_all_elapsed": 2.7466962999969837,
+    "projects": [
+        {
+            "project_name": "multidimensional_modelling",
+            "elapsed": 0.8979565929985256,
+            "parsers": [
+                {
+                    "parser": "model",
+                    "elapsed": 0.394839549997414,
+                    "parsed_path_count": 38
+                },
+                {
+                    "parser": "test",
+                    "elapsed": 0.4939833370008273,
+                    "parsed_path_count": 5
+                }
+            ],
+            "parsed_path_count": 43
+        },
+        {
+            "project_name": "dbt_duckdb",
+            "elapsed": 0.00499914198735496,
+            "parsers": [],
+            "parsed_path_count": 0
+        },
+        {
+            "project_name": "dbt",
+            "elapsed": 0.004601777000061702,
+            "parsers": [
+                {
+                    "parser": "doc",
+                    "elapsed": 0.0003008860003319569,
+                    "parsed_path_count": 1
+                }
+            ],
+            "parsed_path_count": 1
+        }
+    ]
+}

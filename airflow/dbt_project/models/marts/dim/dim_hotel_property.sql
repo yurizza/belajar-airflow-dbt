@@ -4,7 +4,5 @@ select
     brand,
     city,
     star_rating,
-    total_rooms,
-    has_pool,
-    has_gym
-from {{ ref('stg_hotel_property') }};
+    total_rooms
+from {{ ref('stg_hotel_property') }}

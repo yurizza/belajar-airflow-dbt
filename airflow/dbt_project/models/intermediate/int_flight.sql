@@ -1,17 +1,19 @@
 select
-    b.booking_id,
-    b.customer_key,
     fs.segment_id,
-    fs.origin_airport_code,
-    fs.destination_airport_code,
+    fs.booking_id,
+    fs.flight_number,
+    fs.origin_airport as origin_airport_code,
+    fs.destination_airport as destination_airport_code,
+    sa.airport_name as origin_airport_name,
+    aa.airport_name as destination_airport_name,
     fs.scheduled_departure,
     fs.actual_departure,
-    fs.gross_amount_usd,
-    ac.aircraft_id,
-    ac.registration_number,
-    ac.seat_capacity,
+    fs.status,
+    b.customer_key,
+    b.booking_channel,
     bc.channel_key
-from {{ ref('stg_booking') }} b
-join {{ ref('stg_flight_segment') }} fs on b.booking_id = fs.booking_id
-join {{ ref('stg_airport') }} ap on fs.origin_airport_code = ap.airport_code
-join {{ ref('stg_book_channel') }} bc on b.channel_key = bc.channel_key
+from {{ ref('stg_flight_segment') }} fs
+left join {{ ref('stg_airport') }} sa on fs.origin_airport = sa.airport_code
+left join {{ ref('stg_airport') }} aa on fs.destination_airport = aa.airport_code
+left join {{ ref('stg_booking') }} b on fs.booking_id = b.booking_id
+left join {{ ref('stg_booking_channel') }} bc on b.booking_channel = bc.channel_code

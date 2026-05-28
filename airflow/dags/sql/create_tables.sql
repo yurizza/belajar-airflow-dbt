@@ -7,7 +7,7 @@
 -- 1. FLIGHT SOURCE SYSTEM
 -- ============================================================
 
-CREATE TABLE public.src_airport (
+CREATE TABLE src_airport (
     airport_code  CHAR(3)        PRIMARY KEY,
     airport_name  VARCHAR(100)   NOT NULL,
     city          VARCHAR(50)    NOT NULL,
@@ -17,16 +17,8 @@ CREATE TABLE public.src_airport (
     longitude     NUMERIC(9, 6)
 );
 
-CREATE TABLE public.src_aircraft (
-    aircraft_id    VARCHAR(10)   PRIMARY KEY,
-    registration   VARCHAR(20)   NOT NULL UNIQUE,
-    aircraft_type  VARCHAR(50)   NOT NULL,
-    manufacturer   VARCHAR(50),
-    seat_capacity  SMALLINT,
-    airline        VARCHAR(100)
-);
 
-CREATE TABLE public.src_customer (
+CREATE TABLE src_customer (
     customer_key     SERIAL        PRIMARY KEY,
     customer_id      VARCHAR(15)   NOT NULL,
     first_name       VARCHAR(50)   NOT NULL,
@@ -41,10 +33,10 @@ CREATE TABLE public.src_customer (
     is_current       SMALLINT      NOT NULL DEFAULT 1 CHECK (is_current IN (0, 1))
 );
 
-CREATE INDEX idx_customer_id         ON public.src_customer (customer_id);
-CREATE INDEX idx_customer_is_current ON public.src_customer (is_current);
+CREATE INDEX idx_customer_id         ON src_customer (customer_id);
+CREATE INDEX idx_customer_is_current ON src_customer (is_current);
 
-CREATE TABLE public.src_book_channel (
+CREATE TABLE src_book_channel (
     channel_key          SERIAL        PRIMARY KEY,
     channel_code         VARCHAR(10)   NOT NULL UNIQUE,
     channel_name         VARCHAR(60)   NOT NULL,
@@ -55,7 +47,7 @@ CREATE TABLE public.src_book_channel (
     volume_share_pct     NUMERIC(5, 2)
 );
 
-CREATE TABLE public.src_booking (
+CREATE TABLE src_booking (
     booking_id       VARCHAR(15)   PRIMARY KEY,
     customer_key     INTEGER       NOT NULL,
     customer_id      VARCHAR(15)   NOT NULL,
@@ -64,16 +56,16 @@ CREATE TABLE public.src_booking (
 
     CONSTRAINT fk_booking_customer
         FOREIGN KEY (customer_key)
-        REFERENCES public.src_customer (customer_key),
+        REFERENCES src_customer (customer_key),
 
     CONSTRAINT fk_booking_channel
         FOREIGN KEY (booking_channel)
-        REFERENCES public.src_book_channel (channel_code)
+        REFERENCES src_book_channel (channel_code)
 );
 
-CREATE INDEX idx_booking_customer ON public.src_booking (customer_key);
+CREATE INDEX idx_booking_customer ON src_booking (customer_key);
 
-CREATE TABLE public.src_flight_segment (
+CREATE TABLE src_flight_segment (
     segment_id                 SERIAL        PRIMARY KEY,
     booking_id                 VARCHAR(15)   NOT NULL,
     flight_number              VARCHAR(10),
@@ -89,26 +81,26 @@ CREATE TABLE public.src_flight_segment (
 
     CONSTRAINT fk_segment_booking
         FOREIGN KEY (booking_id)
-        REFERENCES public.src_booking (booking_id),
+        REFERENCES src_booking (booking_id),
 
     CONSTRAINT fk_segment_origin
         FOREIGN KEY (origin_airport)
-        REFERENCES public.src_airport (airport_code),
+        REFERENCES src_airport (airport_code),
 
     CONSTRAINT fk_segment_destination
         FOREIGN KEY (destination_airport)
-        REFERENCES public.src_airport (airport_code)
+        REFERENCES src_airport (airport_code)
 );
 
-CREATE INDEX idx_segment_booking     ON public.src_flight_segment (booking_id);
-CREATE INDEX idx_segment_destination ON public.src_flight_segment (destination_airport);
+CREATE INDEX idx_segment_booking     ON src_flight_segment (booking_id);
+CREATE INDEX idx_segment_destination ON src_flight_segment (destination_airport);
 
 
 -- ============================================================
 -- 2. HOTEL SOURCE SYSTEM
 -- ============================================================
 
-CREATE TABLE public.src_hotel_property (
+CREATE TABLE src_hotel_property (
     hotel_id        VARCHAR(10)   PRIMARY KEY,
     hotel_name      VARCHAR(100)  NOT NULL,
     brand           VARCHAR(50),
@@ -118,7 +110,7 @@ CREATE TABLE public.src_hotel_property (
     total_rooms     SMALLINT
 );
 
-CREATE TABLE public.src_room_inventory (
+CREATE TABLE src_room_inventory (
     room_id          VARCHAR(25)   PRIMARY KEY,
     hotel_id         VARCHAR(10)   NOT NULL,
     room_number      VARCHAR(10),
@@ -129,12 +121,12 @@ CREATE TABLE public.src_room_inventory (
 
     CONSTRAINT fk_room_hotel
         FOREIGN KEY (hotel_id)
-        REFERENCES public.src_hotel_property (hotel_id)
+        REFERENCES src_hotel_property (hotel_id)
 );
 
-CREATE INDEX idx_room_hotel ON public.src_room_inventory (hotel_id);
+CREATE INDEX idx_room_hotel ON src_room_inventory (hotel_id);
 
-CREATE TABLE public.src_guest_profile (
+CREATE TABLE src_guest_profile (
     guest_id              VARCHAR(15)   PRIMARY KEY,
     customer_key          INTEGER       NOT NULL UNIQUE,
     loyalty_tier          VARCHAR(20)   CHECK (loyalty_tier IN ('BLUE','SILVER','GOLD','PLATINUM')),
@@ -143,10 +135,10 @@ CREATE TABLE public.src_guest_profile (
 
     CONSTRAINT fk_guest_customer
         FOREIGN KEY (customer_key)
-        REFERENCES public.src_customer (customer_key)
+        REFERENCES src_customer (customer_key)
 );
 
-CREATE TABLE public.src_reservation (
+CREATE TABLE src_reservation (
     reservation_id    VARCHAR(15)   PRIMARY KEY,
     customer_key      INTEGER       NOT NULL,
     guest_id          VARCHAR(15)   NOT NULL,
@@ -160,25 +152,25 @@ CREATE TABLE public.src_reservation (
 
     CONSTRAINT fk_reservation_customer
         FOREIGN KEY (customer_key)
-        REFERENCES public.src_customer (customer_key),
+        REFERENCES src_customer (customer_key),
 
     CONSTRAINT fk_reservation_guest
         FOREIGN KEY (guest_id)
-        REFERENCES public.src_guest_profile (guest_id),
+        REFERENCES src_guest_profile (guest_id),
 
     CONSTRAINT fk_reservation_hotel
         FOREIGN KEY (hotel_id)
-        REFERENCES public.src_hotel_property (hotel_id),
+        REFERENCES src_hotel_property (hotel_id),
 
     CONSTRAINT fk_reservation_segment
         FOREIGN KEY (segment_id)
-        REFERENCES public.src_flight_segment (segment_id)
+        REFERENCES src_flight_segment (segment_id)
 );
 
-CREATE INDEX idx_reservation_customer ON public.src_reservation (customer_key);
-CREATE INDEX idx_reservation_hotel    ON public.src_reservation (hotel_id);
+CREATE INDEX idx_reservation_customer ON src_reservation (customer_key);
+CREATE INDEX idx_reservation_hotel    ON src_reservation (hotel_id);
 
-CREATE TABLE public.src_hotel_stay (
+CREATE TABLE src_hotel_stay (
     stay_id               VARCHAR(25)   PRIMARY KEY,
     reservation_id        VARCHAR(15)   NOT NULL UNIQUE,
     actual_checkin_date   DATE,
@@ -187,7 +179,7 @@ CREATE TABLE public.src_hotel_stay (
 
     CONSTRAINT fk_stay_reservation
         FOREIGN KEY (reservation_id)
-        REFERENCES public.src_reservation (reservation_id)
+        REFERENCES src_reservation (reservation_id)
 );
 
 
@@ -195,7 +187,7 @@ CREATE TABLE public.src_hotel_stay (
 -- 3. CAR RENTAL SOURCE SYSTEM
 -- ============================================================
 
-CREATE TABLE public.src_vehicle (
+CREATE TABLE src_vehicle (
     vehicle_id     VARCHAR(10)   PRIMARY KEY,
     plate          VARCHAR(20)   NOT NULL UNIQUE,
     type_code      VARCHAR(10),
@@ -209,7 +201,7 @@ CREATE TABLE public.src_vehicle (
     status         VARCHAR(20)   CHECK (status IN ('Active','Maintenance','Inactive'))
 );
 
-CREATE TABLE public.src_driver (
+CREATE TABLE src_driver (
     driver_id     VARCHAR(10)   PRIMARY KEY,
     driver_name   VARCHAR(100)  NOT NULL,
     gender        CHAR(1)       CHECK (gender IN ('M', 'F')),
@@ -222,7 +214,7 @@ CREATE TABLE public.src_driver (
     joined_date   DATE
 );
 
-CREATE TABLE public.src_rental_order (
+CREATE TABLE src_rental_order (
     order_id           VARCHAR(15)   PRIMARY KEY,
     customer_key       INTEGER       NOT NULL,
     reservation_id     VARCHAR(15),
@@ -239,33 +231,33 @@ CREATE TABLE public.src_rental_order (
 
     CONSTRAINT fk_order_customer
         FOREIGN KEY (customer_key)
-        REFERENCES public.src_customer (customer_key),
+        REFERENCES src_customer (customer_key),
 
     CONSTRAINT fk_order_reservation
         FOREIGN KEY (reservation_id)
-        REFERENCES public.src_reservation (reservation_id),
+        REFERENCES src_reservation (reservation_id),
 
     CONSTRAINT fk_order_segment
         FOREIGN KEY (segment_id)
-        REFERENCES public.src_flight_segment (segment_id),
+        REFERENCES src_flight_segment (segment_id),
 
     CONSTRAINT fk_order_vehicle
         FOREIGN KEY (vehicle_id)
-        REFERENCES public.src_vehicle (vehicle_id),
+        REFERENCES src_vehicle (vehicle_id),
 
     CONSTRAINT fk_order_driver
         FOREIGN KEY (driver_id)
-        REFERENCES public.src_driver (driver_id),
+        REFERENCES src_driver (driver_id),
 
     CONSTRAINT fk_order_airport
         FOREIGN KEY (pickup_airport)
-        REFERENCES public.src_airport (airport_code)
+        REFERENCES src_airport (airport_code)
 );
 
-CREATE INDEX idx_order_customer    ON public.src_rental_order (customer_key);
-CREATE INDEX idx_order_reservation ON public.src_rental_order (reservation_id);
+CREATE INDEX idx_order_customer    ON src_rental_order (customer_key);
+CREATE INDEX idx_order_reservation ON src_rental_order (reservation_id);
 
-CREATE TABLE public.src_rental_trip (
+CREATE TABLE src_rental_trip (
     trip_id            SERIAL        PRIMARY KEY,
     order_id           VARCHAR(15)   NOT NULL UNIQUE,
     actual_pickup      TIMESTAMP,
@@ -281,7 +273,7 @@ CREATE TABLE public.src_rental_trip (
 
     CONSTRAINT fk_trip_order
         FOREIGN KEY (order_id)
-        REFERENCES public.src_rental_order (order_id)
+        REFERENCES src_rental_order (order_id)
 );
 
 
@@ -289,7 +281,7 @@ CREATE TABLE public.src_rental_trip (
 -- 4. PAYMENT SOURCE SYSTEM
 -- ============================================================
 
-CREATE TABLE public.src_payment_method (
+CREATE TABLE src_payment_method (
     payment_method_id      SMALLINT      PRIMARY KEY,
     method_code            VARCHAR(15)   NOT NULL UNIQUE,
     method_name            VARCHAR(50)   NOT NULL,
@@ -299,14 +291,14 @@ CREATE TABLE public.src_payment_method (
     supports_installment   BOOLEAN       DEFAULT FALSE
 );
 
-CREATE TABLE public.src_currency (
+CREATE TABLE src_currency (
     currency_code      CHAR(3)       PRIMARY KEY,
     currency_name      VARCHAR(50),
     symbol             VARCHAR(5),
     usd_exchange_rate  NUMERIC(12, 4) NOT NULL
 );
 
-CREATE TABLE public.src_payment_transaction (
+CREATE TABLE src_payment_transaction (
     payment_id          VARCHAR(15)    PRIMARY KEY,
     payment_reference   UUID           NOT NULL UNIQUE,
     invoice_number      VARCHAR(15)    NOT NULL,
@@ -329,18 +321,18 @@ CREATE TABLE public.src_payment_transaction (
 
     CONSTRAINT fk_payment_customer
         FOREIGN KEY (customer_key)
-        REFERENCES public.src_customer (customer_key),
+        REFERENCES src_customer (customer_key),
 
     CONSTRAINT fk_payment_method
         FOREIGN KEY (payment_method_id)
-        REFERENCES public.src_payment_method (payment_method_id),
+        REFERENCES src_payment_method (payment_method_id),
 
     CONSTRAINT fk_payment_currency
         FOREIGN KEY (currency_code)
-        REFERENCES public.src_currency (currency_code)
+        REFERENCES src_currency (currency_code)
 );
 
-CREATE INDEX idx_payment_customer   ON public.src_payment_transaction (customer_key);
-CREATE INDEX idx_payment_status     ON public.src_payment_transaction (payment_status);
-CREATE INDEX idx_payment_source     ON public.src_payment_transaction (source_type, source_reference);
-CREATE INDEX idx_payment_date       ON public.src_payment_transaction (transaction_date);
+CREATE INDEX idx_payment_customer   ON src_payment_transaction (customer_key);
+CREATE INDEX idx_payment_status     ON src_payment_transaction (payment_status);
+CREATE INDEX idx_payment_source     ON src_payment_transaction (source_type, source_reference);
+CREATE INDEX idx_payment_date       ON src_payment_transaction (transaction_date);

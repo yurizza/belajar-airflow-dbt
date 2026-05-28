@@ -4,5 +4,6 @@ dbt_project:
     duckdb:
       type: duckdb
       path: /opt/airflow/dbt_project/warehouse.duckdb
-      schema: staging
+      schema: main
+      database: warehouse
       threads: 1
