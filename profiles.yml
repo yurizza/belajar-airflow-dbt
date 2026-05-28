@@ -1,9 +1,16 @@
 dbt_project:
-  target: duckdb
+  target: dev
+
   outputs:
-    duckdb:
+    dev:
       type: duckdb
+
       path: /opt/airflow/dbt_project/warehouse.duckdb
-      schema: main
-      database: warehouse
-      threads: 1
+
+      extensions:
+        - postgres
+
+      attach:
+        - path: "dbname=data_warehouse user=airflow password=airflow_rahasia_tim_123 host=postgres port=5432"
+          type: postgres
+          alias: data_warehouse

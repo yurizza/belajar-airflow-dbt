@@ -1,3 +1,4 @@
+-- depends_on: {{ ref('dim_date') }}
 select
     pt.payment_id,
     pt.customer_key,

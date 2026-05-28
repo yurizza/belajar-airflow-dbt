@@ -7,7 +7,8 @@
       "warehouse"."main"."fact_flight__dbt_tmp"
   
     as (
-      select
+      -- depends_on: "warehouse"."main"."dim_date"
+select
     fs.segment_id,
     fs.booking_id,
     b.customer_key,

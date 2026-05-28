@@ -1,3 +1,4 @@
+-- depends_on: {{ ref('dim_date') }}
 select
     fs.segment_id,
     fs.booking_id,

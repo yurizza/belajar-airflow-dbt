@@ -1,3 +1,4 @@
+-- depends_on: "warehouse"."main"."dim_date"
 select
     ro.order_id,
     ro.customer_key,

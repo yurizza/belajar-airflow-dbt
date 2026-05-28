@@ -5,7 +5,7 @@ from psycopg2.extras import execute_values
 def load_mart_to_postgres():
     duck_conn = duckdb.connect("/opt/airflow/dbt_project/warehouse.duckdb")
     pg_conn = psycopg2.connect(
-        dbname="airflow",
+        dbname="data_warehouse",
         user="airflow",
         password="airflow_rahasia_tim_123",
         host="postgres",

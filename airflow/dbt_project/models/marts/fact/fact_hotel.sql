@@ -1,3 +1,4 @@
+-- depends_on: {{ ref('dim_date') }}
 select
     hs.stay_id,
     r.reservation_id,

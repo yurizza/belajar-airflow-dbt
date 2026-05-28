@@ -7,7 +7,8 @@
       "warehouse"."main"."fact_rental__dbt_tmp"
   
     as (
-      select
+      -- depends_on: "warehouse"."main"."dim_date"
+select
     ro.order_id,
     ro.customer_key,
     ro.reservation_id,

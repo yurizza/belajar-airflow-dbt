@@ -1,3 +1,4 @@
+-- depends_on: "warehouse"."main"."dim_date"
 select
     hs.stay_id,
     r.reservation_id,

@@ -1,3 +1,4 @@
+-- depends_on: {{ ref('dim_date') }}
 select
     ro.order_id,
     ro.customer_key,

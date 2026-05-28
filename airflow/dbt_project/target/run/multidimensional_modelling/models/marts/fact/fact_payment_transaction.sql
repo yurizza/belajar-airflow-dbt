@@ -7,7 +7,8 @@
       "warehouse"."main"."fact_payment_transaction__dbt_tmp"
   
     as (
-      select
+      -- depends_on: "warehouse"."main"."dim_date"
+select
     pt.payment_id,
     pt.customer_key,
     pt.transaction_date,

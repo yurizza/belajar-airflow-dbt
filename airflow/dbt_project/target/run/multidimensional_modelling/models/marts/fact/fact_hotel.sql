@@ -7,7 +7,8 @@
       "warehouse"."main"."fact_hotel__dbt_tmp"
   
     as (
-      select
+      -- depends_on: "warehouse"."main"."dim_date"
+select
     hs.stay_id,
     r.reservation_id,
     r.guest_id,
