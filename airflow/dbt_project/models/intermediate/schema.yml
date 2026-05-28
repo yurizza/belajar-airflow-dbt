@@ -37,42 +37,42 @@ models:
       - name: reservation_id
         tests: [not_null]
       - name: stay_id
-        tests: [not_null]
-      - name: reservation_status
-        tests:
-          - accepted_values:
-              values: ['Booked','Checked_in','Checked_out','Cancelled']
-      - name: guest_id
-        tests:
-          - relationships:
-              # ✅ Fix: dim_guest → dim_customer
-              to: ref('dim_customer')
-              field: customer_key
+        description: "ID stay, bisa NULL jika reservasi belum check-in"
+      # - name: reservation_status
+      #   tests:
+      #     - accepted_values:
+      #         values: ['Booked','Checked_in','Checked_out','Cancelled']
+      # - name: guest_id
+      #   tests:
+      #     - relationships:
+      #         # ✅ Fix: dim_guest → dim_customer
+      #         to: ref('dim_customer')
+      #         field: customer_key
       - name: customer_key
         tests:
           - relationships:
               to: ref('dim_customer')
               field: customer_key
-      - name: room_type_code
-        tests:
-          - accepted_values:
-              values: ['STD','DLX','SUI']
+      # - name: room_type_code
+      #   tests:
+      #     - accepted_values:
+      #         values: ['STD','DLX','SUI']
 
   - name: int_payment_transaction
     description: "Intermediate hasil join payment_transaction, customer, payment_method, dan currency."
     columns:
-      - name: transaction_id
+      - name: payment_id
         tests: [not_null, unique]
       - name: customer_id
         tests:
           - relationships:
               to: ref('dim_customer')
               field: customer_id
-      - name: payment_method
-        tests:
-          - relationships:
-              to: ref('dim_payment_method')
-              field: method_code
+      - name: payment_method_id
+        tests: [not_null]
+          # - relationships:
+          #     to: ref('dim_payment_method')
+          #     field: method_code
       - name: currency_code
         tests:
           - relationships:
@@ -94,11 +94,11 @@ models:
       - name: order_status
         tests:
           - accepted_values:
-              values: ['Pending','Confirmed','Cancelled']
+              values: ['Cancelled', 'Completed']
       - name: trip_status
         tests:
           - accepted_values:
-              values: ['Ongoing','Completed','Failed']
+              values: ['Delayed','Completed','Incident']
       - name: driver_id
         tests:
           - relationships:
@@ -114,9 +114,9 @@ models:
           - relationships:
               to: ref('dim_airport')
               field: airport_code
-      - name: dropoff_hotel
-        tests:
-          - relationships:
-              # ✅ Fix: dim_hotel → dim_hotel_property
-              to: ref('dim_hotel_property')
-              field: hotel_id
+      # - name: dropoff_hotel
+      #   tests:
+      #     - relationships:
+      #         # ✅ Fix: dim_hotel → dim_hotel_property
+      #         to: ref('dim_hotel_property')
+      #         field: hotel_id

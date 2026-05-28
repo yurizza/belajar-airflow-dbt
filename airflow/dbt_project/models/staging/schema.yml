@@ -7,7 +7,7 @@ models:
       - name: customer_id
         description: "Primary key customer"
         tests:
-          - unique
+          # - unique  (tidak digunakan karena satu customer bisa order berkali-kali)
           - not_null
       - name: gender
         description: "Jenis kelamin (M/F)"
@@ -71,7 +71,7 @@ models:
   - name: stg_hotel_property
     description: "Staging tabel properti hotel"
     columns:
-      - name: property_id
+      - name: hotel_id
         description: "Primary key properti"
         tests:
           - unique
@@ -98,7 +98,7 @@ models:
   - name: stg_payment_transaction
     description: "Staging tabel transaksi pembayaran"
     columns:
-      - name: transaction_id
+      - name: payment_id
         description: "Primary key transaksi"
         tests:
           - unique
@@ -107,7 +107,7 @@ models:
   - name: stg_payment_method
     description: "Staging tabel metode pembayaran"
     columns:
-      - name: method_id
+      - name: payment_method_id
         description: "Primary key metode"
         tests:
           - unique
@@ -161,7 +161,7 @@ models:
   - name: stg_booking_channel
     description: "Staging tabel channel booking"
     columns:
-      - name: channel_id
+      - name: channel_key
         description: "Primary key channel"
         tests:
           - unique

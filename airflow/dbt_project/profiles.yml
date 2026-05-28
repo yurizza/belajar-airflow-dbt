@@ -3,7 +3,7 @@ dbt_project:
   outputs:
     duckdb:
       type: duckdb
-      path: /opt/airflow/dbt_project/warehouse.duckdb
+      path: warehouse.duckdb
       schema: main
       database: warehouse
       threads: 1
