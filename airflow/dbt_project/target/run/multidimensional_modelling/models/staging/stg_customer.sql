@@ -17,5 +17,5 @@
     cast(eff_start_date as date) as eff_start_date,
     cast(nullif(eff_end_date, '') as date) as eff_end_date,
     cast(is_current as boolean) as is_current
-from "warehouse"."customer_source"."src_customer"
+from "warehouse"."main"."src_customer"
   );

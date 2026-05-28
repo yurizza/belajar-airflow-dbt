@@ -11,4 +11,4 @@ select
     concat(upper(substring(order_status, 1, 1)), lower(substring(order_status, 2))) as order_status,
     coalesce(special_request, 'None') as special_request,
     cast(estimated_rate_usd as numeric) as estimated_rate_usd
-from "warehouse"."rental_source"."src_rental_order"
+from "warehouse"."main"."src_rental_order"

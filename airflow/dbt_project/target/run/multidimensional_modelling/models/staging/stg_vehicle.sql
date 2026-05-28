@@ -13,5 +13,5 @@
     cast(rate_usd_day as numeric) as rate_usd_day,
     cast(prod_year as integer) as prod_year,
     concat(upper(substring(status, 1, 1)), lower(substring(status, 2))) as status
-from "warehouse"."rental_source"."src_vehicle"
+from "warehouse"."main"."src_vehicle"
   );

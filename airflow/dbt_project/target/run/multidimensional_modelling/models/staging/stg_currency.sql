@@ -6,5 +6,5 @@
     concat(upper(substring(currency_name, 1, 1)), lower(substring(currency_name, 2))) as currency_name,
     symbol,
     cast(usd_exchange_rate as numeric) as usd_exchange_rate
-from "warehouse"."payment_source"."src_currency"
+from "warehouse"."main"."src_currency"
   );

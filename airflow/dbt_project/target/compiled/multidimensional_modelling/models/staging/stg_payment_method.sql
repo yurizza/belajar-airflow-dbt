@@ -6,4 +6,4 @@ select
     concat(upper(substring(provider, 1, 1)), lower(substring(provider, 2))) as provider,
     cast(processing_fee_pct as numeric) as processing_fee_pct,
     cast(supports_installment as boolean) as supports_installment
-from "warehouse"."payment_source"."src_payment_method"
+from "warehouse"."main"."src_payment_method"

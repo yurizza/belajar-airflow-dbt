@@ -9,5 +9,5 @@
     concat(upper(substring(room_type_name, 1, 1)), lower(substring(room_type_name, 2))) as room_type_name,
     cast(base_rate_usd as numeric) as base_rate_usd,
     cast(is_active as boolean) as is_active
-from "warehouse"."hotel_source"."src_room_inventory"
+from "warehouse"."main"."src_room_inventory"
   );

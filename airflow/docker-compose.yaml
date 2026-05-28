@@ -58,6 +58,8 @@ services:
 
   airflow-worker:
     build: .
+    ports:
+      - "8081:8081"
     command: airflow celery worker --concurrency 2
     environment:
       - AIRFLOW__CORE__EXECUTOR=CeleryExecutor

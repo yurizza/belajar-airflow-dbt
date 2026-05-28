@@ -13,9 +13,8 @@
         checkin_date,   -- Menggunakan kolom asli dari DDL PostgreSQL
         checkout_date,  -- Menggunakan kolom asli dari DDL PostgreSQL
         status as reservation_status -- Menyamakan alias untuk keselarasan model data
-    from "warehouse"."hotel_source"."src_reservation"
+    from "warehouse"."main"."src_reservation"
 )
-
 select
     reservation_id,
     customer_key,

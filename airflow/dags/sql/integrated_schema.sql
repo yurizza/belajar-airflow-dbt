@@ -157,6 +157,7 @@ CREATE TABLE IF NOT EXISTS hotel_source.src_reservation (
     checkin_date      DATE,
     checkout_date     DATE,
     status            VARCHAR(20)   CHECK (status IN ('Confirmed','Checked-Out','Cancelled','No-Show')),
+    reservation_status VARCHAR(20),
     created_at        TIMESTAMP     NOT NULL ,
     updated_at        TIMESTAMP     NOT NULL 
 );
@@ -258,6 +259,7 @@ CREATE TABLE IF NOT EXISTS payment_source.src_payment_method (
     method_code            VARCHAR(15)   NOT NULL UNIQUE,
     method_name            VARCHAR(50)   NOT NULL,
     payment_type           VARCHAR(30),
+    provider_pay           VARCHAR(30),
     provider               VARCHAR(30),
     processing_fee_pct     NUMERIC(5, 2),
     supports_installment   BOOLEAN       DEFAULT FALSE,

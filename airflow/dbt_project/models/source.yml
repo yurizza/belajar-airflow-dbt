@@ -2,12 +2,14 @@ version: 2
 
 sources:
   - name: customer_source
-    schema: customer_source
+    database: warehouse
+    schema: main
     tables:
       - name: src_customer
 
   - name: rental_source
-    schema: rental_source
+    database: warehouse
+    schema: main
     tables:
       - name: src_driver
       - name: src_vehicle
@@ -15,29 +17,33 @@ sources:
       - name: src_rental_trip
 
   - name: flight_source
-    schema: flight_source
+    database: warehouse
+    schema: main
     tables:
       - name: src_airport
       - name: src_flight_segment
-      - name: src_reservation
       - name: src_booking
 
   - name: hotel_source
-    schema: hotel_source
+    database: warehouse
+    schema: main
     tables:
       - name: src_guest_profile
       - name: src_hotel_property
+      - name: src_reservation
       - name: src_hotel_stay
       - name: src_room_inventory
 
   - name: payment_source
-    schema: payment_source
+    database: warehouse
+    schema: main
     tables:
       - name: src_payment_method
       - name: src_payment_transaction
       - name: src_currency
 
   - name: ch_booking_source
-    schema: ch_booking_source
+    database: warehouse
+    schema: main
     tables:
       - name: src_book_channel

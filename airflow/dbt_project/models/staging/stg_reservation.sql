@@ -11,7 +11,7 @@ with source as (
         checkout_date,  -- Menggunakan kolom asli dari DDL PostgreSQL
         status as reservation_status -- Menyamakan alias untuk keselarasan model data
     from {{ source('hotel_source', 'src_reservation') }}
-
+)
 select
     reservation_id,
     customer_key,

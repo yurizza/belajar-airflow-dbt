@@ -7,4 +7,4 @@ select
     cast(scheduled_departure as timestamp) as scheduled_departure,
     cast(actual_departure as timestamp) as actual_departure,
     concat(upper(substring(status, 1, 1)), lower(substring(status, 2))) as status
-from "warehouse"."flight_source"."src_flight_segment"
+from "warehouse"."main"."src_flight_segment"

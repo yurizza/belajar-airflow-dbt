@@ -18,4 +18,4 @@ select
     cast(installment_months as integer) as installment_months,
     upper(source_type) as source_type,
     source_reference
-from "warehouse"."payment_source"."src_payment_transaction"
+from "warehouse"."main"."src_payment_transaction"

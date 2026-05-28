@@ -10,5 +10,5 @@
     cast(total_rooms as integer) as total_rooms,
     cast(created_at as date) as created_at,
     cast(updated_at as date) as updated_at
-from "warehouse"."hotel_source"."src_hotel_property"
+from "warehouse"."main"."src_hotel_property"
   );
