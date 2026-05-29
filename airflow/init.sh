@@ -13,14 +13,13 @@ docker compose up -d postgres redis
 echo "⏳ Menunggu database Postgres siap..."
 sleep 5
 
-
 # =====================================================================
 # INTERMISI: MEMBUAT DATABASE DATA WAREHOUSE
 # =====================================================================
 echo "🗄️  Membuat database 'data_warehouse' di PostgreSQL..."
-# Menghapus 'set -e' sementara agar script tidak mati jika database sudah ada
 set +e
-docker compose exec postgres psql -U airflow -c "CREATE DATABASE data_warehouse;" 2>/dev/null
+# Menggunakan 'docker compose exec -T' agar aman dijalankan di dalam script/non-tty
+docker compose exec -T postgres psql -U airflow -d airflow -c "CREATE DATABASE data_warehouse;" >/dev/null 2>&1
 if [ $? -eq 0 ]; then
     echo "✅ Database 'data_warehouse' berhasil dibuat!"
 else
@@ -59,8 +58,7 @@ docker compose run --rm airflow-scheduler airflow connections add 'postgres_dwh'
 if [ $? -eq 0 ]; then echo "✅ Koneksi 'postgres_dwh' berhasil ditambahkan!"; fi
 
 # B. Suntik Koneksi Google Cloud Platform (GCP)
-docker compose run --rm airflow-scheduler airflow connections add 'google_cloud_default' \
-    --conn-uri 'google_cloud_platform://?key_path=%2Fopt%2Fairflow%2Fdags%2Fsql%2Fservice_account.json' 2>/dev/null
+docker compose run --rm airflow-scheduler airflow connections add 'google_cloud_default' --conn-uri 'google-cloud-platform://?key_path=/opt/airflow/dags/sql/service_account.json&project=DATA_WAREHOUSE' 2>/dev/null
 if [ $? -eq 0 ]; then echo "✅ Koneksi 'google_cloud_default' berhasil ditambahkan!"; fi
 
 set -e

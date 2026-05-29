@@ -30,7 +30,7 @@ services:
       - ./dags:/opt/airflow/dags
       - ./plugins:/opt/airflow/plugins
       - ./raw_data:/opt/airflow/raw_data
-      - ../dbt_project:/opt/airflow/dbt_project   # ✅ perbaikan di sini
+      - ./dbt_project:/opt/airflow/dbt_project   # ✅ perbaikan di sini
     depends_on:
       - postgres
       - redis
@@ -52,13 +52,15 @@ services:
       - ./dags:/opt/airflow/dags
       - ./plugins:/opt/airflow/plugins
       - ./raw_data:/opt/airflow/raw_data
-      - ../dbt_project:/opt/airflow/dbt_project   # ✅ perbaikan di sini
+      - ./dbt_project:/opt/airflow/dbt_project   # ✅ perbaikan di sini
     depends_on:
       - airflow-scheduler
 
   airflow-worker:
     build: .
     command: airflow celery worker --concurrency 2
+    ports:
+      - "8081:8081"
     environment:
       - AIRFLOW__CORE__EXECUTOR=CeleryExecutor
       - _AIRFLOW_DB_MIGRATE=false
@@ -72,7 +74,7 @@ services:
       - ./dags:/opt/airflow/dags
       - ./plugins:/opt/airflow/plugins
       - ./raw_data:/opt/airflow/raw_data
-      - ../dbt_project:/opt/airflow/dbt_project   # ✅ perbaikan di sini
+      - ./dbt_project:/opt/airflow/dbt_project   # ✅ perbaikan di sini
     depends_on:
       - airflow-scheduler
 
