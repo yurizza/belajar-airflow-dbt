@@ -4,6 +4,7 @@ from datetime import datetime
 import subprocess
 import logging
 
+# Import fungsi ETL dari folder utils
 from utils.ingest_postgres_to_duckdb import ingest_postgres_to_duckdb
 from utils.load_mart import load_mart_to_postgres
 
@@ -36,26 +37,37 @@ def run_dbt():
         logger.error("STDERR:\n%s", e.stderr)
         raise
 
+# Inisialisasi DAG Utama (Hilir)
 with DAG(
     dag_id="etl_pipeline",
     start_date=datetime(2026, 5, 27),
-    schedule_interval="@daily",
+    schedule_interval=None,  # 🔒 Tetap None karena dipicu oleh DAG pertama
     catchup=False,
 ) as dag:
 
+    # 1. TASK INGESTION (Postgres DWH -> DuckDB)
     ingestion = PythonOperator(
         task_id="ingest_postgres_to_duckdb",
         python_callable=ingest_postgres_to_duckdb,
+        op_kwargs={
+            "pg_conn_id": "postgres_dwh"  # 🚀 Menyuntikkan ID koneksi langsung ke fungsi ingest
+        },
     )
 
+    # 2. TASK TRANSFORM (dbt run)
     dbt_run = PythonOperator(
         task_id="dbt_run_duckdb",
         python_callable=run_dbt,
     )
 
+    # 3. TASK LOAD MART (DuckDB Data Mart -> Postgres DWH)
     load_mart = PythonOperator(
         task_id="load_mart_to_postgres",
         python_callable=load_mart_to_postgres,
+        op_kwargs={
+            "pg_conn_id": "postgres_dwh"  # 🚀 Menyuntikkan ID koneksi langsung ke fungsi load mart
+        },
     )
 
+    # Alur Pipeline ETL
     ingestion >> dbt_run >> load_mart

@@ -6,6 +6,8 @@ from airflow import DAG
 from airflow.operators.python import PythonOperator
 # Import operator SQL untuk buat table jika belum ada
 from airflow.providers.common.sql.operators.sql import SQLExecuteQueryOperator
+# 🚀 1. IMPORT OPERATOR TRIGGER DI SINI
+from airflow.operators.trigger_dagrun import TriggerDagRunOperator
 
 sys.path.insert(0, os.path.abspath(os.path.dirname(__file__)))
 from utils.mapping_tables import LIST_TABEL_TRANSPORTATION
@@ -54,3 +56,14 @@ with DAG(
         # Mengunci alur berurutan: DDL -> Task 1 -> Task 2 -> dst.
         task_sebelumnya >> task_sync
         task_sebelumnya = task_sync
+
+    # 🚀 2. TAMBAHKAN TRIGGER DI LUAR LOOPING
+    # Task ini otomatis tersambung ke tabel terakhir karena ditaruh di bawah loop
+    trigger_next_dag = TriggerDagRunOperator(
+        task_id='trigger_etl_pipeline',
+        trigger_dag_id='etl_pipeline',  # 💡 Harus sama persis dengan dag_id DAG keduamu
+        wait_for_completion=False,     # Selesai memicu DAG 2, DAG 1 langsung sukses (tidak usah nunggu dbt selesai)
+    )
+
+    # Hubungkan task terakhir dari looping ke trigger
+    task_sebelumnya >> trigger_next_dag
